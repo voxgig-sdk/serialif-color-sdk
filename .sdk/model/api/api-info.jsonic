@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Serialif"
+        url: "https://color.serialif.com/"
+      }
+      description: "Get requested color, complementary color, grayscale, and corresponding text color in different formats. Supports Keyword, HEX, RGB/RGBA, and HSL/HSLA color formats."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://color.serialif.com"
+        }
+      ]
+      title: "Serialif Color API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

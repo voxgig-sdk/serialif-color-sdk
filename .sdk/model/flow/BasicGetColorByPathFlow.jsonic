@@ -1,0 +1,32 @@
+# BasicGetColorByPathFlow
+
+main: kit: flow: BasicGetColorByPathFlow:
+{
+  entity: "get_color_by_path",
+  kind: "basic",
+  name: "BasicGetColorByPathFlow",
+  step: [
+    {
+      input: {
+        ref: "get_color_by_path_ref01",
+        srcdatavar: "get_color_by_path_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "get_color_by_path01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-get_color_by_path_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGetColorByPathFlow"
+}

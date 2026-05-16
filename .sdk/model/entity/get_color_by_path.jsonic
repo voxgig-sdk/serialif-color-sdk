@@ -1,0 +1,104 @@
+# Entity: get_color_by_path
+
+main: kit: entity: get_color_by_path: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "base"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "base_without_alpha"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "base_without_alpha_contrasted_text"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "complementary"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "complementary_without_alpha"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "complementary_without_alpha_contrasted_text"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "grayscale"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "grayscale_without_alpha"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "grayscale_without_alpha_contrasted_text"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "status"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "get_color_by_path"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "aquamarine"
+                kind: "param"
+                name: "id"
+                orig: "color"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/{color}"
+          parts: [
+            "{id}"
+          ]
+          rename: {
+            param: {
+              color: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

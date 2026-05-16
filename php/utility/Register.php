@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// SerialifColor SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+SerialifColorUtility::setRegistrar(function (SerialifColorUtility $u): void {
+    $u->clean = [SerialifColorClean::class, 'call'];
+    $u->done = [SerialifColorDone::class, 'call'];
+    $u->make_error = [SerialifColorMakeError::class, 'call'];
+    $u->feature_add = [SerialifColorFeatureAdd::class, 'call'];
+    $u->feature_hook = [SerialifColorFeatureHook::class, 'call'];
+    $u->feature_init = [SerialifColorFeatureInit::class, 'call'];
+    $u->fetcher = [SerialifColorFetcher::class, 'call'];
+    $u->make_fetch_def = [SerialifColorMakeFetchDef::class, 'call'];
+    $u->make_context = [SerialifColorMakeContext::class, 'call'];
+    $u->make_options = [SerialifColorMakeOptions::class, 'call'];
+    $u->make_request = [SerialifColorMakeRequest::class, 'call'];
+    $u->make_response = [SerialifColorMakeResponse::class, 'call'];
+    $u->make_result = [SerialifColorMakeResult::class, 'call'];
+    $u->make_point = [SerialifColorMakePoint::class, 'call'];
+    $u->make_spec = [SerialifColorMakeSpec::class, 'call'];
+    $u->make_url = [SerialifColorMakeUrl::class, 'call'];
+    $u->param = [SerialifColorParam::class, 'call'];
+    $u->prepare_auth = [SerialifColorPrepareAuth::class, 'call'];
+    $u->prepare_body = [SerialifColorPrepareBody::class, 'call'];
+    $u->prepare_headers = [SerialifColorPrepareHeaders::class, 'call'];
+    $u->prepare_method = [SerialifColorPrepareMethod::class, 'call'];
+    $u->prepare_params = [SerialifColorPrepareParams::class, 'call'];
+    $u->prepare_path = [SerialifColorPreparePath::class, 'call'];
+    $u->prepare_query = [SerialifColorPrepareQuery::class, 'call'];
+    $u->result_basic = [SerialifColorResultBasic::class, 'call'];
+    $u->result_body = [SerialifColorResultBody::class, 'call'];
+    $u->result_headers = [SerialifColorResultHeaders::class, 'call'];
+    $u->transform_request = [SerialifColorTransformRequest::class, 'call'];
+    $u->transform_response = [SerialifColorTransformResponse::class, 'call'];
+});

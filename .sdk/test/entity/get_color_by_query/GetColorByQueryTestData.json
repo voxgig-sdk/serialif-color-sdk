@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "get_color_by_query": {
+      "GET_COLOR_BY_QUERY00": {
+        "base": {},
+        "base_without_alpha": {},
+        "base_without_alpha_contrasted_text": {},
+        "complementary": {},
+        "complementary_without_alpha": {},
+        "complementary_without_alpha_contrasted_text": {},
+        "grayscale": {},
+        "grayscale_without_alpha": {},
+        "grayscale_without_alpha_contrasted_text": {},
+        "status": "s6d"
+      },
+      "GET_COLOR_BY_QUERY01": {
+        "base": {},
+        "base_without_alpha": {},
+        "base_without_alpha_contrasted_text": {},
+        "complementary": {},
+        "complementary_without_alpha": {},
+        "complementary_without_alpha_contrasted_text": {},
+        "grayscale": {},
+        "grayscale_without_alpha": {},
+        "grayscale_without_alpha_contrasted_text": {},
+        "status": "sd1"
+      },
+      "GET_COLOR_BY_QUERY02": {
+        "base": {},
+        "base_without_alpha": {},
+        "base_without_alpha_contrasted_text": {},
+        "complementary": {},
+        "complementary_without_alpha": {},
+        "complementary_without_alpha_contrasted_text": {},
+        "grayscale": {},
+        "grayscale_without_alpha": {},
+        "grayscale_without_alpha_contrasted_text": {},
+        "status": "s135"
+      }
+    }
+  },
+  "new": {
+    "get_color_by_query": {
+      "get_color_by_query_ref01": {
+        "base": {},
+        "base_without_alpha": {},
+        "base_without_alpha_contrasted_text": {},
+        "complementary": {},
+        "complementary_without_alpha": {},
+        "complementary_without_alpha_contrasted_text": {},
+        "grayscale": {},
+        "grayscale_without_alpha": {},
+        "grayscale_without_alpha_contrasted_text": {},
+        "status": "s199"
+      }
+    }
+  }
+}

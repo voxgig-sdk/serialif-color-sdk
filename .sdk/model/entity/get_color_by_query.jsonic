@@ -1,0 +1,141 @@
+# Entity: get_color_by_query
+
+main: kit: entity: get_color_by_query: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "base"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "base_without_alpha"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "base_without_alpha_contrasted_text"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "complementary"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "complementary_without_alpha"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "complementary_without_alpha_contrasted_text"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "grayscale"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "grayscale_without_alpha"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "grayscale_without_alpha_contrasted_text"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "status"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "get_color_by_query"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "55667788"
+                kind: "query"
+                name: "hex"
+                orig: "hex"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "85,102,119"
+                kind: "query"
+                name: "hsl"
+                orig: "hsl"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "85,102,119,0.53"
+                kind: "query"
+                name: "hsla"
+                orig: "hsla"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "aquamarine"
+                kind: "query"
+                name: "keyword"
+                orig: "keyword"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "85,102,119"
+                kind: "query"
+                name: "rgb"
+                orig: "rgb"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "85,102,119,0.53"
+                kind: "query"
+                name: "rgba"
+                orig: "rgba"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/"
+          select: {
+            exist: [
+              "hex"
+              "hsl"
+              "hsla"
+              "keyword"
+              "rgb"
+              "rgba"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

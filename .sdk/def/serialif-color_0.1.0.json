@@ -1,0 +1,886 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Serialif Color API",
+    "description": "Get requested color, complementary color, grayscale, and corresponding text color in different formats. Supports Keyword, HEX, RGB/RGBA, and HSL/HSLA color formats.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Serialif",
+      "url": "https://color.serialif.com/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://color.serialif.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/{color}": {
+      "get": {
+        "summary": "Get color information by direct color value",
+        "description": "Returns the requested color, its complementary and grayscale versions in multiple formats, along with contrasted text colors. Accepts color in Keyword, HEX (without #), RGB, RGBA, HSL, or HSLA format as path parameter.",
+        "operationId": "getColorByPath",
+        "parameters": [
+          {
+            "name": "color",
+            "in": "path",
+            "required": true,
+            "description": "Color value in Keyword (e.g., aquamarine), HEX (e.g., 55667788 without #), RGB (e.g., 85,102,119), RGBA (e.g., 85,102,119,0.53), HSL (e.g., 85,102,119), or HSLA (e.g., 85,102,119,0.53) format",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "keyword": {
+                "summary": "Keyword format",
+                "value": "aquamarine"
+              },
+              "hex": {
+                "summary": "HEX format (without #)",
+                "value": "55667788"
+              },
+              "rgb": {
+                "summary": "RGB format (without rgb(), spaces)",
+                "value": "85,102,119"
+              },
+              "rgba": {
+                "summary": "RGBA format (without rgba(), spaces)",
+                "value": "85,102,119,0.53"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with color information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful color conversion",
+                    "value": {
+                      "status": "success",
+                      "base": {
+                        "keyword": "",
+                        "hex": {
+                          "value": "#c4415a77",
+                          "composition": {
+                            "red": "c4",
+                            "green": "41",
+                            "blue": "5a",
+                            "alpha": "77"
+                          }
+                        },
+                        "rgba": {
+                          "value": "rgba(196, 65, 90, 0.47)",
+                          "composition": {
+                            "red": 196,
+                            "green": 65,
+                            "blue": 90,
+                            "alpha": 0.46667
+                          }
+                        },
+                        "hsla": {
+                          "value": "hsla(349, 53%, 51%, 0.47)",
+                          "composition": {
+                            "hue": 349,
+                            "saturation": 53,
+                            "lightness": 51,
+                            "alpha": 0.46667
+                          }
+                        },
+                        "hsla_raw": {
+                          "value": "hsla(348.54962, 52.61044%, 51.17647%, 0.47)",
+                          "composition": {
+                            "hue": 348.54962,
+                            "saturation": 52.61044,
+                            "lightness": 51.17647,
+                            "alpha": 0.46667
+                          }
+                        }
+                      },
+                      "base_without_alpha": {
+                        "keyword": "",
+                        "hex": {
+                          "value": "#c4415a",
+                          "composition": {
+                            "red": "c4",
+                            "green": "41",
+                            "blue": "5a"
+                          }
+                        },
+                        "rgb": {
+                          "value": "rgb(196, 65, 90)",
+                          "composition": {
+                            "red": 196,
+                            "green": 65,
+                            "blue": 90
+                          }
+                        },
+                        "hsl": {
+                          "value": "hsl(349, 53%, 51%)",
+                          "composition": {
+                            "hue": 349,
+                            "saturation": 53,
+                            "lightness": 51
+                          }
+                        },
+                        "hsl_raw": {
+                          "value": "hsl(348.54962, 52.61044%, 51.17647%)",
+                          "composition": {
+                            "hue": 348.54962,
+                            "saturation": 52.61044,
+                            "lightness": 51.17647
+                          }
+                        }
+                      },
+                      "base_without_alpha_contrasted_text": {
+                        "keyword": "white",
+                        "hex": {
+                          "value": "#ffffff",
+                          "composition": {
+                            "red": "ff",
+                            "green": "ff",
+                            "blue": "ff"
+                          }
+                        },
+                        "rgb": {
+                          "value": "rgb(255, 255, 255)",
+                          "composition": {
+                            "red": 255,
+                            "green": 255,
+                            "blue": 255
+                          }
+                        },
+                        "hsl": {
+                          "value": "hsl(0, 0%, 100%)",
+                          "composition": {
+                            "hue": 0,
+                            "saturation": 0,
+                            "lightness": 100
+                          }
+                        },
+                        "hsl_raw": {
+                          "value": "hsl(0, 0%, 100%)",
+                          "composition": {
+                            "hue": 0,
+                            "saturation": 0,
+                            "lightness": 100
+                          }
+                        }
+                      },
+                      "complementary": {
+                        "keyword": "",
+                        "hex": {
+                          "value": "#3bbea577",
+                          "composition": {
+                            "red": "3b",
+                            "green": "be",
+                            "blue": "a5",
+                            "alpha": "77"
+                          }
+                        },
+                        "rgba": {
+                          "value": "rgba(59, 190, 165, 0.47)",
+                          "composition": {
+                            "red": 59,
+                            "green": 190,
+                            "blue": 165,
+                            "alpha": 0.46667
+                          }
+                        },
+                        "hsla": {
+                          "value": "hsla(169, 53%, 49%, 0.47)",
+                          "composition": {
+                            "hue": 169,
+                            "saturation": 53,
+                            "lightness": 49,
+                            "alpha": 0.46667
+                          }
+                        },
+                        "hsla_raw": {
+                          "value": "hsla(168.54962, 52.61044%, 48.82353%, 0.47)",
+                          "composition": {
+                            "hue": 168.54962,
+                            "saturation": 52.61044,
+                            "lightness": 48.82353,
+                            "alpha": 0.46667
+                          }
+                        }
+                      },
+                      "complementary_without_alpha": {
+                        "keyword": "",
+                        "hex": {
+                          "value": "#3bbea5",
+                          "composition": {
+                            "red": "3b",
+                            "green": "be",
+                            "blue": "a5"
+                          }
+                        },
+                        "rgb": {
+                          "value": "rgb(59, 190, 165)",
+                          "composition": {
+                            "red": 59,
+                            "green": 190,
+                            "blue": 165
+                          }
+                        },
+                        "hsl": {
+                          "value": "hsl(169, 53%, 49%)",
+                          "composition": {
+                            "hue": 169,
+                            "saturation": 53,
+                            "lightness": 49
+                          }
+                        },
+                        "hsl_raw": {
+                          "value": "hsl(168.54962, 52.61044%, 48.82353%)",
+                          "composition": {
+                            "hue": 168.54962,
+                            "saturation": 52.61044,
+                            "lightness": 48.82353
+                          }
+                        }
+                      },
+                      "complementary_without_alpha_contrasted_text": {
+                        "keyword": "black",
+                        "hex": {
+                          "value": "#000000",
+                          "composition": {
+                            "red": "00",
+                            "green": "00",
+                            "blue": "00"
+                          }
+                        },
+                        "rgb": {
+                          "value": "rgb(0, 0, 0)",
+                          "composition": {
+                            "red": 0,
+                            "green": 0,
+                            "blue": 0
+                          }
+                        },
+                        "hsl": {
+                          "value": "hsl(0, 0%, 0%)",
+                          "composition": {
+                            "hue": 0,
+                            "saturation": 0,
+                            "lightness": 0
+                          }
+                        },
+                        "hsl_raw": {
+                          "value": "hsl(0, 0%, 0%)",
+                          "composition": {
+                            "hue": 0,
+                            "saturation": 0,
+                            "lightness": 0
+                          }
+                        }
+                      },
+                      "grayscale": {
+                        "keyword": "",
+                        "hex": {
+                          "value": "#82828277",
+                          "composition": {
+                            "red": "82",
+                            "green": "82",
+                            "blue": "82",
+                            "alpha": "77"
+                          }
+                        },
+                        "rgba": {
+                          "value": "rgba(130, 130, 130, 0.47)",
+                          "composition": {
+                            "red": 130,
+                            "green": 130,
+                            "blue": 130,
+                            "alpha": 0.46667
+                          }
+                        },
+                        "hsla": {
+                          "value": "hsla(349, 0%, 51%, 0.47)",
+                          "composition": {
+                            "hue": 349,
+                            "saturation": 0,
+                            "lightness": 51,
+                            "alpha": 0.46667
+                          }
+                        },
+                        "hsla_raw": {
+                          "value": "hsla(348.54962, 0%, 51.17647%, 0.47)",
+                          "composition": {
+                            "hue": 348.54962,
+                            "saturation": 0,
+                            "lightness": 51.17647,
+                            "alpha": 0.46667
+                          }
+                        }
+                      },
+                      "grayscale_without_alpha": {
+                        "keyword": "",
+                        "hex": {
+                          "value": "#828282",
+                          "composition": {
+                            "red": "82",
+                            "green": "82",
+                            "blue": "82"
+                          }
+                        },
+                        "rgb": {
+                          "value": "rgb(130, 130, 130)",
+                          "composition": {
+                            "red": 130,
+                            "green": 130,
+                            "blue": 130
+                          }
+                        },
+                        "hsl": {
+                          "value": "hsl(349, 0%, 51%)",
+                          "composition": {
+                            "hue": 349,
+                            "saturation": 0,
+                            "lightness": 51
+                          }
+                        },
+                        "hsl_raw": {
+                          "value": "hsl(348.54962, 0%, 51.17647%)",
+                          "composition": {
+                            "hue": 348.54962,
+                            "saturation": 0,
+                            "lightness": 51.17647
+                          }
+                        }
+                      },
+                      "grayscale_without_alpha_contrasted_text": {
+                        "keyword": "white",
+                        "hex": {
+                          "value": "#ffffff",
+                          "composition": {
+                            "red": "ff",
+                            "green": "ff",
+                            "blue": "ff"
+                          }
+                        },
+                        "rgb": {
+                          "value": "rgb(255, 255, 255)",
+                          "composition": {
+                            "red": 255,
+                            "green": 255,
+                            "blue": 255
+                          }
+                        },
+                        "hsl": {
+                          "value": "hsl(0, 0%, 100%)",
+                          "composition": {
+                            "hue": 0,
+                            "saturation": 0,
+                            "lightness": 100
+                          }
+                        },
+                        "hsl_raw": {
+                          "value": "hsl(0, 0%, 100%)",
+                          "composition": {
+                            "hue": 0,
+                            "saturation": 0,
+                            "lightness": 100
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid color format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "invalidKeyword": {
+                    "summary": "Invalid keyword color",
+                    "value": {
+                      "status": "error",
+                      "error": {
+                        "type": "wrong color format",
+                        "value": "yellou",
+                        "message": "not a valid KEYWORD color"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "Get color information by query parameter",
+        "description": "Returns the requested color, its complementary and grayscale versions in multiple formats, along with contrasted text colors. Accepts color via query parameters in Keyword, HEX, RGB, RGBA, HSL, or HSLA format.",
+        "operationId": "getColorByQuery",
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "required": false,
+            "description": "Color keyword (e.g., aquamarine)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "aquamarine"
+          },
+          {
+            "name": "hex",
+            "in": "query",
+            "required": false,
+            "description": "HEX color value without # (e.g., 55667788)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "55667788"
+          },
+          {
+            "name": "rgb",
+            "in": "query",
+            "required": false,
+            "description": "RGB or RGBA color values separated by commas (e.g., 85,102,119 or 85,102,119,0.53)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "85,102,119"
+          },
+          {
+            "name": "rgba",
+            "in": "query",
+            "required": false,
+            "description": "RGBA color values separated by commas (e.g., 85,102,119,0.53)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "85,102,119,0.53"
+          },
+          {
+            "name": "hsl",
+            "in": "query",
+            "required": false,
+            "description": "HSL or HSLA color values separated by commas (e.g., 85,102,119 or 85,102,119,0.53)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "85,102,119"
+          },
+          {
+            "name": "hsla",
+            "in": "query",
+            "required": false,
+            "description": "HSLA color values separated by commas (e.g., 85,102,119,0.53)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "85,102,119,0.53"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with color information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid color format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ],
+            "description": "Status of the API response"
+          },
+          "base": {
+            "$ref": "#/components/schemas/ColorWithAlpha",
+            "description": "Requested base color"
+          },
+          "base_without_alpha": {
+            "$ref": "#/components/schemas/ColorWithoutAlpha",
+            "description": "Base color without alpha channel"
+          },
+          "base_without_alpha_contrasted_text": {
+            "$ref": "#/components/schemas/ColorWithoutAlpha",
+            "description": "Black or white text color that contrasts with base color"
+          },
+          "complementary": {
+            "$ref": "#/components/schemas/ColorWithAlpha",
+            "description": "Complementary color"
+          },
+          "complementary_without_alpha": {
+            "$ref": "#/components/schemas/ColorWithoutAlpha",
+            "description": "Complementary color without alpha channel"
+          },
+          "complementary_without_alpha_contrasted_text": {
+            "$ref": "#/components/schemas/ColorWithoutAlpha",
+            "description": "Black or white text color that contrasts with complementary color"
+          },
+          "grayscale": {
+            "$ref": "#/components/schemas/ColorWithAlpha",
+            "description": "Grayscale version of the color"
+          },
+          "grayscale_without_alpha": {
+            "$ref": "#/components/schemas/ColorWithoutAlpha",
+            "description": "Grayscale color without alpha channel"
+          },
+          "grayscale_without_alpha_contrasted_text": {
+            "$ref": "#/components/schemas/ColorWithoutAlpha",
+            "description": "Black or white text color that contrasts with grayscale color"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the API response"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Type of error",
+                "example": "wrong color format"
+              },
+              "value": {
+                "type": "string",
+                "description": "The invalid value that was provided",
+                "example": "yellou"
+              },
+              "message": {
+                "type": "string",
+                "description": "Error message",
+                "example": "not a valid KEYWORD color"
+              }
+            }
+          }
+        },
+        "required": [
+          "status",
+          "error"
+        ]
+      },
+      "ColorWithAlpha": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "description": "Color keyword name if applicable"
+          },
+          "hex": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "HEX color value with alpha",
+                "example": "#c4415a77"
+              },
+              "composition": {
+                "type": "object",
+                "properties": {
+                  "red": {
+                    "type": "string",
+                    "description": "Red component in hex",
+                    "example": "c4"
+                  },
+                  "green": {
+                    "type": "string",
+                    "description": "Green component in hex",
+                    "example": "41"
+                  },
+                  "blue": {
+                    "type": "string",
+                    "description": "Blue component in hex",
+                    "example": "5a"
+                  },
+                  "alpha": {
+                    "type": "string",
+                    "description": "Alpha component in hex",
+                    "example": "77"
+                  }
+                }
+              }
+            }
+          },
+          "rgba": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "RGBA color value",
+                "example": "rgba(196, 65, 90, 0.47)"
+              },
+              "composition": {
+                "type": "object",
+                "properties": {
+                  "red": {
+                    "type": "integer",
+                    "description": "Red component (0-255)",
+                    "example": 196
+                  },
+                  "green": {
+                    "type": "integer",
+                    "description": "Green component (0-255)",
+                    "example": 65
+                  },
+                  "blue": {
+                    "type": "integer",
+                    "description": "Blue component (0-255)",
+                    "example": 90
+                  },
+                  "alpha": {
+                    "type": "number",
+                    "description": "Alpha component (0-1)",
+                    "example": 0.46667
+                  }
+                }
+              }
+            }
+          },
+          "hsla": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "HSLA color value (rounded)",
+                "example": "hsla(349, 53%, 51%, 0.47)"
+              },
+              "composition": {
+                "type": "object",
+                "properties": {
+                  "hue": {
+                    "type": "integer",
+                    "description": "Hue component (0-360)",
+                    "example": 349
+                  },
+                  "saturation": {
+                    "type": "integer",
+                    "description": "Saturation percentage (0-100)",
+                    "example": 53
+                  },
+                  "lightness": {
+                    "type": "integer",
+                    "description": "Lightness percentage (0-100)",
+                    "example": 51
+                  },
+                  "alpha": {
+                    "type": "number",
+                    "description": "Alpha component (0-1)",
+                    "example": 0.46667
+                  }
+                }
+              }
+            }
+          },
+          "hsla_raw": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "HSLA color value (raw/unrounded)",
+                "example": "hsla(348.54962, 52.61044%, 51.17647%, 0.47)"
+              },
+              "composition": {
+                "type": "object",
+                "properties": {
+                  "hue": {
+                    "type": "number",
+                    "description": "Hue component (precise)",
+                    "example": 348.54962
+                  },
+                  "saturation": {
+                    "type": "number",
+                    "description": "Saturation percentage (precise)",
+                    "example": 52.61044
+                  },
+                  "lightness": {
+                    "type": "number",
+                    "description": "Lightness percentage (precise)",
+                    "example": 51.17647
+                  },
+                  "alpha": {
+                    "type": "number",
+                    "description": "Alpha component (0-1)",
+                    "example": 0.46667
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "ColorWithoutAlpha": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "description": "Color keyword name if applicable"
+          },
+          "hex": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "HEX color value",
+                "example": "#c4415a"
+              },
+              "composition": {
+                "type": "object",
+                "properties": {
+                  "red": {
+                    "type": "string",
+                    "description": "Red component in hex",
+                    "example": "c4"
+                  },
+                  "green": {
+                    "type": "string",
+                    "description": "Green component in hex",
+                    "example": "41"
+                  },
+                  "blue": {
+                    "type": "string",
+                    "description": "Blue component in hex",
+                    "example": "5a"
+                  }
+                }
+              }
+            }
+          },
+          "rgb": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "RGB color value",
+                "example": "rgb(196, 65, 90)"
+              },
+              "composition": {
+                "type": "object",
+                "properties": {
+                  "red": {
+                    "type": "integer",
+                    "description": "Red component (0-255)",
+                    "example": 196
+                  },
+                  "green": {
+                    "type": "integer",
+                    "description": "Green component (0-255)",
+                    "example": 65
+                  },
+                  "blue": {
+                    "type": "integer",
+                    "description": "Blue component (0-255)",
+                    "example": 90
+                  }
+                }
+              }
+            }
+          },
+          "hsl": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "HSL color value (rounded)",
+                "example": "hsl(349, 53%, 51%)"
+              },
+              "composition": {
+                "type": "object",
+                "properties": {
+                  "hue": {
+                    "type": "integer",
+                    "description": "Hue component (0-360)",
+                    "example": 349
+                  },
+                  "saturation": {
+                    "type": "integer",
+                    "description": "Saturation percentage (0-100)",
+                    "example": 53
+                  },
+                  "lightness": {
+                    "type": "integer",
+                    "description": "Lightness percentage (0-100)",
+                    "example": 51
+                  }
+                }
+              }
+            }
+          },
+          "hsl_raw": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "HSL color value (raw/unrounded)",
+                "example": "hsl(348.54962, 52.61044%, 51.17647%)"
+              },
+              "composition": {
+                "type": "object",
+                "properties": {
+                  "hue": {
+                    "type": "number",
+                    "description": "Hue component (precise)",
+                    "example": 348.54962
+                  },
+                  "saturation": {
+                    "type": "number",
+                    "description": "Saturation percentage (precise)",
+                    "example": 52.61044
+                  },
+                  "lightness": {
+                    "type": "number",
+                    "description": "Lightness percentage (precise)",
+                    "example": 51.17647
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
