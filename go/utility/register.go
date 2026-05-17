@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/serialif-color-sdk/core"
+import "github.com/voxgig-sdk/serialif-color-sdk/go/core"
 
 func init() {
 	core.UtilityRegistrar = registerAll

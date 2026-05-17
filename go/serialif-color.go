@@ -1,10 +1,10 @@
 package voxgigserialifcolorsdk
 
 import (
-	"github.com/voxgig-sdk/serialif-color-sdk/core"
-	"github.com/voxgig-sdk/serialif-color-sdk/entity"
-	"github.com/voxgig-sdk/serialif-color-sdk/feature"
-	_ "github.com/voxgig-sdk/serialif-color-sdk/utility"
+	"github.com/voxgig-sdk/serialif-color-sdk/go/core"
+	"github.com/voxgig-sdk/serialif-color-sdk/go/entity"
+	"github.com/voxgig-sdk/serialif-color-sdk/go/feature"
+	_ "github.com/voxgig-sdk/serialif-color-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

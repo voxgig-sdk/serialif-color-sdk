@@ -11,7 +11,8 @@
         "grayscale": {},
         "grayscale_without_alpha": {},
         "grayscale_without_alpha_contrasted_text": {},
-        "status": "s6d"
+        "status": "s6d",
+        "id": "GET_COLOR_BY_QUERY00"
       },
       "GET_COLOR_BY_QUERY01": {
         "base": {},
@@ -23,7 +24,8 @@
         "grayscale": {},
         "grayscale_without_alpha": {},
         "grayscale_without_alpha_contrasted_text": {},
-        "status": "sd1"
+        "status": "sd1",
+        "id": "GET_COLOR_BY_QUERY01"
       },
       "GET_COLOR_BY_QUERY02": {
         "base": {},
@@ -35,7 +37,8 @@
         "grayscale": {},
         "grayscale_without_alpha": {},
         "grayscale_without_alpha_contrasted_text": {},
-        "status": "s135"
+        "status": "s135",
+        "id": "GET_COLOR_BY_QUERY02"
       }
     }
   },

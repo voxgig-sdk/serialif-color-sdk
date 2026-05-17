@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/serialif-color-sdk/core"
+	"github.com/voxgig-sdk/serialif-color-sdk/go/core"
 )
 
 type LogFeature struct {

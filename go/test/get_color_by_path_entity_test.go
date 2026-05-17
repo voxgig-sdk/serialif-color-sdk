@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/serialif-color-sdk"
-	"github.com/voxgig-sdk/serialif-color-sdk/core"
+	sdk "github.com/voxgig-sdk/serialif-color-sdk/go"
+	"github.com/voxgig-sdk/serialif-color-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/serialif-color-sdk/go/utility/struct"
 )
 
 func TestGetColorByPathEntity(t *testing.T) {

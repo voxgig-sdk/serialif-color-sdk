@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/serialif-color-sdk/core"
+	"github.com/voxgig-sdk/serialif-color-sdk/go/core"
 )
 
 type BaseFeature struct {

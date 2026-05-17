@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/serialif-color-sdk"
-	"github.com/voxgig-sdk/serialif-color-sdk/core"
+	sdk "github.com/voxgig-sdk/serialif-color-sdk/go"
+	"github.com/voxgig-sdk/serialif-color-sdk/go/core"
 )
 
 func TestGetColorByQueryDirect(t *testing.T) {
