@@ -17,7 +17,18 @@
           }
         ],
         "title": "Serialif Color API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Look up a color and get its complement, grayscale variant, and contrasting text color",
+        "homepage": "https://color.serialif.com",
+        "docs_url": "https://color.serialif.com",
+        "license_short": "No explicit license; credited to Serialif (2021)",
+        "license_md": "- No formal license is published on the API homepage.\n- The homepage credits the project as \"Made by Serialif | 2021\".\n- Treat usage terms as unspecified; attribution to Serialif is a reasonable courtesy.\n- Confirm any production or commercial use directly with the publisher.",
+        "about_md": "The Serialif Color API is a small REST service hosted at [color.serialif.com](https://color.serialif.com) that turns a color identifier into a structured palette. For each requested color it returns the base color, its complementary color, and a grayscale variant, each paired with a contrasting text color picked for readability.\n\nWhat you get from the API:\n\n- Inputs can be a CSS keyword (e.g. `aquamarine`), a 3/4/6/8-character HEX value, or `rgb`/`rgba`/`hsl`/`hsla` tuples, supplied either as a path segment or as a query parameter.\n- Each response includes nine color objects: base, complementary, and grayscale, each available with and without an alpha channel and each accompanied by a contrasting text color.\n- Every color object carries `keyword`, `hex` (with composition breakdown), and `rgb`/`rgba` plus `hsl`/`hsla` in both standard and raw-precision forms.\n- Errors are returned as a JSON object of the shape `{\"status\": \"error\", \"error\": {\"type\": \"...\", \"value\": \"...\", \"message\": \"...\"}}`.\n\nOperational notes: the API is open and requires no authentication or API key. According to the [freepublicapis.com listing](https://freepublicapis.com/serialif-color-api), CORS is disabled on the endpoints, so browser-side calls from another origin will be blocked and the API is best consumed from a server.",
+        "entity_desc": {
+          "get_color_by_path": "Resolves a color supplied as a path segment, e.g. `/aquamarine`, `/55667788`, or `/85,102,119`, and returns the full palette object.",
+          "get_color_by_query": "Resolves a color supplied via query parameters such as `?keyword=`, `?hex=`, `?rgb=`, `?rgba=`, `?hsl=`, or `?hsla=`, returning the same palette structure."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -25,7 +36,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "get_color_by_path": {

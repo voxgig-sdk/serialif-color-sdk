@@ -70,14 +70,12 @@ function get_color_by_path_direct_setup(mockres)
   local env = runner.env_override({
     ["SERIALIFCOLOR_TEST_GET_COLOR_BY_PATH_ENTID"] = {},
     ["SERIALIFCOLOR_TEST_LIVE"] = "FALSE",
-    ["SERIALIFCOLOR_APIKEY"] = "NONE",
   })
 
   local live = env["SERIALIFCOLOR_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["SERIALIFCOLOR_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

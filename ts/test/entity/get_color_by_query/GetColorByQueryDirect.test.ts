@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID': {},
     'SERIALIFCOLOR_TEST_LIVE': 'FALSE',
-    'SERIALIFCOLOR_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.SERIALIFCOLOR_TEST_LIVE
 
   if (live) {
     const client = new SerialifColorSDK({
-      apikey: env.SERIALIFCOLOR_APIKEY,
     })
 
     let idmap: any = env['SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID']

@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "https://color.serialif.com",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },

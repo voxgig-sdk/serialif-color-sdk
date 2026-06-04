@@ -91,7 +91,6 @@ function get_color_by_path_basic_setup(extra)
     ["SERIALIFCOLOR_TEST_GET_COLOR_BY_PATH_ENTID"] = idmap,
     ["SERIALIFCOLOR_TEST_LIVE"] = "FALSE",
     ["SERIALIFCOLOR_TEST_EXPLAIN"] = "FALSE",
-    ["SERIALIFCOLOR_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function get_color_by_path_basic_setup(extra)
   if env["SERIALIFCOLOR_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["SERIALIFCOLOR_APIKEY"],
       },
       extra or {},
     })

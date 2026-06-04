@@ -111,7 +111,6 @@ function basicSetup(extra?: any) {
     'SERIALIF_COLOR_TEST_GET_COLOR_BY_PATH_ENTID': idmap,
     'SERIALIF_COLOR_TEST_LIVE': 'FALSE',
     'SERIALIF_COLOR_TEST_EXPLAIN': 'FALSE',
-    'SERIALIF_COLOR_APIKEY': 'NONE',
   })
 
   idmap = env['SERIALIF_COLOR_TEST_GET_COLOR_BY_PATH_ENTID']
@@ -121,7 +120,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new SerialifColorSDK(merge([
       {
-        apikey: env.SERIALIF_COLOR_APIKEY,
       },
       extra
     ]))

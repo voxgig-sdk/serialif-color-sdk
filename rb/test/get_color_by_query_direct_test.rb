@@ -61,14 +61,12 @@ def get_color_by_query_direct_setup(mockres)
   env = Runner.env_override({
     "SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID" => {},
     "SERIALIFCOLOR_TEST_LIVE" => "FALSE",
-    "SERIALIFCOLOR_APIKEY" => "NONE",
   })
 
   live = env["SERIALIFCOLOR_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["SERIALIFCOLOR_APIKEY"],
     }
     client = SerialifColorSDK.new(merged_opts)
     return {
