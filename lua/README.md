@@ -10,7 +10,7 @@ The Lua SDK for the SerialifColor API — an entity-oriented client using Lua co
 
 ## Install
 ```bash
-luarocks install serialif-color-sdk
+luarocks install voxgig-sdk-serialif-color
 ```
 
 If the module is not yet published, add the source directory to

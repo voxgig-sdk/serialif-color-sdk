@@ -10,13 +10,13 @@ The Ruby SDK for the SerialifColor API — an entity-oriented client using idiom
 
 ## Install
 ```bash
-gem install serialif-color-sdk
+gem install voxgig-sdk-serialif-color
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "serialif-color-sdk"
+gem "voxgig-sdk-serialif-color"
 ```
 
 Then run:

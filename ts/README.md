@@ -10,7 +10,7 @@ The TypeScript SDK for the SerialifColor API — a type-safe, entity-oriented cl
 
 ## Install
 ```bash
-npm install serialif-color
+npm install @voxgig-sdk/serialif-color
 ```
 ## Tutorial: your first API call
 

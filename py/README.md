@@ -10,7 +10,7 @@ The Python SDK for the SerialifColor API — an entity-oriented client following
 
 ## Install
 ```bash
-pip install serialif-color-sdk
+pip install voxgig-sdk-serialif-color
 ```
 
 Or install from source:

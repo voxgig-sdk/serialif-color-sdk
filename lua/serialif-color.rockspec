@@ -8,12 +8,14 @@ source = {
   dir = "serialif-color-sdk/lua"
 }
 description = {
-  summary = "SerialifColor SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Serialif Color public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/serialif-color-sdk",
+  issues_url = "https://github.com/voxgig-sdk/serialif-color-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "serialif-color" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

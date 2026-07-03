@@ -10,7 +10,7 @@ The PHP SDK for the SerialifColor API — an entity-oriented client using PHP co
 
 ## Install
 ```bash
-composer require voxgig/serialif-color-sdk
+composer require voxgig-sdk/serialif-color
 ```
 
 

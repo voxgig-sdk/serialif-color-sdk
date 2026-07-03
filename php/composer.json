@@ -1,8 +1,17 @@
 {
   "name": "voxgig-sdk/serialif-color",
-  "description": "SerialifColor SDK for PHP",
+  "description": "Unofficial generated PHP SDK for the Serialif Color public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
+  "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "serialif-color"],
+  "homepage": "https://github.com/voxgig-sdk/serialif-color-sdk",
   "license": "MIT",
+  "authors": [
+    { "name": "Voxgig", "homepage": "https://voxgig.com" }
+  ],
+  "support": {
+    "issues": "https://github.com/voxgig-sdk/serialif-color-sdk/issues",
+    "source": "https://github.com/voxgig-sdk/serialif-color-sdk"
+  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=8.2"
