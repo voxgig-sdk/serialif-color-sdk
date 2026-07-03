@@ -75,12 +75,14 @@ function get_color_by_path_direct_setup($mockres)
     $env = Runner::env_override([
         "SERIALIFCOLOR_TEST_GET_COLOR_BY_PATH_ENTID" => [],
         "SERIALIFCOLOR_TEST_LIVE" => "FALSE",
+        "SERIALIFCOLOR_APIKEY" => "NONE",
     ]);
 
     $live = $env["SERIALIFCOLOR_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["SERIALIFCOLOR_APIKEY"],
         ];
         $client = new SerialifColorSDK($merged_opts);
         return [

@@ -117,6 +117,7 @@ func get_color_by_queryBasicSetup(extra map[string]any) *entityTestSetup {
 		"SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID": idmap,
 		"SERIALIFCOLOR_TEST_LIVE":      "FALSE",
 		"SERIALIFCOLOR_TEST_EXPLAIN":   "FALSE",
+		"SERIALIFCOLOR_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID"])
@@ -127,6 +128,7 @@ func get_color_by_queryBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["SERIALIFCOLOR_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["SERIALIFCOLOR_APIKEY"],
 			},
 			extra,
 		})

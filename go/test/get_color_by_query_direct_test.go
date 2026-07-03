@@ -99,12 +99,14 @@ func get_color_by_queryDirectSetup(mockres any) *get_color_by_queryDirectSetupRe
 	env := envOverride(map[string]any{
 		"SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID": map[string]any{},
 		"SERIALIFCOLOR_TEST_LIVE":    "FALSE",
+		"SERIALIFCOLOR_APIKEY":       "NONE",
 	})
 
 	live := env["SERIALIFCOLOR_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["SERIALIFCOLOR_APIKEY"],
 		}
 		client := sdk.NewSerialifColorSDK(mergedOpts)
 

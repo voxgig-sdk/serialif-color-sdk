@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -113,7 +113,7 @@ local get_color_by_path = client:GetColorByPath(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GetColorByPath(nil):load({ id = "get_color_by_path_id" }, nil)
+local result, err = client:GetColorByPath():load({ id = "get_color_by_path_id" })
 ```
 
 ### Common Methods
@@ -174,7 +174,7 @@ local get_color_by_query = client:GetColorByQuery(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GetColorByQuery(nil):load({ id = "get_color_by_query_id" }, nil)
+local result, err = client:GetColorByQuery():load({ id = "get_color_by_query_id" })
 ```
 
 ### Common Methods

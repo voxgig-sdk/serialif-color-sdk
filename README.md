@@ -1,21 +1,8 @@
 # SerialifColor SDK
 
-Look up a color and get its complement, grayscale variant, and contrasting text color
+Serialif Color API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Serialif Color API
-
-The Serialif Color API is a small REST service hosted at [color.serialif.com](https://color.serialif.com) that turns a color identifier into a structured palette. For each requested color it returns the base color, its complementary color, and a grayscale variant, each paired with a contrasting text color picked for readability.
-
-What you get from the API:
-
-- Inputs can be a CSS keyword (e.g. `aquamarine`), a 3/4/6/8-character HEX value, or `rgb`/`rgba`/`hsl`/`hsla` tuples, supplied either as a path segment or as a query parameter.
-- Each response includes nine color objects: base, complementary, and grayscale, each available with and without an alpha channel and each accompanied by a contrasting text color.
-- Every color object carries `keyword`, `hex` (with composition breakdown), and `rgb`/`rgba` plus `hsl`/`hsla` in both standard and raw-precision forms.
-- Errors are returned as a JSON object of the shape `{"status": "error", "error": {"type": "...", "value": "...", "message": "..."}}`.
-
-Operational notes: the API is open and requires no authentication or API key. According to the [freepublicapis.com listing](https://freepublicapis.com/serialif-color-api), CORS is disabled on the endpoints, so browser-side calls from another origin will be blocked and the API is best consumed from a server.
 
 ## Try it
 
@@ -49,27 +36,31 @@ gem install serialif-color-sdk
 luarocks install serialif-color-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { SerialifColorSDK } from 'serialif-color'
 
-const client = new SerialifColorSDK({})
+const client = new SerialifColorSDK({
+  apikey: process.env.SERIALIF-COLOR_APIKEY,
+})
 
+// Load getcolorbypath data
+const getcolorbypath = await client.GetColorByPath().load({})
+console.log(getcolorbypath.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **GetColorByPath** | Resolves a color supplied as a path segment, e.g. `/aquamarine`, `/55667788`, or `/85,102,119`, and returns the full palette object. | `/{color}` |
-| **GetColorByQuery** | Resolves a color supplied via query parameters such as `?keyword=`, `?hex=`, `?rgb=`, `?rgba=`, `?hsl=`, or `?hsla=`, returning the same palette structure. | `/` |
+| **GetColorByPath** |  | `/{color}` |
+| **GetColorByQuery** |  | `/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,15 +101,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from serialifcolor_sdk import SerialifColorSDK
 
-client = SerialifColorSDK({})
+client = SerialifColorSDK({
+    "apikey": os.environ.get("SERIALIF-COLOR_APIKEY"),
+})
 
 
 # Load a specific getcolorbypath
-getcolorbypath, err = client.GetColorByPath(None).load(
-    {"id": "example_id"}, None
-)
+getcolorbypath, err = client.GetColorByPath().load({"id": "example_id"})
+print(getcolorbypath)
 ```
 
 ### PHP
@@ -127,13 +120,14 @@ getcolorbypath, err = client.GetColorByPath(None).load(
 <?php
 require_once 'serialifcolor_sdk.php';
 
-$client = new SerialifColorSDK([]);
+$client = new SerialifColorSDK([
+    "apikey" => getenv("SERIALIF-COLOR_APIKEY"),
+]);
 
 
 // Load a specific getcolorbypath
-[$getcolorbypath, $err] = $client->GetColorByPath(null)->load(
-    ["id" => "example_id"], null
-);
+[$getcolorbypath, $err] = $client->GetColorByPath()->load(["id" => "example_id"]);
+print_r($getcolorbypath);
 ```
 
 ### Golang
@@ -141,8 +135,13 @@ $client = new SerialifColorSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/serialif-color-sdk/go"
 
-client := sdk.NewSerialifColorSDK(map[string]any{})
+client := sdk.NewSerialifColorSDK(map[string]any{
+    "apikey": os.Getenv("SERIALIF-COLOR_APIKEY"),
+})
 
+// Load getcolorbypath data
+getcolorbypath, err := client.GetColorByPath(nil).Load(map[string]any{}, nil)
+fmt.Println(getcolorbypath)
 ```
 
 ### Ruby
@@ -150,13 +149,14 @@ client := sdk.NewSerialifColorSDK(map[string]any{})
 ```ruby
 require_relative "SerialifColor_sdk"
 
-client = SerialifColorSDK.new({})
+client = SerialifColorSDK.new({
+  "apikey" => ENV["SERIALIF-COLOR_APIKEY"],
+})
 
 
 # Load a specific getcolorbypath
-getcolorbypath, err = client.GetColorByPath(nil).load(
-  { "id" => "example_id" }, nil
-)
+getcolorbypath, err = client.GetColorByPath().load({ "id" => "example_id" })
+puts getcolorbypath
 ```
 
 ### Lua
@@ -164,13 +164,14 @@ getcolorbypath, err = client.GetColorByPath(nil).load(
 ```lua
 local sdk = require("serialif-color_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("SERIALIF-COLOR_APIKEY"),
+})
 
 
 -- Load a specific getcolorbypath
-local getcolorbypath, err = client:GetColorByPath(nil):load(
-  { id = "example_id" }, nil
-)
+local getcolorbypath, err = client:GetColorByPath():load({ id = "example_id" })
+print(getcolorbypath)
 ```
 
 ## Unit testing in offline mode
@@ -189,25 +190,21 @@ const result = await client.GetColorByPath().load({ id: 'test01' })
 ### Python
 
 ```python
-client = SerialifColorSDK.test(None, None)
-result, err = client.GetColorByPath(None).load(
-    {"id": "test01"}, None
-)
+client = SerialifColorSDK.test()
+result, err = client.GetColorByPath().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = SerialifColorSDK::test(null, null);
-[$result, $err] = $client->GetColorByPath(null)->load(
-    ["id" => "test01"], null
-);
+$client = SerialifColorSDK::test();
+[$result, $err] = $client->GetColorByPath()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.GetColorByPath(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -216,19 +213,15 @@ result, err := client.GetColorByPath(nil).Load(
 ### Ruby
 
 ```ruby
-client = SerialifColorSDK.test(nil, nil)
-result, err = client.GetColorByPath(nil).load(
-  { "id" => "test01" }, nil
-)
+client = SerialifColorSDK.test
+result, err = client.GetColorByPath().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:GetColorByPath(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:GetColorByPath():load({ id = "test01" })
 ```
 
 ## How it works
@@ -332,15 +325,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Serialif Color API
-
-- Upstream: [https://color.serialif.com](https://color.serialif.com)
-
-- No formal license is published on the API homepage.
-- The homepage credits the project as "Made by Serialif | 2021".
-- Treat usage terms as unspecified; attribution to Serialif is a reasonable courtesy.
-- Confirm any production or commercial use directly with the publisher.
 
 ---
 
