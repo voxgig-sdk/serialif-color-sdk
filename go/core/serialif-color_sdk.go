@@ -245,11 +245,17 @@ func (sdk *SerialifColorSDK) Direct(fetchargs map[string]any) (map[string]any, e
 }
 
 
+// GetColorByPath returns a GetColorByPath entity bound to this client.
+// Idiomatic usage: client.GetColorByPath(nil).List(nil, nil) or
+// client.GetColorByPath(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *SerialifColorSDK) GetColorByPath(data map[string]any) SerialifColorEntity {
 	return NewGetColorByPathEntityFunc(sdk, data)
 }
 
 
+// GetColorByQuery returns a GetColorByQuery entity bound to this client.
+// Idiomatic usage: client.GetColorByQuery(nil).List(nil, nil) or
+// client.GetColorByQuery(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *SerialifColorSDK) GetColorByQuery(data map[string]any) SerialifColorEntity {
 	return NewGetColorByQueryEntityFunc(sdk, data)
 }

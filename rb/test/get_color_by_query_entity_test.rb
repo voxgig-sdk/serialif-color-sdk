@@ -42,8 +42,7 @@ class GetColorByQueryEntityTest < Minitest::Test
     # LOAD
     get_color_by_query_ref01_ent = client.GetColorByQuery(nil)
     get_color_by_query_ref01_match_dt0 = {}
-    get_color_by_query_ref01_data_dt0_loaded, err = get_color_by_query_ref01_ent.load(get_color_by_query_ref01_match_dt0, nil)
-    assert_nil err
+    get_color_by_query_ref01_data_dt0_loaded = get_color_by_query_ref01_ent.load(get_color_by_query_ref01_match_dt0, nil)
     assert !get_color_by_query_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def get_color_by_query_basic_setup(extra)
     "SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID" => idmap,
     "SERIALIFCOLOR_TEST_LIVE" => "FALSE",
     "SERIALIFCOLOR_TEST_EXPLAIN" => "FALSE",
-    "SERIALIFCOLOR_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def get_color_by_query_basic_setup(extra)
   if env["SERIALIFCOLOR_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["SERIALIFCOLOR_APIKEY"],
       },
       extra || {},
     ])

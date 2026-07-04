@@ -9,9 +9,12 @@ The TypeScript SDK for the SerialifColor API — a type-safe, entity-oriented cl
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/serialif-color
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/serialif-color-sdk/releases](https://github.com/voxgig-sdk/serialif-color-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { SerialifColorSDK } from 'serialif-color'
+import { SerialifColorSDK } from '@voxgig-sdk/serialif-color'
 
-const client = new SerialifColorSDK({
-  apikey: process.env.SERIALIF-COLOR_APIKEY,
-})
+const client = new SerialifColorSDK()
 ```
 
 ### 3. Load a getcolorbypath
 
 ```ts
-const result = await client.GetColorByPath().load({ id: 'example_id' })
+const result = await client.getcolorbypath.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = SerialifColorSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.getcolorbypath.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new SerialifColorSDK({ apikey: '...' })
+const client = new SerialifColorSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.getcolorbypath
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new SerialifColorSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new SerialifColorSDK({
 Create a `.env.local` file at the project root:
 
 ```
-SERIALIF-COLOR_TEST_LIVE=TRUE
-SERIALIF-COLOR_APIKEY=<your-key>
+SERIALIF_COLOR_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new SerialifColorSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new SerialifColorSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -295,7 +292,7 @@ API path: `/`
 
 ### GetColorByPath
 
-Create an instance: `const get_color_by_path = client.GetColorByPath()`
+Create an instance: `const get_color_by_path = client.get_color_by_path`
 
 #### Operations
 
@@ -321,13 +318,13 @@ Create an instance: `const get_color_by_path = client.GetColorByPath()`
 #### Example: Load
 
 ```ts
-const get_color_by_path = await client.GetColorByPath().load({ id: 'get_color_by_path_id' })
+const get_color_by_path = await client.get_color_by_path.load({ id: 'get_color_by_path_id' })
 ```
 
 
 ### GetColorByQuery
 
-Create an instance: `const get_color_by_query = client.GetColorByQuery()`
+Create an instance: `const get_color_by_query = client.get_color_by_query`
 
 #### Operations
 
@@ -353,7 +350,7 @@ Create an instance: `const get_color_by_query = client.GetColorByQuery()`
 #### Example: Load
 
 ```ts
-const get_color_by_query = await client.GetColorByQuery().load({ id: 'get_color_by_query_id' })
+const get_color_by_query = await client.get_color_by_query.load({ id: 'get_color_by_query_id' })
 ```
 
 
@@ -414,7 +411,7 @@ serialif-color/
 Import the SDK from the package root:
 
 ```ts
-import { SerialifColorSDK } from 'serialif-color'
+import { SerialifColorSDK } from '@voxgig-sdk/serialif-color'
 ```
 
 ### Entity state
@@ -424,11 +421,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const getcolorbypath = client.getcolorbypath
+await getcolorbypath.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// getcolorbypath.data() now returns the loaded getcolorbypath data
+// getcolorbypath.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

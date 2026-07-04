@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch GetColorByPathLoadMatch
+---@param ctrl? table
+---@return GetColorByPath
+---@return string? err
 function GetColorByPathEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

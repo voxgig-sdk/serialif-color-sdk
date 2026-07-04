@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch GetColorByQueryLoadMatch
+---@param ctrl? table
+---@return GetColorByQuery
+---@return string? err
 function GetColorByQueryEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

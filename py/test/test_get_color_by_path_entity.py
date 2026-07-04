@@ -49,8 +49,7 @@ class TestGetColorByPathEntity:
         # LOAD
         get_color_by_path_ref01_ent = client.GetColorByPath(None)
         get_color_by_path_ref01_match_dt0 = {}
-        get_color_by_path_ref01_data_dt0_loaded, err = get_color_by_path_ref01_ent.load(get_color_by_path_ref01_match_dt0, None)
-        assert err is None
+        get_color_by_path_ref01_data_dt0_loaded = get_color_by_path_ref01_ent.load(get_color_by_path_ref01_match_dt0, None)
         assert get_color_by_path_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _get_color_by_path_basic_setup(extra):
         "SERIALIFCOLOR_TEST_GET_COLOR_BY_PATH_ENTID": idmap,
         "SERIALIFCOLOR_TEST_LIVE": "FALSE",
         "SERIALIFCOLOR_TEST_EXPLAIN": "FALSE",
-        "SERIALIFCOLOR_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _get_color_by_path_basic_setup(extra):
     if env.get("SERIALIFCOLOR_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("SERIALIFCOLOR_APIKEY"),
             },
             extra or {},
         ])

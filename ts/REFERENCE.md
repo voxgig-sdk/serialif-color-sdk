@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `SerialifColorSDK.test()`.
 ## GetColorByPathEntity
 
 ```ts
-const get_color_by_path = client.GetColorByPath()
+const get_color_by_path = client.get_color_by_path
 ```
 
 ### Fields
@@ -147,7 +146,7 @@ const get_color_by_path = client.GetColorByPath()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetColorByPath().load({ id: 'get_color_by_path_id' })
+const result = await client.get_color_by_path.load({ id: 'get_color_by_path_id' })
 ```
 
 ### Common Methods
@@ -181,7 +180,7 @@ Return a copy of the entity options.
 ## GetColorByQueryEntity
 
 ```ts
-const get_color_by_query = client.GetColorByQuery()
+const get_color_by_query = client.get_color_by_query
 ```
 
 ### Fields
@@ -206,7 +205,7 @@ const get_color_by_query = client.GetColorByQuery()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetColorByQuery().load({ id: 'get_color_by_query_id' })
+const result = await client.get_color_by_query.load({ id: 'get_color_by_query_id' })
 ```
 
 ### Common Methods

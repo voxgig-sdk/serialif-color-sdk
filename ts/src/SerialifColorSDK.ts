@@ -3,6 +3,8 @@
 import { GetColorByPathEntity } from './entity/GetColorByPathEntity'
 import { GetColorByQueryEntity } from './entity/GetColorByQueryEntity'
 
+export type * from './SerialifColorTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class SerialifColorSDK {
 
 
 
+  _get_color_by_path?: GetColorByPathEntity
+
+  // Idiomatic facade: `client.get_color_by_path.list()` / `client.get_color_by_path.load({ id })`.
+  get get_color_by_path(): GetColorByPathEntity {
+    return (this._get_color_by_path ??= new GetColorByPathEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.get_color_by_path` instead. */
   GetColorByPath(data?: any) {
     const self = this
     return new GetColorByPathEntity(self,data)
   }
 
 
+  _get_color_by_query?: GetColorByQueryEntity
+
+  // Idiomatic facade: `client.get_color_by_query.list()` / `client.get_color_by_query.load({ id })`.
+  get get_color_by_query(): GetColorByQueryEntity {
+    return (this._get_color_by_query ??= new GetColorByQueryEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.get_color_by_query` instead. */
   GetColorByQuery(data?: any) {
     const self = this
     return new GetColorByQueryEntity(self,data)

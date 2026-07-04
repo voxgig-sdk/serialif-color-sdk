@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'SerialifColor_types'
+
 
 class SerialifColorSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class SerialifColorSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class SerialifColorSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue SerialifColorError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = SerialifColorHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class SerialifColorSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,22 +198,36 @@ class SerialifColorSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.get_color_by_path.list / client.get_color_by_path.load({ "id" => ... })
+  def get_color_by_path
+    require_relative 'entity/get_color_by_path_entity'
+    @get_color_by_path ||= GetColorByPathEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.get_color_by_path instead.
   def GetColorByPath(data = nil)
     require_relative 'entity/get_color_by_path_entity'
     GetColorByPathEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.get_color_by_query.list / client.get_color_by_query.load({ "id" => ... })
+  def get_color_by_query
+    require_relative 'entity/get_color_by_query_entity'
+    @get_color_by_query ||= GetColorByQueryEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.get_color_by_query instead.
   def GetColorByQuery(data = nil)
     require_relative 'entity/get_color_by_query_entity'
     GetColorByQueryEntity.new(self, data)

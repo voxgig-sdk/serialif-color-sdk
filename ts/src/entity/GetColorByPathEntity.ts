@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  GetColorByPath,
+  GetColorByPathLoadMatch,
+} from '../SerialifColorTypes'
 
 // TODO: needs Entity superclass
-class GetColorByPathEntity extends SerialifColorEntityBase {
+class GetColorByPathEntity extends SerialifColorEntityBase<GetColorByPath> {
 
   constructor(client: SerialifColorSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class GetColorByPathEntity extends SerialifColorEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: GetColorByPathLoadMatch, ctrl?: Control): Promise<GetColorByPath> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class GetColorByPathEntity extends SerialifColorEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<GetColorByPath> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

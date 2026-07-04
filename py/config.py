@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://color.serialif.com",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
@@ -118,6 +115,7 @@ def make_config():
                       "orig": "color",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                 },

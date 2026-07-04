@@ -15,9 +15,6 @@ module SerialifColorConfig
       },
       "options" => {
         "base" => "https://color.serialif.com",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -118,6 +115,7 @@ module SerialifColorConfig
                         "orig" => "color",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },

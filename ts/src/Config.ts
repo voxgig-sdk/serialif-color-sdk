@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://color.serialif.com',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
@@ -149,7 +145,8 @@ class Config {
                     "name": "id",
                     "orig": "color",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },

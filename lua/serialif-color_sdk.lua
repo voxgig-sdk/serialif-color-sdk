@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:get_color_by_path():list() / client:get_color_by_path():load({ id = ... })
+function SerialifColorSDK:get_color_by_path(data)
+  local EntityMod = require("entity.get_color_by_path_entity")
+  if data == nil then
+    if self._get_color_by_path == nil then
+      self._get_color_by_path = EntityMod.new(self, nil)
+    end
+    return self._get_color_by_path
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:get_color_by_path() instead.
 function SerialifColorSDK:GetColorByPath(data)
   local EntityMod = require("entity.get_color_by_path_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:get_color_by_query():list() / client:get_color_by_query():load({ id = ... })
+function SerialifColorSDK:get_color_by_query(data)
+  local EntityMod = require("entity.get_color_by_query_entity")
+  if data == nil then
+    if self._get_color_by_query == nil then
+      self._get_color_by_query = EntityMod.new(self, nil)
+    end
+    return self._get_color_by_query
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:get_color_by_query() instead.
 function SerialifColorSDK:GetColorByQuery(data)
   local EntityMod = require("entity.get_color_by_query_entity")
   return EntityMod.new(self, data)
