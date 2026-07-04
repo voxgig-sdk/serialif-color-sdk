@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## GetColorByPathEntity
 
 ```python
-get_color_by_path = client.get_color_by_path
+get_color_by_path = client.GetColorByPath()
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ get_color_by_path = client.get_color_by_path
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.get_color_by_path.load({"id": "get_color_by_path_id"})
+result = client.GetColorByPath().load({"id": "get_color_by_path_id"})
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ Return the entity name.
 ## GetColorByQueryEntity
 
 ```python
-get_color_by_query = client.get_color_by_query
+get_color_by_query = client.GetColorByQuery()
 ```
 
 ### Fields
@@ -169,7 +169,7 @@ get_color_by_query = client.get_color_by_query
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.get_color_by_query.load({"id": "get_color_by_query_id"})
+result = client.GetColorByQuery().load({"id": "get_color_by_query_id"})
 ```
 
 ### Common Methods

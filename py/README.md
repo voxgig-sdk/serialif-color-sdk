@@ -33,10 +33,12 @@ client = SerialifColorSDK()
 
 ### 3. Load a getcolorbypath
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.getcolorbypath.load({"id": "example_id"})
-    print(result)
+    getcolorbypath = client.GetColorByPath().load({"id": "example_id"})
+    print(getcolorbypath)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = SerialifColorSDK.test()
 
-result = client.getcolorbypath.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+getcolorbypath = client.GetColorByPath().load({"id": "test01"})
+# getcolorbypath contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -247,7 +250,7 @@ API path: `/`
 
 ### GetColorByPath
 
-Create an instance: `const get_color_by_path = client.get_color_by_path`
+Create an instance: `get_color_by_path = client.GetColorByPath()`
 
 #### Operations
 
@@ -272,14 +275,14 @@ Create an instance: `const get_color_by_path = client.get_color_by_path`
 
 #### Example: Load
 
-```ts
-const get_color_by_path = await client.get_color_by_path.load({ id: 'get_color_by_path_id' })
+```python
+get_color_by_path = client.GetColorByPath().load({"id": "get_color_by_path_id"})
 ```
 
 
 ### GetColorByQuery
 
-Create an instance: `const get_color_by_query = client.get_color_by_query`
+Create an instance: `get_color_by_query = client.GetColorByQuery()`
 
 #### Operations
 
@@ -304,8 +307,8 @@ Create an instance: `const get_color_by_query = client.get_color_by_query`
 
 #### Example: Load
 
-```ts
-const get_color_by_query = await client.get_color_by_query.load({ id: 'get_color_by_query_id' })
+```python
+get_color_by_query = client.GetColorByQuery().load({"id": "get_color_by_query_id"})
 ```
 
 
@@ -379,7 +382,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-getcolorbypath = client.getcolorbypath
+getcolorbypath = client.GetColorByPath()
 getcolorbypath.load({"id": "example_id"})
 
 # getcolorbypath.data_get() now returns the loaded getcolorbypath data

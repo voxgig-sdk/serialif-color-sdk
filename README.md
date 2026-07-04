@@ -26,9 +26,9 @@ import { SerialifColorSDK } from '@voxgig-sdk/serialif-color'
 
 const client = new SerialifColorSDK()
 
-// Load getcolorbypath data
-const getcolorbypath = await client.getcolorbypath.load({})
-console.log(getcolorbypath.data)
+// Load getcolorbypath data (returns a GetColorByPath)
+const getcolorbypath = await client.GetColorByPath().load()
+console.log(getcolorbypath)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,8 +85,8 @@ from serialifcolor_sdk import SerialifColorSDK
 client = SerialifColorSDK()
 
 
-# Load a specific getcolorbypath
-getcolorbypath = client.getcolorbypath.load({"id": "example_id"})
+# Load a specific getcolorbypath (returns the record, raises on error)
+getcolorbypath = client.GetColorByPath().load({"id": "example_id"})
 print(getcolorbypath)
 ```
 
@@ -99,8 +99,8 @@ require_once 'serialifcolor_sdk.php';
 $client = new SerialifColorSDK();
 
 
-// Load a specific getcolorbypath
-$getcolorbypath = $client->getcolorbypath()->load(["id" => "example_id"]);
+// Load a specific getcolorbypath (returns the bare record; throws on error)
+$getcolorbypath = $client->GetColorByPath()->load(["id" => "example_id"]);
 print_r($getcolorbypath);
 ```
 
@@ -124,8 +124,8 @@ require_relative "SerialifColor_sdk"
 client = SerialifColorSDK.new
 
 
-# Load a specific getcolorbypath
-getcolorbypath = client.getcolorbypath.load({ "id" => "example_id" })
+# Load a specific getcolorbypath (returns the bare record; raises on error)
+getcolorbypath = client.GetColorByPath.load({ "id" => "example_id" })
 puts getcolorbypath
 ```
 
@@ -138,7 +138,7 @@ local client = sdk.new()
 
 
 -- Load a specific getcolorbypath
-local getcolorbypath, err = client:getcolorbypath():load({ id = "example_id" })
+local getcolorbypath, err = client:GetColorByPath():load({ id = "example_id" })
 print(getcolorbypath)
 ```
 
@@ -151,22 +151,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = SerialifColorSDK.test()
-const result = await client.getcolorbypath.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const getcolorbypath = await client.GetColorByPath().load({ id: 'test01' })
+// getcolorbypath is a bare GetColorByPath populated with mock data
+console.log(getcolorbypath)
 ```
 
 ### Python
 
 ```python
 client = SerialifColorSDK.test()
-result = client.getcolorbypath.load({"id": "test01"})
+getcolorbypath = client.GetColorByPath().load({"id": "test01"})
+print(getcolorbypath)
 ```
 
 ### PHP
 
 ```php
-$client = SerialifColorSDK::test();
-$result = $client->getcolorbypath()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = SerialifColorSDK::test([
+    "entity" => ["getcolorbypath" => ["test01" => ["id" => "test01"]]],
+]);
+$getcolorbypath = $client->GetColorByPath()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -181,15 +186,18 @@ result, err := client.GetColorByPath(nil).Load(
 ### Ruby
 
 ```ruby
-client = SerialifColorSDK.test
-result = client.getcolorbypath.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = SerialifColorSDK.test({
+  "entity" => { "getcolorbypath" => { "test01" => { "id" => "test01" } } },
+})
+getcolorbypath = client.GetColorByPath.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:getcolorbypath():load({ id = "test01" })
+local result, err = client:GetColorByPath():load({ id = "test01" })
 ```
 
 ## How it works
@@ -237,6 +245,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

@@ -220,41 +220,21 @@ class SerialifColorSDK:
         }
 
 
-    @property
-    def get_color_by_path(self):
-        """Idiomatic facade: client.get_color_by_path.list() / client.get_color_by_path.load({"id": ...})."""
-        from entity.get_color_by_path_entity import GetColorByPathEntity
-        cached = getattr(self, "_get_color_by_path", None)
-        if cached is None:
-            cached = GetColorByPathEntity(self, None)
-            self._get_color_by_path = cached
-        return cached
-
-    def GetColorByPath(self, data=None):
-        # Deprecated: use client.get_color_by_path instead.
+    def GetColorByPath(self, data=None) -> "GetColorByPathEntity":
+        """Entity factory: client.GetColorByPath().list({}) / client.GetColorByPath().load({"id": ...})."""
         from entity.get_color_by_path_entity import GetColorByPathEntity
         return GetColorByPathEntity(self, data)
 
 
-    @property
-    def get_color_by_query(self):
-        """Idiomatic facade: client.get_color_by_query.list() / client.get_color_by_query.load({"id": ...})."""
-        from entity.get_color_by_query_entity import GetColorByQueryEntity
-        cached = getattr(self, "_get_color_by_query", None)
-        if cached is None:
-            cached = GetColorByQueryEntity(self, None)
-            self._get_color_by_query = cached
-        return cached
-
-    def GetColorByQuery(self, data=None):
-        # Deprecated: use client.get_color_by_query instead.
+    def GetColorByQuery(self, data=None) -> "GetColorByQueryEntity":
+        """Entity factory: client.GetColorByQuery().list({}) / client.GetColorByQuery().load({"id": ...})."""
         from entity.get_color_by_query_entity import GetColorByQueryEntity
         return GetColorByQueryEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "SerialifColorSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class SerialifColorSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.get_color_by_path_entity import GetColorByPathEntity
+    from entity.get_color_by_query_entity import GetColorByQueryEntity

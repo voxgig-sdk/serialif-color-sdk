@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## GetColorByPathEntity
 
 ```lua
-local get_color_by_path = client:get_color_by_path(nil)
+local get_color_by_path = client:GetColorByPath(nil)
 ```
 
 ### Fields
@@ -112,7 +112,7 @@ local get_color_by_path = client:get_color_by_path(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:get_color_by_path():load({ id = "get_color_by_path_id" })
+local result, err = client:GetColorByPath():load({ id = "get_color_by_path_id" })
 ```
 
 ### Common Methods
@@ -148,7 +148,7 @@ Return the entity name.
 ## GetColorByQueryEntity
 
 ```lua
-local get_color_by_query = client:get_color_by_query(nil)
+local get_color_by_query = client:GetColorByQuery(nil)
 ```
 
 ### Fields
@@ -173,7 +173,7 @@ local get_color_by_query = client:get_color_by_query(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:get_color_by_query():load({ id = "get_color_by_query_id" })
+local result, err = client:GetColorByQuery():load({ id = "get_color_by_query_id" })
 ```
 
 ### Common Methods

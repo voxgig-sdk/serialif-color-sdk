@@ -233,10 +233,10 @@ class SerialifColorSDK
 
     private $_get_color_by_path = null;
 
-    // Idiomatic facade: $client->get_color_by_path()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GetColorByPath() (PHP method
-    // names are case-insensitive).
-    public function get_color_by_path($data = null)
+    // Canonical facade: $client->GetColorByPath()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get_color_by_path()
+    // resolves here too.
+    public function GetColorByPath($data = null)
     {
         require_once __DIR__ . '/entity/get_color_by_path_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class SerialifColorSDK
 
     private $_get_color_by_query = null;
 
-    // Idiomatic facade: $client->get_color_by_query()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GetColorByQuery() (PHP method
-    // names are case-insensitive).
-    public function get_color_by_query($data = null)
+    // Canonical facade: $client->GetColorByQuery()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get_color_by_query()
+    // resolves here too.
+    public function GetColorByQuery($data = null)
     {
         require_once __DIR__ . '/entity/get_color_by_query_entity.php';
         if ($data === null) {

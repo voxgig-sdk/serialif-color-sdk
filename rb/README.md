@@ -32,8 +32,9 @@ client = SerialifColorSDK.new
 
 ```ruby
 begin
-  result = client.getcolorbypath.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare GetColorByPath record (raises on error).
+  getcolorbypath = client.GetColorByPath.load({ "id" => "example_id" })
+  puts getcolorbypath
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = SerialifColorSDK.test
+client = SerialifColorSDK.test({
+  "entity" => { "getcolorbypath" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.getcolorbypath.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+getcolorbypath = client.GetColorByPath.load({ "id" => "test01" })
+puts getcolorbypath
 ```
 
 ### Use a custom fetch function
@@ -247,7 +252,7 @@ API path: `/`
 
 ### GetColorByPath
 
-Create an instance: `const get_color_by_path = client.get_color_by_path`
+Create an instance: `get_color_by_path = client.GetColorByPath`
 
 #### Operations
 
@@ -272,14 +277,15 @@ Create an instance: `const get_color_by_path = client.get_color_by_path`
 
 #### Example: Load
 
-```ts
-const get_color_by_path = await client.get_color_by_path.load({ id: 'get_color_by_path_id' })
+```ruby
+# load returns the bare GetColorByPath record (raises on error).
+get_color_by_path = client.GetColorByPath.load({ "id" => "get_color_by_path_id" })
 ```
 
 
 ### GetColorByQuery
 
-Create an instance: `const get_color_by_query = client.get_color_by_query`
+Create an instance: `get_color_by_query = client.GetColorByQuery`
 
 #### Operations
 
@@ -304,8 +310,9 @@ Create an instance: `const get_color_by_query = client.get_color_by_query`
 
 #### Example: Load
 
-```ts
-const get_color_by_query = await client.get_color_by_query.load({ id: 'get_color_by_query_id' })
+```ruby
+# load returns the bare GetColorByQuery record (raises on error).
+get_color_by_query = client.GetColorByQuery.load({ "id" => "get_color_by_query_id" })
 ```
 
 
@@ -380,7 +387,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-getcolorbypath = client.getcolorbypath
+getcolorbypath = client.GetColorByPath
 getcolorbypath.load({ "id" => "example_id" })
 
 # getcolorbypath.data_get now returns the loaded getcolorbypath data

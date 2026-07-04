@@ -208,26 +208,14 @@ class SerialifColorSDK
   end
 
 
-  # Idiomatic facade: client.get_color_by_path.list / client.get_color_by_path.load({ "id" => ... })
-  def get_color_by_path
-    require_relative 'entity/get_color_by_path_entity'
-    @get_color_by_path ||= GetColorByPathEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.get_color_by_path instead.
+  # Canonical facade: client.GetColorByPath.list / client.GetColorByPath.load({ "id" => ... })
   def GetColorByPath(data = nil)
     require_relative 'entity/get_color_by_path_entity'
     GetColorByPathEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.get_color_by_query.list / client.get_color_by_query.load({ "id" => ... })
-  def get_color_by_query
-    require_relative 'entity/get_color_by_query_entity'
-    @get_color_by_query ||= GetColorByQueryEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.get_color_by_query instead.
+  # Canonical facade: client.GetColorByQuery.list / client.GetColorByQuery.load({ "id" => ... })
   def GetColorByQuery(data = nil)
     require_relative 'entity/get_color_by_query_entity'
     GetColorByQueryEntity.new(self, data)

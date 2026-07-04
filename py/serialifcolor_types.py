@@ -4,56 +4,62 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class GetColorByPath:
+class GetColorByPathRequired(TypedDict):
     status: str
-    base: Optional[dict] = None
-    base_without_alpha: Optional[dict] = None
-    base_without_alpha_contrasted_text: Optional[dict] = None
-    complementary: Optional[dict] = None
-    complementary_without_alpha: Optional[dict] = None
-    complementary_without_alpha_contrasted_text: Optional[dict] = None
-    grayscale: Optional[dict] = None
-    grayscale_without_alpha: Optional[dict] = None
-    grayscale_without_alpha_contrasted_text: Optional[dict] = None
 
 
-@dataclass
-class GetColorByPathLoadMatch:
+class GetColorByPath(GetColorByPathRequired, total=False):
+    base: dict
+    base_without_alpha: dict
+    base_without_alpha_contrasted_text: dict
+    complementary: dict
+    complementary_without_alpha: dict
+    complementary_without_alpha_contrasted_text: dict
+    grayscale: dict
+    grayscale_without_alpha: dict
+    grayscale_without_alpha_contrasted_text: dict
+
+
+class GetColorByPathLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class GetColorByQuery:
+class GetColorByQueryRequired(TypedDict):
     status: str
-    base: Optional[dict] = None
-    base_without_alpha: Optional[dict] = None
-    base_without_alpha_contrasted_text: Optional[dict] = None
-    complementary: Optional[dict] = None
-    complementary_without_alpha: Optional[dict] = None
-    complementary_without_alpha_contrasted_text: Optional[dict] = None
-    grayscale: Optional[dict] = None
-    grayscale_without_alpha: Optional[dict] = None
-    grayscale_without_alpha_contrasted_text: Optional[dict] = None
 
 
-@dataclass
-class GetColorByQueryLoadMatch:
-    base: Optional[dict] = None
-    base_without_alpha: Optional[dict] = None
-    base_without_alpha_contrasted_text: Optional[dict] = None
-    complementary: Optional[dict] = None
-    complementary_without_alpha: Optional[dict] = None
-    complementary_without_alpha_contrasted_text: Optional[dict] = None
-    grayscale: Optional[dict] = None
-    grayscale_without_alpha: Optional[dict] = None
-    grayscale_without_alpha_contrasted_text: Optional[dict] = None
-    status: Optional[str] = None
+class GetColorByQuery(GetColorByQueryRequired, total=False):
+    base: dict
+    base_without_alpha: dict
+    base_without_alpha_contrasted_text: dict
+    complementary: dict
+    complementary_without_alpha: dict
+    complementary_without_alpha_contrasted_text: dict
+    grayscale: dict
+    grayscale_without_alpha: dict
+    grayscale_without_alpha_contrasted_text: dict
 
+
+class GetColorByQueryLoadMatch(TypedDict, total=False):
+    base: dict
+    base_without_alpha: dict
+    base_without_alpha_contrasted_text: dict
+    complementary: dict
+    complementary_without_alpha: dict
+    complementary_without_alpha_contrasted_text: dict
+    grayscale: dict
+    grayscale_without_alpha: dict
+    grayscale_without_alpha_contrasted_text: dict
+    status: str
