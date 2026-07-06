@@ -128,16 +128,16 @@ const get_color_by_path = client.GetColorByPath()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `Record<string, any>` | No |  |
+| `base_without_alpha` | `Record<string, any>` | No |  |
+| `base_without_alpha_contrasted_text` | `Record<string, any>` | No |  |
+| `complementary` | `Record<string, any>` | No |  |
+| `complementary_without_alpha` | `Record<string, any>` | No |  |
+| `complementary_without_alpha_contrasted_text` | `Record<string, any>` | No |  |
+| `grayscale` | `Record<string, any>` | No |  |
+| `grayscale_without_alpha` | `Record<string, any>` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `Record<string, any>` | No |  |
+| `status` | `string` | Yes |  |
 
 ### Operations
 
@@ -187,16 +187,16 @@ const get_color_by_query = client.GetColorByQuery()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `Record<string, any>` | No |  |
+| `base_without_alpha` | `Record<string, any>` | No |  |
+| `base_without_alpha_contrasted_text` | `Record<string, any>` | No |  |
+| `complementary` | `Record<string, any>` | No |  |
+| `complementary_without_alpha` | `Record<string, any>` | No |  |
+| `complementary_without_alpha_contrasted_text` | `Record<string, any>` | No |  |
+| `grayscale` | `Record<string, any>` | No |  |
+| `grayscale_without_alpha` | `Record<string, any>` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `Record<string, any>` | No |  |
+| `status` | `string` | Yes |  |
 
 ### Operations
 
@@ -205,7 +205,7 @@ const get_color_by_query = client.GetColorByQuery()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetColorByQuery().load({ id: 'get_color_by_query_id' })
+const result = await client.GetColorByQuery().load()
 ```
 
 ### Common Methods

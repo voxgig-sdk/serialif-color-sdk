@@ -94,16 +94,16 @@ local get_color_by_path = client:GetColorByPath(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `table` | No |  |
+| `base_without_alpha` | `table` | No |  |
+| `base_without_alpha_contrasted_text` | `table` | No |  |
+| `complementary` | `table` | No |  |
+| `complementary_without_alpha` | `table` | No |  |
+| `complementary_without_alpha_contrasted_text` | `table` | No |  |
+| `grayscale` | `table` | No |  |
+| `grayscale_without_alpha` | `table` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `table` | No |  |
+| `status` | `string` | Yes |  |
 
 ### Operations
 
@@ -155,16 +155,16 @@ local get_color_by_query = client:GetColorByQuery(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `table` | No |  |
+| `base_without_alpha` | `table` | No |  |
+| `base_without_alpha_contrasted_text` | `table` | No |  |
+| `complementary` | `table` | No |  |
+| `complementary_without_alpha` | `table` | No |  |
+| `complementary_without_alpha_contrasted_text` | `table` | No |  |
+| `grayscale` | `table` | No |  |
+| `grayscale_without_alpha` | `table` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `table` | No |  |
+| `status` | `string` | Yes |  |
 
 ### Operations
 
@@ -173,7 +173,7 @@ local get_color_by_query = client:GetColorByQuery(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GetColorByQuery():load({ id = "get_color_by_query_id" })
+local result, err = client:GetColorByQuery():load()
 ```
 
 ### Common Methods

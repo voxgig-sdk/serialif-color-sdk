@@ -221,13 +221,13 @@ class SerialifColorSDK:
 
 
     def GetColorByPath(self, data=None) -> "GetColorByPathEntity":
-        """Entity factory: client.GetColorByPath().list({}) / client.GetColorByPath().load({"id": ...})."""
+        """Entity factory: client.GetColorByPath().list() / client.GetColorByPath().load({"id": ...})."""
         from entity.get_color_by_path_entity import GetColorByPathEntity
         return GetColorByPathEntity(self, data)
 
 
     def GetColorByQuery(self, data=None) -> "GetColorByQueryEntity":
-        """Entity factory: client.GetColorByQuery().list({}) / client.GetColorByQuery().load({"id": ...})."""
+        """Entity factory: client.GetColorByQuery().list() / client.GetColorByQuery().load({"id": ...})."""
         from entity.get_color_by_query_entity import GetColorByQueryEntity
         return GetColorByQueryEntity(self, data)
 

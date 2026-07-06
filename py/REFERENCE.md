@@ -8,7 +8,7 @@ Complete API reference for the SerialifColor Python SDK.
 ### Constructor
 
 ```python
-from serialif-color_sdk import SerialifColorSDK
+from serialifcolor_sdk import SerialifColorSDK
 
 client = SerialifColorSDK(options)
 ```
@@ -91,16 +91,16 @@ get_color_by_path = client.GetColorByPath()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `dict` | No |  |
+| `base_without_alpha` | `dict` | No |  |
+| `base_without_alpha_contrasted_text` | `dict` | No |  |
+| `complementary` | `dict` | No |  |
+| `complementary_without_alpha` | `dict` | No |  |
+| `complementary_without_alpha_contrasted_text` | `dict` | No |  |
+| `grayscale` | `dict` | No |  |
+| `grayscale_without_alpha` | `dict` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `dict` | No |  |
+| `status` | `str` | Yes |  |
 
 ### Operations
 
@@ -151,16 +151,16 @@ get_color_by_query = client.GetColorByQuery()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `dict` | No |  |
+| `base_without_alpha` | `dict` | No |  |
+| `base_without_alpha_contrasted_text` | `dict` | No |  |
+| `complementary` | `dict` | No |  |
+| `complementary_without_alpha` | `dict` | No |  |
+| `complementary_without_alpha_contrasted_text` | `dict` | No |  |
+| `grayscale` | `dict` | No |  |
+| `grayscale_without_alpha` | `dict` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `dict` | No |  |
+| `status` | `str` | Yes |  |
 
 ### Operations
 
@@ -169,7 +169,7 @@ get_color_by_query = client.GetColorByQuery()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GetColorByQuery().load({"id": "get_color_by_query_id"})
+result = client.GetColorByQuery().load()
 ```
 
 ### Common Methods

@@ -8,7 +8,7 @@ Complete API reference for the SerialifColor Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'serialif-color_sdk'
+require_relative 'SerialifColor_sdk'
 
 client = SerialifColorSDK.new(options)
 ```
@@ -97,16 +97,16 @@ get_color_by_path = client.GetColorByPath
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `Hash` | No |  |
+| `base_without_alpha` | `Hash` | No |  |
+| `base_without_alpha_contrasted_text` | `Hash` | No |  |
+| `complementary` | `Hash` | No |  |
+| `complementary_without_alpha` | `Hash` | No |  |
+| `complementary_without_alpha_contrasted_text` | `Hash` | No |  |
+| `grayscale` | `Hash` | No |  |
+| `grayscale_without_alpha` | `Hash` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `Hash` | No |  |
+| `status` | `String` | Yes |  |
 
 ### Operations
 
@@ -158,16 +158,16 @@ get_color_by_query = client.GetColorByQuery
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `Hash` | No |  |
+| `base_without_alpha` | `Hash` | No |  |
+| `base_without_alpha_contrasted_text` | `Hash` | No |  |
+| `complementary` | `Hash` | No |  |
+| `complementary_without_alpha` | `Hash` | No |  |
+| `complementary_without_alpha_contrasted_text` | `Hash` | No |  |
+| `grayscale` | `Hash` | No |  |
+| `grayscale_without_alpha` | `Hash` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `Hash` | No |  |
+| `status` | `String` | Yes |  |
 
 ### Operations
 
@@ -176,7 +176,7 @@ get_color_by_query = client.GetColorByQuery
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.GetColorByQuery.load({ "id" => "get_color_by_query_id" })
+result = client.GetColorByQuery.load()
 ```
 
 ### Common Methods

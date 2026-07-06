@@ -34,6 +34,16 @@
 ---@field status string
 
 ---@class GetColorByQueryLoadMatch
+---@field base? table
+---@field base_without_alpha? table
+---@field base_without_alpha_contrasted_text? table
+---@field complementary? table
+---@field complementary_without_alpha? table
+---@field complementary_without_alpha_contrasted_text? table
+---@field grayscale? table
+---@field grayscale_without_alpha? table
+---@field grayscale_without_alpha_contrasted_text? table
+---@field status? string
 
 local M = {}
 

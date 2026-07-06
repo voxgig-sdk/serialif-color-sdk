@@ -107,7 +107,7 @@ GetColorByQuery = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetColorByQuery#load (any subset of GetColorByQuery fields).
+# Request payload for GetColorByQuery#load.
 #
 # @!attribute [rw] base
 #   @return [Hash, nil]

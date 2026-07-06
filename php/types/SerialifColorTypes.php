@@ -48,7 +48,7 @@ class GetColorByQuery
     public string $status;
 }
 
-/** Match filter for GetColorByQuery#load (any subset of GetColorByQuery fields). */
+/** Request payload for GetColorByQuery#load. */
 class GetColorByQueryLoadMatch
 {
     public ?array $base = null;

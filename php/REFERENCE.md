@@ -8,7 +8,7 @@ Complete API reference for the SerialifColor PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/serialif-color_sdk.php';
+require_once __DIR__ . '/serialifcolor_sdk.php';
 
 $client = new SerialifColorSDK($options);
 ```
@@ -49,11 +49,11 @@ Create a new `GetColorByPathEntity` instance. Pass `null` for no initial data.
 
 Create a new `GetColorByQueryEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): SerialifColorUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,16 +96,16 @@ $get_color_by_path = $client->GetColorByPath();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `array` | No |  |
+| `base_without_alpha` | `array` | No |  |
+| `base_without_alpha_contrasted_text` | `array` | No |  |
+| `complementary` | `array` | No |  |
+| `complementary_without_alpha` | `array` | No |  |
+| `complementary_without_alpha_contrasted_text` | `array` | No |  |
+| `grayscale` | `array` | No |  |
+| `grayscale_without_alpha` | `array` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `array` | No |  |
+| `status` | `string` | Yes |  |
 
 ### Operations
 
@@ -119,19 +119,19 @@ $result = $client->GetColorByPath()->load(["id" => "get_color_by_path_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -140,7 +140,7 @@ Set the entity match criteria.
 Create a new `GetColorByPathEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -157,16 +157,16 @@ $get_color_by_query = $client->GetColorByQuery();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `array` | No |  |
+| `base_without_alpha` | `array` | No |  |
+| `base_without_alpha_contrasted_text` | `array` | No |  |
+| `complementary` | `array` | No |  |
+| `complementary_without_alpha` | `array` | No |  |
+| `complementary_without_alpha_contrasted_text` | `array` | No |  |
+| `grayscale` | `array` | No |  |
+| `grayscale_without_alpha` | `array` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `array` | No |  |
+| `status` | `string` | Yes |  |
 
 ### Operations
 
@@ -175,24 +175,24 @@ $get_color_by_query = $client->GetColorByQuery();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->GetColorByQuery()->load(["id" => "get_color_by_query_id"]);
+$result = $client->GetColorByQuery()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -201,7 +201,7 @@ Set the entity match criteria.
 Create a new `GetColorByQueryEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

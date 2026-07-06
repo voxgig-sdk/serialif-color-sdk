@@ -41,8 +41,7 @@ type GetColorByQuery struct {
 	Status string `json:"status"`
 }
 
-// GetColorByQueryLoadMatch mirrors the get_color_by_query fields as an all-optional match
-// filter (Go analog of Partial<GetColorByQuery>).
+// GetColorByQueryLoadMatch is the typed request payload for GetColorByQuery.LoadTyped.
 type GetColorByQueryLoadMatch struct {
 	Base *map[string]any `json:"base,omitempty"`
 	BaseWithoutAlpha *map[string]any `json:"base_without_alpha,omitempty"`

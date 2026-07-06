@@ -101,16 +101,16 @@ get_color_by_path := client.GetColorByPath(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `map[string]any` | No |  |
+| `base_without_alpha` | `map[string]any` | No |  |
+| `base_without_alpha_contrasted_text` | `map[string]any` | No |  |
+| `complementary` | `map[string]any` | No |  |
+| `complementary_without_alpha` | `map[string]any` | No |  |
+| `complementary_without_alpha_contrasted_text` | `map[string]any` | No |  |
+| `grayscale` | `map[string]any` | No |  |
+| `grayscale_without_alpha` | `map[string]any` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `map[string]any` | No |  |
+| `status` | `string` | Yes |  |
 
 ### Operations
 
@@ -156,16 +156,16 @@ get_color_by_query := client.GetColorByQuery(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | ``$OBJECT`` | No |  |
-| `base_without_alpha` | ``$OBJECT`` | No |  |
-| `base_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `complementary` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha` | ``$OBJECT`` | No |  |
-| `complementary_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `grayscale` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha` | ``$OBJECT`` | No |  |
-| `grayscale_without_alpha_contrasted_text` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
+| `base` | `map[string]any` | No |  |
+| `base_without_alpha` | `map[string]any` | No |  |
+| `base_without_alpha_contrasted_text` | `map[string]any` | No |  |
+| `complementary` | `map[string]any` | No |  |
+| `complementary_without_alpha` | `map[string]any` | No |  |
+| `complementary_without_alpha_contrasted_text` | `map[string]any` | No |  |
+| `grayscale` | `map[string]any` | No |  |
+| `grayscale_without_alpha` | `map[string]any` | No |  |
+| `grayscale_without_alpha_contrasted_text` | `map[string]any` | No |  |
+| `status` | `string` | Yes |  |
 
 ### Operations
 
@@ -174,7 +174,7 @@ get_color_by_query := client.GetColorByQuery(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GetColorByQuery(nil).Load(map[string]any{"id": "get_color_by_query_id"}, nil)
+result, err := client.GetColorByQuery(nil).Load(nil, nil)
 ```
 
 ### Common Methods
