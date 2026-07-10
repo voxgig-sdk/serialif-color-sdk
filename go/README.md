@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // Load a single getcolorbypath — the value is the loaded record.
-    getcolorbypath, err := client.GetColorByPath(nil).Load(map[string]any{"id": "example"}, nil)
+    // Load a single getColorByPath — the value is the loaded record.
+    getColorByPath, err := client.GetColorByPath(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(getcolorbypath)
+    fmt.Println(getColorByPath)
 }
 ```
 
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-getcolorbypath, err := client.GetColorByPath(nil).Load(
+getColorByPath, err := client.GetColorByPath(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(getcolorbypath) // the returned mock data
+fmt.Println(getColorByPath) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -246,9 +246,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    getcolorbypath, err := client.GetColorByPath(nil).Load(map[string]any{"id": "example_id"}, nil)
+    getColorByPath, err := client.GetColorByPath(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil { /* handle */ }
-    // getcolorbypath is the returned record
+    // getColorByPath is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -300,7 +300,7 @@ API path: `/`
 
 ### GetColorByPath
 
-Create an instance: `get_color_by_path := client.GetColorByPath(nil)`
+Create an instance: `getColorByPath := client.GetColorByPath(nil)`
 
 #### Operations
 
@@ -326,17 +326,17 @@ Create an instance: `get_color_by_path := client.GetColorByPath(nil)`
 #### Example: Load
 
 ```go
-get_color_by_path, err := client.GetColorByPath(nil).Load(map[string]any{"id": "get_color_by_path_id"}, nil)
+getColorByPath, err := client.GetColorByPath(nil).Load(map[string]any{"id": "get_color_by_path_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(get_color_by_path) // the loaded record
+fmt.Println(getColorByPath) // the loaded record
 ```
 
 
 ### GetColorByQuery
 
-Create an instance: `get_color_by_query := client.GetColorByQuery(nil)`
+Create an instance: `getColorByQuery := client.GetColorByQuery(nil)`
 
 #### Operations
 
@@ -362,11 +362,11 @@ Create an instance: `get_color_by_query := client.GetColorByQuery(nil)`
 #### Example: Load
 
 ```go
-get_color_by_query, err := client.GetColorByQuery(nil).Load(nil, nil)
+getColorByQuery, err := client.GetColorByQuery(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(get_color_by_query) // the loaded record
+fmt.Println(getColorByQuery) // the loaded record
 ```
 
 

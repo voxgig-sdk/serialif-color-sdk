@@ -94,7 +94,8 @@ same parameters as `Direct()`.
 ## GetColorByPathEntity
 
 ```go
-get_color_by_path := client.GetColorByPath(nil)
+getColorByPath := client.GetColorByPath(nil)
+fmt.Println(getColorByPath.GetName()) // "get_color_by_path"
 ```
 
 ### Fields
@@ -120,6 +121,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.GetColorByPath(nil).Load(map[string]any{"id": "get_color_by_path_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -149,7 +154,8 @@ Return the entity name.
 ## GetColorByQueryEntity
 
 ```go
-get_color_by_query := client.GetColorByQuery(nil)
+getColorByQuery := client.GetColorByQuery(nil)
+fmt.Println(getColorByQuery.GetName()) // "get_color_by_query"
 ```
 
 ### Fields
@@ -175,6 +181,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.GetColorByQuery(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

@@ -16,9 +16,9 @@ main: {
           url: "https://color.serialif.com"
         }
       ]
+      summary: "Get requested color, complementary color, grayscale, and corresponding text color in different formats."
       title: "Serialif Color API"
       version: "1.0.0"
+      website: "https://color.serialif.com"
     }
   }
-}
-

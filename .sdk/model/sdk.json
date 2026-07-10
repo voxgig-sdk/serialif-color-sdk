@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -460,14 +457,17 @@
           "url": "https://color.serialif.com/"
         },
         "description": "Get requested color, complementary color, grayscale, and corresponding text color in different formats. Supports Keyword, HEX, RGB/RGBA, and HSL/HSLA color formats.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://color.serialif.com"
           }
         ],
+        "summary": "Get requested color, complementary color, grayscale, and corresponding text color in different formats.",
         "title": "Serialif Color API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://color.serialif.com"
       },
       "option": {},
       "target": {
@@ -520,6 +520,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -570,6 +573,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
