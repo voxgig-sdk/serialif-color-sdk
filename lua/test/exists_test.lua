@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- SerialifColor SDK exists test
 
 local sdk = require("serialif-color_sdk")
 
