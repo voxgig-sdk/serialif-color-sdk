@@ -124,6 +124,7 @@ class SerialifColorConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/{color}',
                   'parts' => [
@@ -292,6 +293,7 @@ class SerialifColorConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/',
                   'parts' => [],

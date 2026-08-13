@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import SerialifColorControl
-from core.error import SerialifColorError
-from core.result import SerialifColorResult
-from core.spec import SerialifColorSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import SerialifColorControl
+from projectname_sdk.core.error import SerialifColorError
+from projectname_sdk.core.result import SerialifColorResult
+from projectname_sdk.core.spec import SerialifColorSpec
 
 
 # True when this SDK was generated with the named feature.

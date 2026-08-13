@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ SerialifColorUtility::setRegistrar(function (SerialifColorUtility $u): void {
     $u->prepare_params = [SerialifColorPrepareParams::class, 'call'];
     $u->prepare_path = [SerialifColorPreparePath::class, 'call'];
     $u->prepare_query = [SerialifColorPrepareQuery::class, 'call'];
+    $u->graphql_body = [SerialifColorGraphql::class, 'body'];
+    $u->graphql_errors = [SerialifColorGraphql::class, 'errors'];
     $u->result_basic = [SerialifColorResultBasic::class, 'call'];
     $u->result_body = [SerialifColorResultBody::class, 'call'];
     $u->result_headers = [SerialifColorResultHeaders::class, 'call'];

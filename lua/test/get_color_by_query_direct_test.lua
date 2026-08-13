@@ -60,11 +60,11 @@ function get_color_by_query_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID"] = {},
-    ["SERIALIFCOLOR_TEST_LIVE"] = "FALSE",
+    ["SERIALIF_COLOR_TEST_GET_COLOR_BY_QUERY_ENTID"] = {},
+    ["SERIALIF_COLOR_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["SERIALIFCOLOR_TEST_LIVE"] == "TRUE"
+  local live = env["SERIALIF_COLOR_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

@@ -119,6 +119,7 @@ module SerialifColorConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{color}",
                   "parts" => [
@@ -287,6 +288,7 @@ module SerialifColorConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/",
                   "parts" => [],

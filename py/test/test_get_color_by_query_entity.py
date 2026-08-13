@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from serialifcolor_sdk.utility.voxgig_struct import voxgig_struct as vs
 from serialifcolor_sdk import SerialifColorSDK
-from core import helpers
+from serialifcolor_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -36,7 +36,7 @@ class TestGetColorByQueryEntity:
         # without an *_ENTID env override, those IDs hit the live API and 4xx.
         if setup.get("synthetic_only"):
             pytest.skip("live entity test uses synthetic IDs from fixture — "
-                        "set SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID JSON to run live")
+                        "set SERIALIF_COLOR_TEST_GET_COLOR_BY_QUERY_ENTID JSON to run live")
         client = setup["client"]
 
         # Bootstrap entity data from existing test data.
@@ -83,21 +83,21 @@ def _get_color_by_query_basic_setup(extra):
     # mode is on without a real override, the basic test runs against synthetic
     # IDs from the fixture and 4xx's. We surface this so the test can skip.
     _entid_env_raw = os.environ.get(
-        "SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID")
+        "SERIALIF_COLOR_TEST_GET_COLOR_BY_QUERY_ENTID")
     _idmap_overridden = _entid_env_raw is not None and _entid_env_raw.strip().startswith("{")
 
     env = runner.env_override({
-        "SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID": idmap,
-        "SERIALIFCOLOR_TEST_LIVE": "FALSE",
-        "SERIALIFCOLOR_TEST_EXPLAIN": "FALSE",
+        "SERIALIF_COLOR_TEST_GET_COLOR_BY_QUERY_ENTID": idmap,
+        "SERIALIF_COLOR_TEST_LIVE": "FALSE",
+        "SERIALIF_COLOR_TEST_EXPLAIN": "FALSE",
     })
 
     idmap_resolved = helpers.to_map(
-        env.get("SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID"))
+        env.get("SERIALIF_COLOR_TEST_GET_COLOR_BY_QUERY_ENTID"))
     if idmap_resolved is None:
         idmap_resolved = helpers.to_map(idmap)
 
-    if env.get("SERIALIFCOLOR_TEST_LIVE") == "TRUE":
+    if env.get("SERIALIF_COLOR_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
             },
@@ -105,13 +105,13 @@ def _get_color_by_query_basic_setup(extra):
         ])
         client = SerialifColorSDK(helpers.to_map(merged_opts))
 
-    _live = env.get("SERIALIFCOLOR_TEST_LIVE") == "TRUE"
+    _live = env.get("SERIALIF_COLOR_TEST_LIVE") == "TRUE"
     return {
         "client": client,
         "data": entity_data,
         "idmap": idmap_resolved,
         "env": env,
-        "explain": env.get("SERIALIFCOLOR_TEST_EXPLAIN") == "TRUE",
+        "explain": env.get("SERIALIF_COLOR_TEST_EXPLAIN") == "TRUE",
         "live": _live,
         "synthetic_only": _live and not _idmap_overridden,
         "now": int(time.time() * 1000),

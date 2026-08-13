@@ -16,11 +16,11 @@
 import pytest
 
 from serialifcolor_sdk import SerialifColorSDK
-from core.error import SerialifColorError
-from core.result import SerialifColorResult
-from core.response import SerialifColorResponse
-from core.spec import SerialifColorSpec
-from feature.base_feature import SerialifColorBaseFeature
+from serialifcolor_sdk.core.error import SerialifColorError
+from serialifcolor_sdk.core.result import SerialifColorResult
+from serialifcolor_sdk.core.response import SerialifColorResponse
+from serialifcolor_sdk.core.spec import SerialifColorSpec
+from serialifcolor_sdk.feature.base_feature import SerialifColorBaseFeature
 
 
 def _client():

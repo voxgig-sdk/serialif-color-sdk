@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = SerialifColorSDK.test()
 
 const getcolorbypath = await client.GetColorByPath().load({ id: 'test01' })
-// getcolorbypath is a bare entity populated with mock response data
+// getcolorbypath is the entity, populated with mock response data
+// — call getcolorbypath.data() for the record itself
 console.log(getcolorbypath)
 ```
 

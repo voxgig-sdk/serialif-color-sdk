@@ -23,8 +23,8 @@ module SerialifColorTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("SERIALIFCOLOR_TEST_LIVE")
-    override = getenv("SERIALIFCOLOR_TEST_OVERRIDE")
+    live = getenv("SERIALIF_COLOR_TEST_LIVE")
+    override = getenv("SERIALIF_COLOR_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module SerialifColorTestRunner
       end
     end
 
-    explain = getenv("SERIALIFCOLOR_TEST_EXPLAIN")
-    m["SERIALIFCOLOR_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("SERIALIF_COLOR_TEST_EXPLAIN")
+    m["SERIALIF_COLOR_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

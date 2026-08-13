@@ -43,8 +43,8 @@ class SerialifColorTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('SERIALIFCOLOR_TEST_LIVE');
-        $override = self::getenv('SERIALIFCOLOR_TEST_OVERRIDE');
+        $live = self::getenv('SERIALIF_COLOR_TEST_LIVE');
+        $override = self::getenv('SERIALIF_COLOR_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class SerialifColorTestRunner
             }
         }
 
-        $explain = self::getenv('SERIALIFCOLOR_TEST_EXPLAIN');
+        $explain = self::getenv('SERIALIF_COLOR_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['SERIALIFCOLOR_TEST_EXPLAIN'] = $explain;
+            $m['SERIALIF_COLOR_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

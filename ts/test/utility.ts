@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.SERIALIFCOLOR_TEST_LIVE ||
-    'TRUE' === process.env.SERIALIFCOLOR_TEST_OVERRIDE
+    'TRUE' === process.env.SERIALIF_COLOR_TEST_LIVE ||
+    'TRUE' === process.env.SERIALIF_COLOR_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.SERIALIFCOLOR_TEST_EXPLAIN = process.env.SERIALIFCOLOR_TEST_EXPLAIN || m.SERIALIFCOLOR_TEST_EXPLAIN
+  m.SERIALIF_COLOR_TEST_EXPLAIN = process.env.SERIALIF_COLOR_TEST_EXPLAIN || m.SERIALIF_COLOR_TEST_EXPLAIN
 
   return m
 }

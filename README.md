@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new SerialifColorSDK()
-const getcolorbypath = await client.GetColorByPath().load()
+const getcolorbypath = await client.GetColorByPath().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = SerialifColorSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = SerialifColorSDK.test({
+  entity: {
+    get_color_by_path: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const getcolorbypath = await client.GetColorByPath().load({ id: 'test01' })
-// getcolorbypath is a bare GetColorByPath populated with mock data
+// getcolorbypath is the GetColorByPath entity, populated with mock data
+// — call getcolorbypath.data() for the record itself
 console.log(getcolorbypath)
 ```
 
@@ -183,7 +192,7 @@ require_once 'serialifcolor_sdk.php';
 $client = new SerialifColorSDK();
 
 
-// Load a specific getcolorbypath (returns the bare record; throws on error)
+// Load a specific getcolorbypath (returns the ENTITY; call data_get() for the record; throws on error)
 $getcolorbypath = $client->GetColorByPath()->load(["id" => "example_id"]);
 print_r($getcolorbypath);
 ```
@@ -211,7 +220,7 @@ require_relative "SerialifColor_sdk"
 client = SerialifColorSDK.new
 
 
-# Load a specific getcolorbypath (returns the bare record; raises on error)
+# Load a specific getcolorbypath (returns the ENTITY; call data_get for the record)
 getcolorbypath = client.GetColorByPath.load({ "id" => "example_id" })
 puts getcolorbypath
 ```
@@ -345,6 +354,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://color.serialif.com/](https://color.serialif.com/)
 

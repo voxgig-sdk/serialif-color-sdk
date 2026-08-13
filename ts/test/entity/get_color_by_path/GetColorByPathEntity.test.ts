@@ -26,8 +26,8 @@ import {
 describe('GetColorByPathEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when SERIALIFCOLOR_TEST_LIVE=TRUE.
-  afterEach(liveDelay('SERIALIFCOLOR_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when SERIALIF_COLOR_TEST_LIVE=TRUE.
+  afterEach(liveDelay('SERIALIF_COLOR_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = SerialifColorSDK.test()

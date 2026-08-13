@@ -26,8 +26,8 @@ import {
 describe('GetColorByQueryEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when SERIALIFCOLOR_TEST_LIVE=TRUE.
-  afterEach(liveDelay('SERIALIFCOLOR_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when SERIALIF_COLOR_TEST_LIVE=TRUE.
+  afterEach(liveDelay('SERIALIF_COLOR_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = SerialifColorSDK.test()
@@ -62,7 +62,7 @@ describe('GetColorByQueryEntity', async () => {
     // LOAD
     const get_color_by_query_ref01_ent = client.GetColorByQuery()
     const get_color_by_query_ref01_match_dt0: any = {}
-    const get_color_by_query_ref01_data_dt0 = await get_color_by_query_ref01_ent.load(get_color_by_query_ref01_match_dt0)
+    const get_color_by_query_ref01_data_dt0 = (await get_color_by_query_ref01_ent.load(get_color_by_query_ref01_match_dt0)).data()
     assert(null != get_color_by_query_ref01_data_dt0)
 
 

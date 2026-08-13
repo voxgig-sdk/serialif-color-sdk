@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from serialifcolor_sdk.utility.voxgig_struct import voxgig_struct as vs
 from serialifcolor_sdk import SerialifColorSDK
-from core import helpers
+from serialifcolor_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _get_color_by_query_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "SERIALIFCOLOR_TEST_GET_COLOR_BY_QUERY_ENTID": {},
-        "SERIALIFCOLOR_TEST_LIVE": "FALSE",
+        "SERIALIF_COLOR_TEST_GET_COLOR_BY_QUERY_ENTID": {},
+        "SERIALIF_COLOR_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("SERIALIFCOLOR_TEST_LIVE") == "TRUE"
+    live = env.get("SERIALIF_COLOR_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

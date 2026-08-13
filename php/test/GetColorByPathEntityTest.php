@@ -33,7 +33,7 @@ class GetColorByPathEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set SERIALIFCOLOR_TEST_GET_COLOR_BY_PATH_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set SERIALIF_COLOR_TEST_GET_COLOR_BY_PATH_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -77,22 +77,22 @@ function get_color_by_path_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("SERIALIFCOLOR_TEST_GET_COLOR_BY_PATH_ENTID");
+    $entid_env_raw = getenv("SERIALIF_COLOR_TEST_GET_COLOR_BY_PATH_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "SERIALIFCOLOR_TEST_GET_COLOR_BY_PATH_ENTID" => $idmap,
-        "SERIALIFCOLOR_TEST_LIVE" => "FALSE",
-        "SERIALIFCOLOR_TEST_EXPLAIN" => "FALSE",
+        "SERIALIF_COLOR_TEST_GET_COLOR_BY_PATH_ENTID" => $idmap,
+        "SERIALIF_COLOR_TEST_LIVE" => "FALSE",
+        "SERIALIF_COLOR_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["SERIALIFCOLOR_TEST_GET_COLOR_BY_PATH_ENTID"]);
+        $env["SERIALIF_COLOR_TEST_GET_COLOR_BY_PATH_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["SERIALIFCOLOR_TEST_LIVE"] === "TRUE") {
+    if ($env["SERIALIF_COLOR_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -101,13 +101,13 @@ function get_color_by_path_basic_setup($extra)
         $client = new SerialifColorSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["SERIALIFCOLOR_TEST_LIVE"] === "TRUE";
+    $live = $env["SERIALIF_COLOR_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["SERIALIFCOLOR_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["SERIALIF_COLOR_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

@@ -34,7 +34,7 @@ client = SerialifColorSDK.new
 
 ```ruby
 begin
-  # load returns the bare GetColorByPath record (raises on error).
+  # load returns the ENTITY — call data_get for the GetColorByPath record (raises on error).
   getcolorbypath = client.GetColorByPath.load({ "id" => "example_id" })
   puts getcolorbypath
 rescue => err
@@ -120,7 +120,8 @@ client = SerialifColorSDK.test({
   "entity" => { "getcolorbypath" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 getcolorbypath = client.GetColorByPath.load({ "id" => "test01" })
 puts getcolorbypath
 ```
@@ -305,7 +306,7 @@ Create an instance: `get_color_by_path = client.GetColorByPath`
 #### Example: Load
 
 ```ruby
-# load returns the bare GetColorByPath record (raises on error).
+# load returns the ENTITY — call data_get for the GetColorByPath record (raises on error).
 get_color_by_path = client.GetColorByPath.load({ "id" => "get_color_by_path_id" })
 ```
 
@@ -338,7 +339,7 @@ Create an instance: `get_color_by_query = client.GetColorByQuery`
 #### Example: Load
 
 ```ruby
-# load returns the bare GetColorByQuery record (raises on error).
+# load returns the ENTITY — call data_get for the GetColorByQuery record (raises on error).
 get_color_by_query = client.GetColorByQuery.load()
 ```
 
