@@ -1,5 +1,8 @@
 -- SerialifColor SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -26,74 +29,45 @@ local function make_config()
       ["get_color_by_path"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "base",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "base_without_alpha",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "base_without_alpha_contrasted_text",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "complementary",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 3,
           },
           {
-            ["active"] = true,
             ["name"] = "complementary_without_alpha",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 4,
           },
           {
-            ["active"] = true,
             ["name"] = "complementary_without_alpha_contrasted_text",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 5,
           },
           {
-            ["active"] = true,
             ["name"] = "grayscale",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 6,
           },
           {
-            ["active"] = true,
             ["name"] = "grayscale_without_alpha",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 7,
           },
           {
-            ["active"] = true,
             ["name"] = "grayscale_without_alpha_contrasted_text",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 8,
           },
           {
-            ["active"] = true,
             ["name"] = "status",
             ["req"] = true,
             ["type"] = "`$STRING`",
-            ["index$"] = 9,
           },
         },
         ["name"] = "get_color_by_path",
@@ -103,18 +77,15 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {
                   ["params"] = {
                     {
-                      ["active"] = true,
                       ["example"] = "aquamarine",
                       ["kind"] = "param",
                       ["name"] = "id",
                       ["orig"] = "color",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 0,
                     },
                   },
                 },
@@ -138,10 +109,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "load",
           },
         },
         ["relations"] = {
@@ -151,74 +120,45 @@ local function make_config()
       ["get_color_by_query"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "base",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "base_without_alpha",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "base_without_alpha_contrasted_text",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "complementary",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 3,
           },
           {
-            ["active"] = true,
             ["name"] = "complementary_without_alpha",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 4,
           },
           {
-            ["active"] = true,
             ["name"] = "complementary_without_alpha_contrasted_text",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 5,
           },
           {
-            ["active"] = true,
             ["name"] = "grayscale",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 6,
           },
           {
-            ["active"] = true,
             ["name"] = "grayscale_without_alpha",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 7,
           },
           {
-            ["active"] = true,
             ["name"] = "grayscale_without_alpha_contrasted_text",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 8,
           },
           {
-            ["active"] = true,
             ["name"] = "status",
             ["req"] = true,
             ["type"] = "`$STRING`",
-            ["index$"] = 9,
           },
         },
         ["name"] = "get_color_by_query",
@@ -228,61 +168,48 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {
                   ["query"] = {
                     {
-                      ["active"] = true,
                       ["example"] = "55667788",
                       ["kind"] = "query",
                       ["name"] = "hex",
                       ["orig"] = "hex",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "85,102,119",
                       ["kind"] = "query",
                       ["name"] = "hsl",
                       ["orig"] = "hsl",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "85,102,119,0.53",
                       ["kind"] = "query",
                       ["name"] = "hsla",
                       ["orig"] = "hsla",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "aquamarine",
                       ["kind"] = "query",
                       ["name"] = "keyword",
                       ["orig"] = "keyword",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "85,102,119",
                       ["kind"] = "query",
                       ["name"] = "rgb",
                       ["orig"] = "rgb",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "85,102,119,0.53",
                       ["kind"] = "query",
                       ["name"] = "rgba",
                       ["orig"] = "rgba",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                   },
@@ -305,10 +232,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "load",
           },
         },
         ["relations"] = {

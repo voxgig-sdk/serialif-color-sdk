@@ -1,6 +1,20 @@
 # SerialifColor SDK configuration
 
 module SerialifColorConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -27,74 +41,45 @@ module SerialifColorConfig
         "get_color_by_path" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "base",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "base_without_alpha",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "base_without_alpha_contrasted_text",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "complementary",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "complementary_without_alpha",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "complementary_without_alpha_contrasted_text",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "grayscale",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "grayscale_without_alpha",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "grayscale_without_alpha_contrasted_text",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "status",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
           ],
           "name" => "get_color_by_path",
@@ -104,18 +89,15 @@ module SerialifColorConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "example" => "aquamarine",
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "color",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -139,10 +121,8 @@ module SerialifColorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -152,74 +132,45 @@ module SerialifColorConfig
         "get_color_by_query" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "base",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "base_without_alpha",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "base_without_alpha_contrasted_text",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "complementary",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "complementary_without_alpha",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "complementary_without_alpha_contrasted_text",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "grayscale",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "grayscale_without_alpha",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "grayscale_without_alpha_contrasted_text",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "status",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
           ],
           "name" => "get_color_by_query",
@@ -229,61 +180,48 @@ module SerialifColorConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "55667788",
                         "kind" => "query",
                         "name" => "hex",
                         "orig" => "hex",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "85,102,119",
                         "kind" => "query",
                         "name" => "hsl",
                         "orig" => "hsl",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "85,102,119,0.53",
                         "kind" => "query",
                         "name" => "hsla",
                         "orig" => "hsla",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "aquamarine",
                         "kind" => "query",
                         "name" => "keyword",
                         "orig" => "keyword",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "85,102,119",
                         "kind" => "query",
                         "name" => "rgb",
                         "orig" => "rgb",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "85,102,119,0.53",
                         "kind" => "query",
                         "name" => "rgba",
                         "orig" => "rgba",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -306,10 +244,8 @@ module SerialifColorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {

@@ -28,7 +28,7 @@ class SerialifColorSDK
     utility = SerialifColorUtility.new
     @_utility = utility
 
-    config = SerialifColorConfig.make_config
+    config = SerialifColorConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

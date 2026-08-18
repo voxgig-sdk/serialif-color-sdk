@@ -40,7 +40,7 @@ class SerialifColorSDK
         $utility = new SerialifColorUtility();
         $this->_utility = $utility;
 
-        $config = SerialifColorConfig::make_config();
+        $config = SerialifColorConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

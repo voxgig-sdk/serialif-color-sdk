@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from serialifcolor_sdk.config import make_config
+from serialifcolor_sdk.config import shared_config
 from serialifcolor_sdk.features import _make_feature
 from serialifcolor_sdk.core.control import SerialifColorControl
 from serialifcolor_sdk.core.error import SerialifColorError
@@ -24,7 +24,7 @@ from serialifcolor_sdk.core.spec import SerialifColorSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 
