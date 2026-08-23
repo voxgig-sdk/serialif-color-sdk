@@ -33,6 +33,9 @@ class SerialifColorConfig
         return [
             "main" => [
                 "name" => "SerialifColor",
+                "slug" => "serialif-color",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,43 +59,53 @@ class SerialifColorConfig
           'fields' => [
             [
               'name' => 'base',
+              'short' => 'Requested base color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'base_without_alpha',
+              'short' => 'Base color without alpha channel',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'base_without_alpha_contrasted_text',
+              'short' => 'Black or white text color that contrasts with base color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'complementary',
+              'short' => 'Complementary color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'complementary_without_alpha',
+              'short' => 'Complementary color without alpha channel',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'complementary_without_alpha_contrasted_text',
+              'short' => 'Black or white text color that contrasts with complementary color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'grayscale',
+              'short' => 'Grayscale version of the color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'grayscale_without_alpha',
+              'short' => 'Grayscale color without alpha channel',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'grayscale_without_alpha_contrasted_text',
+              'short' => 'Black or white text color that contrasts with grayscale color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'status',
               'req' => true,
+              'short' => 'Status of the API response',
               'type' => '`$STRING`',
             ],
           ],
@@ -147,43 +160,53 @@ class SerialifColorConfig
           'fields' => [
             [
               'name' => 'base',
+              'short' => 'Requested base color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'base_without_alpha',
+              'short' => 'Base color without alpha channel',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'base_without_alpha_contrasted_text',
+              'short' => 'Black or white text color that contrasts with base color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'complementary',
+              'short' => 'Complementary color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'complementary_without_alpha',
+              'short' => 'Complementary color without alpha channel',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'complementary_without_alpha_contrasted_text',
+              'short' => 'Black or white text color that contrasts with complementary color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'grayscale',
+              'short' => 'Grayscale version of the color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'grayscale_without_alpha',
+              'short' => 'Grayscale color without alpha channel',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'grayscale_without_alpha_contrasted_text',
+              'short' => 'Black or white text color that contrasts with grayscale color',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'status',
               'req' => true,
+              'short' => 'Status of the API response',
               'type' => '`$STRING`',
             ],
           ],

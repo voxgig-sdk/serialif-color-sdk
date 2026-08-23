@@ -6,7 +6,7 @@ The Golang SDK for the SerialifColor API — an entity-oriented client using sta
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.GetColorByPath(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -259,16 +259,16 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"base"` |  |
-| `"base_without_alpha"` |  |
-| `"base_without_alpha_contrasted_text"` |  |
-| `"complementary"` |  |
-| `"complementary_without_alpha"` |  |
-| `"complementary_without_alpha_contrasted_text"` |  |
-| `"grayscale"` |  |
-| `"grayscale_without_alpha"` |  |
-| `"grayscale_without_alpha_contrasted_text"` |  |
-| `"status"` |  |
+| `"base"` | Requested base color |
+| `"base_without_alpha"` | Base color without alpha channel |
+| `"base_without_alpha_contrasted_text"` | Black or white text color that contrasts with base color |
+| `"complementary"` | Complementary color |
+| `"complementary_without_alpha"` | Complementary color without alpha channel |
+| `"complementary_without_alpha_contrasted_text"` | Black or white text color that contrasts with complementary color |
+| `"grayscale"` | Grayscale version of the color |
+| `"grayscale_without_alpha"` | Grayscale color without alpha channel |
+| `"grayscale_without_alpha_contrasted_text"` | Black or white text color that contrasts with grayscale color |
+| `"status"` | Status of the API response |
 
 Operations: Load.
 
@@ -278,16 +278,16 @@ API path: `/{color}`
 
 | Field | Description |
 | --- | --- |
-| `"base"` |  |
-| `"base_without_alpha"` |  |
-| `"base_without_alpha_contrasted_text"` |  |
-| `"complementary"` |  |
-| `"complementary_without_alpha"` |  |
-| `"complementary_without_alpha_contrasted_text"` |  |
-| `"grayscale"` |  |
-| `"grayscale_without_alpha"` |  |
-| `"grayscale_without_alpha_contrasted_text"` |  |
-| `"status"` |  |
+| `"base"` | Requested base color |
+| `"base_without_alpha"` | Base color without alpha channel |
+| `"base_without_alpha_contrasted_text"` | Black or white text color that contrasts with base color |
+| `"complementary"` | Complementary color |
+| `"complementary_without_alpha"` | Complementary color without alpha channel |
+| `"complementary_without_alpha_contrasted_text"` | Black or white text color that contrasts with complementary color |
+| `"grayscale"` | Grayscale version of the color |
+| `"grayscale_without_alpha"` | Grayscale color without alpha channel |
+| `"grayscale_without_alpha_contrasted_text"` | Black or white text color that contrasts with grayscale color |
+| `"status"` | Status of the API response |
 
 Operations: Load.
 
@@ -312,16 +312,16 @@ Create an instance: `getColorByPath := client.GetColorByPath(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `base` | `map[string]any` |  |
-| `base_without_alpha` | `map[string]any` |  |
-| `base_without_alpha_contrasted_text` | `map[string]any` |  |
-| `complementary` | `map[string]any` |  |
-| `complementary_without_alpha` | `map[string]any` |  |
-| `complementary_without_alpha_contrasted_text` | `map[string]any` |  |
-| `grayscale` | `map[string]any` |  |
-| `grayscale_without_alpha` | `map[string]any` |  |
-| `grayscale_without_alpha_contrasted_text` | `map[string]any` |  |
-| `status` | `string` |  |
+| `base` | `map[string]any` | Requested base color |
+| `base_without_alpha` | `map[string]any` | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | `map[string]any` | Black or white text color that contrasts with base color |
+| `complementary` | `map[string]any` | Complementary color |
+| `complementary_without_alpha` | `map[string]any` | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | `map[string]any` | Black or white text color that contrasts with complementary color |
+| `grayscale` | `map[string]any` | Grayscale version of the color |
+| `grayscale_without_alpha` | `map[string]any` | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | `map[string]any` | Black or white text color that contrasts with grayscale color |
+| `status` | `string` | Status of the API response |
 
 #### Example: Load
 
@@ -348,16 +348,16 @@ Create an instance: `getColorByQuery := client.GetColorByQuery(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `base` | `map[string]any` |  |
-| `base_without_alpha` | `map[string]any` |  |
-| `base_without_alpha_contrasted_text` | `map[string]any` |  |
-| `complementary` | `map[string]any` |  |
-| `complementary_without_alpha` | `map[string]any` |  |
-| `complementary_without_alpha_contrasted_text` | `map[string]any` |  |
-| `grayscale` | `map[string]any` |  |
-| `grayscale_without_alpha` | `map[string]any` |  |
-| `grayscale_without_alpha_contrasted_text` | `map[string]any` |  |
-| `status` | `string` |  |
+| `base` | `map[string]any` | Requested base color |
+| `base_without_alpha` | `map[string]any` | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | `map[string]any` | Black or white text color that contrasts with base color |
+| `complementary` | `map[string]any` | Complementary color |
+| `complementary_without_alpha` | `map[string]any` | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | `map[string]any` | Black or white text color that contrasts with complementary color |
+| `grayscale` | `map[string]any` | Grayscale version of the color |
+| `grayscale_without_alpha` | `map[string]any` | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | `map[string]any` | Black or white text color that contrasts with grayscale color |
+| `status` | `string` | Status of the API response |
 
 #### Example: Load
 

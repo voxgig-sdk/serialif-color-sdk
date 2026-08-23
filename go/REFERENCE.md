@@ -102,16 +102,16 @@ fmt.Println(getColorByPath.GetName()) // "get_color_by_path"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | `map[string]any` | No |  |
-| `base_without_alpha` | `map[string]any` | No |  |
-| `base_without_alpha_contrasted_text` | `map[string]any` | No |  |
-| `complementary` | `map[string]any` | No |  |
-| `complementary_without_alpha` | `map[string]any` | No |  |
-| `complementary_without_alpha_contrasted_text` | `map[string]any` | No |  |
-| `grayscale` | `map[string]any` | No |  |
-| `grayscale_without_alpha` | `map[string]any` | No |  |
-| `grayscale_without_alpha_contrasted_text` | `map[string]any` | No |  |
-| `status` | `string` | Yes |  |
+| `base` | `map[string]any` | No | Requested base color |
+| `base_without_alpha` | `map[string]any` | No | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | `map[string]any` | No | Black or white text color that contrasts with base color |
+| `complementary` | `map[string]any` | No | Complementary color |
+| `complementary_without_alpha` | `map[string]any` | No | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | `map[string]any` | No | Black or white text color that contrasts with complementary color |
+| `grayscale` | `map[string]any` | No | Grayscale version of the color |
+| `grayscale_without_alpha` | `map[string]any` | No | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | `map[string]any` | No | Black or white text color that contrasts with grayscale color |
+| `status` | `string` | Yes | Status of the API response |
 
 ### Operations
 
@@ -162,16 +162,16 @@ fmt.Println(getColorByQuery.GetName()) // "get_color_by_query"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | `map[string]any` | No |  |
-| `base_without_alpha` | `map[string]any` | No |  |
-| `base_without_alpha_contrasted_text` | `map[string]any` | No |  |
-| `complementary` | `map[string]any` | No |  |
-| `complementary_without_alpha` | `map[string]any` | No |  |
-| `complementary_without_alpha_contrasted_text` | `map[string]any` | No |  |
-| `grayscale` | `map[string]any` | No |  |
-| `grayscale_without_alpha` | `map[string]any` | No |  |
-| `grayscale_without_alpha_contrasted_text` | `map[string]any` | No |  |
-| `status` | `string` | Yes |  |
+| `base` | `map[string]any` | No | Requested base color |
+| `base_without_alpha` | `map[string]any` | No | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | `map[string]any` | No | Black or white text color that contrasts with base color |
+| `complementary` | `map[string]any` | No | Complementary color |
+| `complementary_without_alpha` | `map[string]any` | No | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | `map[string]any` | No | Black or white text color that contrasts with complementary color |
+| `grayscale` | `map[string]any` | No | Grayscale version of the color |
+| `grayscale_without_alpha` | `map[string]any` | No | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | `map[string]any` | No | Black or white text color that contrasts with grayscale color |
+| `status` | `string` | Yes | Status of the API response |
 
 ### Operations
 

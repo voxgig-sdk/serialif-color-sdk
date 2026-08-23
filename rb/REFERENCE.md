@@ -97,16 +97,16 @@ get_color_by_path = client.GetColorByPath
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | `Hash` | No |  |
-| `base_without_alpha` | `Hash` | No |  |
-| `base_without_alpha_contrasted_text` | `Hash` | No |  |
-| `complementary` | `Hash` | No |  |
-| `complementary_without_alpha` | `Hash` | No |  |
-| `complementary_without_alpha_contrasted_text` | `Hash` | No |  |
-| `grayscale` | `Hash` | No |  |
-| `grayscale_without_alpha` | `Hash` | No |  |
-| `grayscale_without_alpha_contrasted_text` | `Hash` | No |  |
-| `status` | `String` | Yes |  |
+| `base` | `Hash` | No | Requested base color |
+| `base_without_alpha` | `Hash` | No | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | `Hash` | No | Black or white text color that contrasts with base color |
+| `complementary` | `Hash` | No | Complementary color |
+| `complementary_without_alpha` | `Hash` | No | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | `Hash` | No | Black or white text color that contrasts with complementary color |
+| `grayscale` | `Hash` | No | Grayscale version of the color |
+| `grayscale_without_alpha` | `Hash` | No | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | `Hash` | No | Black or white text color that contrasts with grayscale color |
+| `status` | `String` | Yes | Status of the API response |
 
 ### Operations
 
@@ -158,16 +158,16 @@ get_color_by_query = client.GetColorByQuery
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | `Hash` | No |  |
-| `base_without_alpha` | `Hash` | No |  |
-| `base_without_alpha_contrasted_text` | `Hash` | No |  |
-| `complementary` | `Hash` | No |  |
-| `complementary_without_alpha` | `Hash` | No |  |
-| `complementary_without_alpha_contrasted_text` | `Hash` | No |  |
-| `grayscale` | `Hash` | No |  |
-| `grayscale_without_alpha` | `Hash` | No |  |
-| `grayscale_without_alpha_contrasted_text` | `Hash` | No |  |
-| `status` | `String` | Yes |  |
+| `base` | `Hash` | No | Requested base color |
+| `base_without_alpha` | `Hash` | No | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | `Hash` | No | Black or white text color that contrasts with base color |
+| `complementary` | `Hash` | No | Complementary color |
+| `complementary_without_alpha` | `Hash` | No | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | `Hash` | No | Black or white text color that contrasts with complementary color |
+| `grayscale` | `Hash` | No | Grayscale version of the color |
+| `grayscale_without_alpha` | `Hash` | No | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | `Hash` | No | Black or white text color that contrasts with grayscale color |
+| `status` | `String` | Yes | Status of the API response |
 
 ### Operations
 

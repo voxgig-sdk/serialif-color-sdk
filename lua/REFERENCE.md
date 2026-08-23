@@ -94,16 +94,16 @@ local get_color_by_path = client:GetColorByPath(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | `table` | No |  |
-| `base_without_alpha` | `table` | No |  |
-| `base_without_alpha_contrasted_text` | `table` | No |  |
-| `complementary` | `table` | No |  |
-| `complementary_without_alpha` | `table` | No |  |
-| `complementary_without_alpha_contrasted_text` | `table` | No |  |
-| `grayscale` | `table` | No |  |
-| `grayscale_without_alpha` | `table` | No |  |
-| `grayscale_without_alpha_contrasted_text` | `table` | No |  |
-| `status` | `string` | Yes |  |
+| `base` | `table` | No | Requested base color |
+| `base_without_alpha` | `table` | No | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | `table` | No | Black or white text color that contrasts with base color |
+| `complementary` | `table` | No | Complementary color |
+| `complementary_without_alpha` | `table` | No | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | `table` | No | Black or white text color that contrasts with complementary color |
+| `grayscale` | `table` | No | Grayscale version of the color |
+| `grayscale_without_alpha` | `table` | No | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | `table` | No | Black or white text color that contrasts with grayscale color |
+| `status` | `string` | Yes | Status of the API response |
 
 ### Operations
 
@@ -155,16 +155,16 @@ local get_color_by_query = client:GetColorByQuery(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `base` | `table` | No |  |
-| `base_without_alpha` | `table` | No |  |
-| `base_without_alpha_contrasted_text` | `table` | No |  |
-| `complementary` | `table` | No |  |
-| `complementary_without_alpha` | `table` | No |  |
-| `complementary_without_alpha_contrasted_text` | `table` | No |  |
-| `grayscale` | `table` | No |  |
-| `grayscale_without_alpha` | `table` | No |  |
-| `grayscale_without_alpha_contrasted_text` | `table` | No |  |
-| `status` | `string` | Yes |  |
+| `base` | `table` | No | Requested base color |
+| `base_without_alpha` | `table` | No | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | `table` | No | Black or white text color that contrasts with base color |
+| `complementary` | `table` | No | Complementary color |
+| `complementary_without_alpha` | `table` | No | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | `table` | No | Black or white text color that contrasts with complementary color |
+| `grayscale` | `table` | No | Grayscale version of the color |
+| `grayscale_without_alpha` | `table` | No | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | `table` | No | Black or white text color that contrasts with grayscale color |
+| `status` | `string` | Yes | Status of the API response |
 
 ### Operations
 

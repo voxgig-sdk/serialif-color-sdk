@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "SerialifColor",
+			"slug": "serialif-color",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,43 +37,53 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "base",
+						"short": "Requested base color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "base_without_alpha",
+						"short": "Base color without alpha channel",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "base_without_alpha_contrasted_text",
+						"short": "Black or white text color that contrasts with base color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "complementary",
+						"short": "Complementary color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "complementary_without_alpha",
+						"short": "Complementary color without alpha channel",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "complementary_without_alpha_contrasted_text",
+						"short": "Black or white text color that contrasts with complementary color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "grayscale",
+						"short": "Grayscale version of the color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "grayscale_without_alpha",
+						"short": "Grayscale color without alpha channel",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "grayscale_without_alpha_contrasted_text",
+						"short": "Black or white text color that contrasts with grayscale color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "status",
 						"req": true,
+						"short": "Status of the API response",
 						"type": "`$STRING`",
 					},
 				},
@@ -125,43 +138,53 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "base",
+						"short": "Requested base color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "base_without_alpha",
+						"short": "Base color without alpha channel",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "base_without_alpha_contrasted_text",
+						"short": "Black or white text color that contrasts with base color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "complementary",
+						"short": "Complementary color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "complementary_without_alpha",
+						"short": "Complementary color without alpha channel",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "complementary_without_alpha_contrasted_text",
+						"short": "Black or white text color that contrasts with complementary color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "grayscale",
+						"short": "Grayscale version of the color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "grayscale_without_alpha",
+						"short": "Grayscale color without alpha channel",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "grayscale_without_alpha_contrasted_text",
+						"short": "Black or white text color that contrasts with grayscale color",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "status",
 						"req": true,
+						"short": "Status of the API response",
 						"type": "`$STRING`",
 					},
 				},

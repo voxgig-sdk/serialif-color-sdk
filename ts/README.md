@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -286,16 +286,16 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `base` |  |
-| `base_without_alpha` |  |
-| `base_without_alpha_contrasted_text` |  |
-| `complementary` |  |
-| `complementary_without_alpha` |  |
-| `complementary_without_alpha_contrasted_text` |  |
-| `grayscale` |  |
-| `grayscale_without_alpha` |  |
-| `grayscale_without_alpha_contrasted_text` |  |
-| `status` |  |
+| `base` | Requested base color |
+| `base_without_alpha` | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | Black or white text color that contrasts with base color |
+| `complementary` | Complementary color |
+| `complementary_without_alpha` | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | Black or white text color that contrasts with complementary color |
+| `grayscale` | Grayscale version of the color |
+| `grayscale_without_alpha` | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | Black or white text color that contrasts with grayscale color |
+| `status` | Status of the API response |
 
 Operations: load.
 
@@ -305,16 +305,16 @@ API path: `/{color}`
 
 | Field | Description |
 | --- | --- |
-| `base` |  |
-| `base_without_alpha` |  |
-| `base_without_alpha_contrasted_text` |  |
-| `complementary` |  |
-| `complementary_without_alpha` |  |
-| `complementary_without_alpha_contrasted_text` |  |
-| `grayscale` |  |
-| `grayscale_without_alpha` |  |
-| `grayscale_without_alpha_contrasted_text` |  |
-| `status` |  |
+| `base` | Requested base color |
+| `base_without_alpha` | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | Black or white text color that contrasts with base color |
+| `complementary` | Complementary color |
+| `complementary_without_alpha` | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | Black or white text color that contrasts with complementary color |
+| `grayscale` | Grayscale version of the color |
+| `grayscale_without_alpha` | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | Black or white text color that contrasts with grayscale color |
+| `status` | Status of the API response |
 
 Operations: load.
 
@@ -339,16 +339,16 @@ Create an instance: `const get_color_by_path = client.GetColorByPath()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `base` | `Record<string, any>` |  |
-| `base_without_alpha` | `Record<string, any>` |  |
-| `base_without_alpha_contrasted_text` | `Record<string, any>` |  |
-| `complementary` | `Record<string, any>` |  |
-| `complementary_without_alpha` | `Record<string, any>` |  |
-| `complementary_without_alpha_contrasted_text` | `Record<string, any>` |  |
-| `grayscale` | `Record<string, any>` |  |
-| `grayscale_without_alpha` | `Record<string, any>` |  |
-| `grayscale_without_alpha_contrasted_text` | `Record<string, any>` |  |
-| `status` | `string` |  |
+| `base` | `Record<string, any>` | Requested base color |
+| `base_without_alpha` | `Record<string, any>` | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | `Record<string, any>` | Black or white text color that contrasts with base color |
+| `complementary` | `Record<string, any>` | Complementary color |
+| `complementary_without_alpha` | `Record<string, any>` | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | `Record<string, any>` | Black or white text color that contrasts with complementary color |
+| `grayscale` | `Record<string, any>` | Grayscale version of the color |
+| `grayscale_without_alpha` | `Record<string, any>` | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | `Record<string, any>` | Black or white text color that contrasts with grayscale color |
+| `status` | `string` | Status of the API response |
 
 #### Example: Load
 
@@ -371,16 +371,16 @@ Create an instance: `const get_color_by_query = client.GetColorByQuery()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `base` | `Record<string, any>` |  |
-| `base_without_alpha` | `Record<string, any>` |  |
-| `base_without_alpha_contrasted_text` | `Record<string, any>` |  |
-| `complementary` | `Record<string, any>` |  |
-| `complementary_without_alpha` | `Record<string, any>` |  |
-| `complementary_without_alpha_contrasted_text` | `Record<string, any>` |  |
-| `grayscale` | `Record<string, any>` |  |
-| `grayscale_without_alpha` | `Record<string, any>` |  |
-| `grayscale_without_alpha_contrasted_text` | `Record<string, any>` |  |
-| `status` | `string` |  |
+| `base` | `Record<string, any>` | Requested base color |
+| `base_without_alpha` | `Record<string, any>` | Base color without alpha channel |
+| `base_without_alpha_contrasted_text` | `Record<string, any>` | Black or white text color that contrasts with base color |
+| `complementary` | `Record<string, any>` | Complementary color |
+| `complementary_without_alpha` | `Record<string, any>` | Complementary color without alpha channel |
+| `complementary_without_alpha_contrasted_text` | `Record<string, any>` | Black or white text color that contrasts with complementary color |
+| `grayscale` | `Record<string, any>` | Grayscale version of the color |
+| `grayscale_without_alpha` | `Record<string, any>` | Grayscale color without alpha channel |
+| `grayscale_without_alpha_contrasted_text` | `Record<string, any>` | Black or white text color that contrasts with grayscale color |
+| `status` | `string` | Status of the API response |
 
 #### Example: Load
 
