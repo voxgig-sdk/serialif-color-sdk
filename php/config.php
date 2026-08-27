@@ -42,6 +42,7 @@ class SerialifColorConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -101,6 +102,10 @@ class SerialifColorConfig
               'name' => 'grayscale_without_alpha_contrasted_text',
               'short' => 'Black or white text color that contrasts with grayscale color',
               'type' => '`$OBJECT`',
+            ],
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
             ],
             [
               'name' => 'status',

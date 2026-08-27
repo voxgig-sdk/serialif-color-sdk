@@ -15,6 +15,7 @@ export interface GetColorByPath {
   grayscale?: Record<string, any>
   grayscale_without_alpha?: Record<string, any>
   grayscale_without_alpha_contrasted_text?: Record<string, any>
+  id?: string
   status: string
 }
 

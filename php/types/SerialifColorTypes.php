@@ -24,6 +24,7 @@ class GetColorByPath
     public ?array $grayscale = null;
     public ?array $grayscale_without_alpha = null;
     public ?array $grayscale_without_alpha_contrasted_text = null;
+    public ?string $id = null;
     public string $status;
 }
 

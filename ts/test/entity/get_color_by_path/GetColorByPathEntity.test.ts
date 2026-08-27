@@ -59,9 +59,12 @@ describe('GetColorByPathEntity', async () => {
 
     let get_color_by_path_ref01_data = Object.values(setup.data.existing.get_color_by_path)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const get_color_by_path_ref01_ent = client.GetColorByPath()
+    const get_color_by_path_ref01_match_dt0: any = {}
+    get_color_by_path_ref01_match_dt0.id = get_color_by_path_ref01_data.id
+    const get_color_by_path_ref01_data_dt0 = (await get_color_by_path_ref01_ent.load(get_color_by_path_ref01_match_dt0)).data()
+    assert(get_color_by_path_ref01_data_dt0.id === get_color_by_path_ref01_data.id)
 
 
   })

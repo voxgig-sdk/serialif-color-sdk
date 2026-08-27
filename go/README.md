@@ -268,6 +268,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"grayscale"` | Grayscale version of the color |
 | `"grayscale_without_alpha"` | Grayscale color without alpha channel |
 | `"grayscale_without_alpha_contrasted_text"` | Black or white text color that contrasts with grayscale color |
+| `"id"` |  |
 | `"status"` | Status of the API response |
 
 Operations: Load.
@@ -321,6 +322,7 @@ Create an instance: `getColorByPath := client.GetColorByPath(nil)`
 | `grayscale` | `map[string]any` | Grayscale version of the color |
 | `grayscale_without_alpha` | `map[string]any` | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | `map[string]any` | Black or white text color that contrasts with grayscale color |
+| `id` | `string` |  |
 | `status` | `string` | Status of the API response |
 
 #### Example: Load

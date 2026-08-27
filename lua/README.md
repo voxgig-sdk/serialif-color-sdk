@@ -235,6 +235,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `grayscale` | Grayscale version of the color |
 | `grayscale_without_alpha` | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | Black or white text color that contrasts with grayscale color |
+| `id` |  |
 | `status` | Status of the API response |
 
 Operations: Load.
@@ -288,6 +289,7 @@ Create an instance: `local get_color_by_path = client:GetColorByPath(nil)`
 | `grayscale` | `table` | Grayscale version of the color |
 | `grayscale_without_alpha` | `table` | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | `table` | Black or white text color that contrasts with grayscale color |
+| `id` | `string` |  |
 | `status` | `string` | Status of the API response |
 
 #### Example: Load

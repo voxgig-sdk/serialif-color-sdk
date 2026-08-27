@@ -248,6 +248,7 @@ returns a result `Hash` with these keys:
 | `grayscale` | Grayscale version of the color |
 | `grayscale_without_alpha` | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | Black or white text color that contrasts with grayscale color |
+| `id` |  |
 | `status` | Status of the API response |
 
 Operations: Load.
@@ -301,6 +302,7 @@ Create an instance: `get_color_by_path = client.GetColorByPath`
 | `grayscale` | `Hash` | Grayscale version of the color |
 | `grayscale_without_alpha` | `Hash` | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | `Hash` | Black or white text color that contrasts with grayscale color |
+| `id` | `String` |  |
 | `status` | `String` | Status of the API response |
 
 #### Example: Load

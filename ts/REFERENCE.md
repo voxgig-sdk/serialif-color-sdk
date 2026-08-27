@@ -137,6 +137,7 @@ const get_color_by_path = client.GetColorByPath()
 | `grayscale` | `Record<string, any>` | No | Grayscale version of the color |
 | `grayscale_without_alpha` | `Record<string, any>` | No | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | `Record<string, any>` | No | Black or white text color that contrasts with grayscale color |
+| `id` | `string` | No |  |
 | `status` | `string` | Yes | Status of the API response |
 
 ### Operations

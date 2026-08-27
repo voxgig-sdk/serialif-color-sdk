@@ -23,6 +23,7 @@ type GetColorByPath struct {
 	Grayscale *map[string]any `json:"grayscale,omitempty"`
 	GrayscaleWithoutAlpha *map[string]any `json:"grayscale_without_alpha,omitempty"`
 	GrayscaleWithoutAlphaContrastedText *map[string]any `json:"grayscale_without_alpha_contrasted_text,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Status string `json:"status"`
 }
 

@@ -48,9 +48,13 @@ class TestGetColorByPathEntity:
 
         # LOAD
         get_color_by_path_ref01_ent = client.GetColorByPath(None)
-        get_color_by_path_ref01_match_dt0 = {}
+        get_color_by_path_ref01_match_dt0 = {
+            "id": get_color_by_path_ref01_data["id"],
+        }
         get_color_by_path_ref01_data_dt0_loaded = get_color_by_path_ref01_ent.load(get_color_by_path_ref01_match_dt0, None)
-        assert get_color_by_path_ref01_data_dt0_loaded is not None
+        get_color_by_path_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(get_color_by_path_ref01_data_dt0_loaded))
+        assert get_color_by_path_ref01_data_dt0_load_result is not None
+        assert get_color_by_path_ref01_data_dt0_load_result["id"] == get_color_by_path_ref01_data["id"]
 
 
 

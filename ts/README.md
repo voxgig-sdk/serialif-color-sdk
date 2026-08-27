@@ -145,7 +145,7 @@ await entity.load({ id: 'example' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -295,6 +295,7 @@ The `prepare()` method returns:
 | `grayscale` | Grayscale version of the color |
 | `grayscale_without_alpha` | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | Black or white text color that contrasts with grayscale color |
+| `id` |  |
 | `status` | Status of the API response |
 
 Operations: load.
@@ -348,6 +349,7 @@ Create an instance: `const get_color_by_path = client.GetColorByPath()`
 | `grayscale` | `Record<string, any>` | Grayscale version of the color |
 | `grayscale_without_alpha` | `Record<string, any>` | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | `Record<string, any>` | Black or white text color that contrasts with grayscale color |
+| `id` | `string` |  |
 | `status` | `string` | Status of the API response |
 
 #### Example: Load

@@ -30,6 +30,7 @@ class GetColorByPath(GetColorByPathRequired, total=False):
     grayscale: dict
     grayscale_without_alpha: dict
     grayscale_without_alpha_contrasted_text: dict
+    id: str
 
 
 class GetColorByPathLoadMatch(TypedDict):

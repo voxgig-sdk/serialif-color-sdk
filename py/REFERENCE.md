@@ -100,6 +100,7 @@ get_color_by_path = client.GetColorByPath()
 | `grayscale` | `dict` | No | Grayscale version of the color |
 | `grayscale_without_alpha` | `dict` | No | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | `dict` | No | Black or white text color that contrasts with grayscale color |
+| `id` | `str` | No |  |
 | `status` | `str` | Yes | Status of the API response |
 
 ### Operations

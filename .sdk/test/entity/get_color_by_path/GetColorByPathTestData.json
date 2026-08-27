@@ -11,8 +11,8 @@
         "grayscale": {},
         "grayscale_without_alpha": {},
         "grayscale_without_alpha_contrasted_text": {},
-        "status": "s6d",
-        "id": "GET_COLOR_BY_PATH00"
+        "id": "GET_COLOR_BY_PATH00",
+        "status": "s78"
       },
       "GET_COLOR_BY_PATH01": {
         "base": {},
@@ -24,8 +24,8 @@
         "grayscale": {},
         "grayscale_without_alpha": {},
         "grayscale_without_alpha_contrasted_text": {},
-        "status": "sd1",
-        "id": "GET_COLOR_BY_PATH01"
+        "id": "GET_COLOR_BY_PATH01",
+        "status": "se6"
       },
       "GET_COLOR_BY_PATH02": {
         "base": {},
@@ -37,8 +37,8 @@
         "grayscale": {},
         "grayscale_without_alpha": {},
         "grayscale_without_alpha_contrasted_text": {},
-        "status": "s135",
-        "id": "GET_COLOR_BY_PATH02"
+        "id": "GET_COLOR_BY_PATH02",
+        "status": "s154"
       }
     }
   },
@@ -54,7 +54,7 @@
         "grayscale": {},
         "grayscale_without_alpha": {},
         "grayscale_without_alpha_contrasted_text": {},
-        "status": "s199"
+        "status": "s1c2"
       }
     }
   }

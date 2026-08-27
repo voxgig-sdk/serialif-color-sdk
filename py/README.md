@@ -251,6 +251,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `grayscale` | Grayscale version of the color |
 | `grayscale_without_alpha` | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | Black or white text color that contrasts with grayscale color |
+| `id` |  |
 | `status` | Status of the API response |
 
 Operations: Load.
@@ -304,6 +305,7 @@ Create an instance: `get_color_by_path = client.GetColorByPath()`
 | `grayscale` | `dict` | Grayscale version of the color |
 | `grayscale_without_alpha` | `dict` | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | `dict` | Black or white text color that contrasts with grayscale color |
+| `id` | `str` |  |
 | `status` | `str` | Status of the API response |
 
 #### Example: Load

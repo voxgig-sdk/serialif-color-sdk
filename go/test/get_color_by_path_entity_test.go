@@ -61,13 +61,19 @@ func TestGetColorByPathEntity(t *testing.T) {
 
 		// LOAD
 		getColorByPathRef01Ent := client.GetColorByPath(nil)
-		getColorByPathRef01MatchDt0 := map[string]any{}
+		getColorByPathRef01MatchDt0 := map[string]any{
+			"id": getColorByPathRef01Data["id"],
+		}
 		getColorByPathRef01DataDt0Loaded, err := getColorByPathRef01Ent.Load(getColorByPathRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if getColorByPathRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		getColorByPathRef01DataDt0LoadResult := core.ToMapAny(entityData(getColorByPathRef01DataDt0Loaded))
+		if getColorByPathRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if getColorByPathRef01DataDt0LoadResult["id"] != getColorByPathRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

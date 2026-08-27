@@ -103,6 +103,7 @@ local get_color_by_path = client:GetColorByPath(nil)
 | `grayscale` | `table` | No | Grayscale version of the color |
 | `grayscale_without_alpha` | `table` | No | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | `table` | No | Black or white text color that contrasts with grayscale color |
+| `id` | `string` | No |  |
 | `status` | `string` | Yes | Status of the API response |
 
 ### Operations

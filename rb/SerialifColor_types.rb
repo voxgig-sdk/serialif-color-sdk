@@ -37,6 +37,9 @@
 # @!attribute [rw] grayscale_without_alpha_contrasted_text
 #   @return [Hash, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] status
 #   @return [String]
 GetColorByPath = Struct.new(
@@ -49,6 +52,7 @@ GetColorByPath = Struct.new(
   :grayscale,
   :grayscale_without_alpha,
   :grayscale_without_alpha_contrasted_text,
+  :id,
   :status,
   keyword_init: true
 )

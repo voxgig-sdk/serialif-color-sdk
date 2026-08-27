@@ -20,6 +20,7 @@ func MakeConfig() map[string]any {
 				"options": map[string]any{
 					"active": false,
 				},
+				"transport": "base",
 			},
 		},
 		"options": map[string]any{
@@ -79,6 +80,10 @@ func MakeConfig() map[string]any {
 						"name": "grayscale_without_alpha_contrasted_text",
 						"short": "Black or white text color that contrasts with grayscale color",
 						"type": "`$OBJECT`",
+					},
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",

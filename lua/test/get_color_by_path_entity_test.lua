@@ -44,10 +44,14 @@ describe("GetColorByPathEntity", function()
 
     -- LOAD
     local get_color_by_path_ref01_ent = client:GetColorByPath(nil)
-    local get_color_by_path_ref01_match_dt0 = {}
+    local get_color_by_path_ref01_match_dt0 = {
+      id = get_color_by_path_ref01_data["id"],
+    }
     local get_color_by_path_ref01_data_dt0_loaded, err = get_color_by_path_ref01_ent:load(get_color_by_path_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(get_color_by_path_ref01_data_dt0_loaded)
+    local get_color_by_path_ref01_data_dt0_load_result = helpers.to_map(type(get_color_by_path_ref01_data_dt0_loaded) == 'table' and get_color_by_path_ref01_data_dt0_loaded.data_get and get_color_by_path_ref01_data_dt0_loaded:data_get() or get_color_by_path_ref01_data_dt0_loaded)
+    assert.is_not_nil(get_color_by_path_ref01_data_dt0_load_result)
+    assert.are.equal(get_color_by_path_ref01_data_dt0_load_result["id"], get_color_by_path_ref01_data["id"])
 
   end)
 end)

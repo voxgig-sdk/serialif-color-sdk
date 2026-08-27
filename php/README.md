@@ -258,6 +258,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `grayscale` | Grayscale version of the color |
 | `grayscale_without_alpha` | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | Black or white text color that contrasts with grayscale color |
+| `id` |  |
 | `status` | Status of the API response |
 
 Operations: Load.
@@ -311,6 +312,7 @@ Create an instance: `$get_color_by_path = $client->GetColorByPath();`
 | `grayscale` | `array` | Grayscale version of the color |
 | `grayscale_without_alpha` | `array` | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | `array` | Black or white text color that contrasts with grayscale color |
+| `id` | `string` |  |
 | `status` | `string` | Status of the API response |
 
 #### Example: Load

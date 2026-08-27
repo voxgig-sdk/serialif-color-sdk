@@ -48,9 +48,13 @@ class GetColorByPathEntityTest extends TestCase
 
         // LOAD
         $get_color_by_path_ref01_ent = $client->GetColorByPath(null);
-        $get_color_by_path_ref01_match_dt0 = [];
+        $get_color_by_path_ref01_match_dt0 = [
+            "id" => $get_color_by_path_ref01_data["id"],
+        ];
         $get_color_by_path_ref01_data_dt0_loaded = $get_color_by_path_ref01_ent->load($get_color_by_path_ref01_match_dt0, null);
-        $this->assertNotNull($get_color_by_path_ref01_data_dt0_loaded);
+        $get_color_by_path_ref01_data_dt0_load_result = Helpers::to_map(is_object($get_color_by_path_ref01_data_dt0_loaded) && method_exists($get_color_by_path_ref01_data_dt0_loaded, 'data_get') ? $get_color_by_path_ref01_data_dt0_loaded->data_get() : $get_color_by_path_ref01_data_dt0_loaded);
+        $this->assertNotNull($get_color_by_path_ref01_data_dt0_load_result);
+        $this->assertEquals($get_color_by_path_ref01_data_dt0_load_result["id"], $get_color_by_path_ref01_data["id"]);
 
     }
 }

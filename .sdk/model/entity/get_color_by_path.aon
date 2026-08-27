@@ -60,12 +60,22 @@ main: kit: entity: get_color_by_path: {
       type: "`$OBJECT`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "status"
       req: true
       short: "Status of the API response"
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "get_color_by_path"
   op: {

@@ -16,6 +16,7 @@
 ---@field grayscale? table
 ---@field grayscale_without_alpha? table
 ---@field grayscale_without_alpha_contrasted_text? table
+---@field id? string
 ---@field status string
 
 ---@class GetColorByPathLoadMatch

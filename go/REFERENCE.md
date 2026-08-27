@@ -111,6 +111,7 @@ fmt.Println(getColorByPath.GetName()) // "get_color_by_path"
 | `grayscale` | `map[string]any` | No | Grayscale version of the color |
 | `grayscale_without_alpha` | `map[string]any` | No | Grayscale color without alpha channel |
 | `grayscale_without_alpha_contrasted_text` | `map[string]any` | No | Black or white text color that contrasts with grayscale color |
+| `id` | `string` | No |  |
 | `status` | `string` | Yes | Status of the API response |
 
 ### Operations
