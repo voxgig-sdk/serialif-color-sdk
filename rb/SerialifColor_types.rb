@@ -113,46 +113,30 @@ GetColorByQuery = Struct.new(
 
 # Request payload for GetColorByQuery#load.
 #
-# @!attribute [rw] base
-#   @return [Hash, nil]
+# @!attribute [rw] hex
+#   @return [String, nil]
 #
-# @!attribute [rw] base_without_alpha
-#   @return [Hash, nil]
+# @!attribute [rw] hsl
+#   @return [String, nil]
 #
-# @!attribute [rw] base_without_alpha_contrasted_text
-#   @return [Hash, nil]
+# @!attribute [rw] hsla
+#   @return [String, nil]
 #
-# @!attribute [rw] complementary
-#   @return [Hash, nil]
+# @!attribute [rw] keyword
+#   @return [String, nil]
 #
-# @!attribute [rw] complementary_without_alpha
-#   @return [Hash, nil]
+# @!attribute [rw] rgb
+#   @return [String, nil]
 #
-# @!attribute [rw] complementary_without_alpha_contrasted_text
-#   @return [Hash, nil]
-#
-# @!attribute [rw] grayscale
-#   @return [Hash, nil]
-#
-# @!attribute [rw] grayscale_without_alpha
-#   @return [Hash, nil]
-#
-# @!attribute [rw] grayscale_without_alpha_contrasted_text
-#   @return [Hash, nil]
-#
-# @!attribute [rw] status
+# @!attribute [rw] rgba
 #   @return [String, nil]
 GetColorByQueryLoadMatch = Struct.new(
-  :base,
-  :base_without_alpha,
-  :base_without_alpha_contrasted_text,
-  :complementary,
-  :complementary_without_alpha,
-  :complementary_without_alpha_contrasted_text,
-  :grayscale,
-  :grayscale_without_alpha,
-  :grayscale_without_alpha_contrasted_text,
-  :status,
+  :hex,
+  :hsl,
+  :hsla,
+  :keyword,
+  :rgb,
+  :rgba,
   keyword_init: true
 )
 

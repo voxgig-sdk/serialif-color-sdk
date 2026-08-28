@@ -37,15 +37,11 @@ export interface GetColorByQuery {
 }
 
 export interface GetColorByQueryLoadMatch {
-  base?: Record<string, any>
-  base_without_alpha?: Record<string, any>
-  base_without_alpha_contrasted_text?: Record<string, any>
-  complementary?: Record<string, any>
-  complementary_without_alpha?: Record<string, any>
-  complementary_without_alpha_contrasted_text?: Record<string, any>
-  grayscale?: Record<string, any>
-  grayscale_without_alpha?: Record<string, any>
-  grayscale_without_alpha_contrasted_text?: Record<string, any>
-  status?: string
+  hex?: string
+  hsl?: string
+  hsla?: string
+  keyword?: string
+  rgb?: string
+  rgba?: string
 }
 

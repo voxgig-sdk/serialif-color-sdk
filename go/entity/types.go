@@ -48,16 +48,12 @@ type GetColorByQuery struct {
 
 // GetColorByQueryLoadMatch is the typed request payload for GetColorByQuery.LoadTyped.
 type GetColorByQueryLoadMatch struct {
-	Base *map[string]any `json:"base,omitempty"`
-	BaseWithoutAlpha *map[string]any `json:"base_without_alpha,omitempty"`
-	BaseWithoutAlphaContrastedText *map[string]any `json:"base_without_alpha_contrasted_text,omitempty"`
-	Complementary *map[string]any `json:"complementary,omitempty"`
-	ComplementaryWithoutAlpha *map[string]any `json:"complementary_without_alpha,omitempty"`
-	ComplementaryWithoutAlphaContrastedText *map[string]any `json:"complementary_without_alpha_contrasted_text,omitempty"`
-	Grayscale *map[string]any `json:"grayscale,omitempty"`
-	GrayscaleWithoutAlpha *map[string]any `json:"grayscale_without_alpha,omitempty"`
-	GrayscaleWithoutAlphaContrastedText *map[string]any `json:"grayscale_without_alpha_contrasted_text,omitempty"`
-	Status *string `json:"status,omitempty"`
+	Hex *string `json:"hex,omitempty"`
+	Hsl *string `json:"hsl,omitempty"`
+	Hsla *string `json:"hsla,omitempty"`
+	Keyword *string `json:"keyword,omitempty"`
+	Rgb *string `json:"rgb,omitempty"`
+	Rgba *string `json:"rgba,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

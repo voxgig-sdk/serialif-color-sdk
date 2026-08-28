@@ -52,15 +52,11 @@ class GetColorByQuery
 /** Request payload for GetColorByQuery#load. */
 class GetColorByQueryLoadMatch
 {
-    public ?array $base = null;
-    public ?array $base_without_alpha = null;
-    public ?array $base_without_alpha_contrasted_text = null;
-    public ?array $complementary = null;
-    public ?array $complementary_without_alpha = null;
-    public ?array $complementary_without_alpha_contrasted_text = null;
-    public ?array $grayscale = null;
-    public ?array $grayscale_without_alpha = null;
-    public ?array $grayscale_without_alpha_contrasted_text = null;
-    public ?string $status = null;
+    public ?string $hex = null;
+    public ?string $hsl = null;
+    public ?string $hsla = null;
+    public ?string $keyword = null;
+    public ?string $rgb = null;
+    public ?string $rgba = null;
 }
 

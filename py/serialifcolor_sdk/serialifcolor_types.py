@@ -54,13 +54,9 @@ class GetColorByQuery(GetColorByQueryRequired, total=False):
 
 
 class GetColorByQueryLoadMatch(TypedDict, total=False):
-    base: dict
-    base_without_alpha: dict
-    base_without_alpha_contrasted_text: dict
-    complementary: dict
-    complementary_without_alpha: dict
-    complementary_without_alpha_contrasted_text: dict
-    grayscale: dict
-    grayscale_without_alpha: dict
-    grayscale_without_alpha_contrasted_text: dict
-    status: str
+    hex: str
+    hsl: str
+    hsla: str
+    keyword: str
+    rgb: str
+    rgba: str
