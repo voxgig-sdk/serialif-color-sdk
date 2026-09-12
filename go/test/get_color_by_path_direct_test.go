@@ -116,7 +116,15 @@ func get_color_by_pathDirectSetup(mockres any) *get_color_by_pathDirectSetupResu
 	live := env["SERIALIF_COLOR_TEST_LIVE"] == "TRUE"
 
 	if live {
-		mergedOpts := map[string]any{
+		// sdk-test-control.json's test.client.options seeds the live
+		// client; the generated fields below overwrite anything they name.
+		mergedOpts := map[string]any{}
+		for k, v := range liveClientOptions() {
+			mergedOpts[k] = v
+		}
+		for k, v := range map[string]any{
+		} {
+			mergedOpts[k] = v
 		}
 		client := sdk.NewSerialifColorSDK(mergedOpts)
 

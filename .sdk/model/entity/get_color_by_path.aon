@@ -97,14 +97,16 @@ main: kit: entity: get_color_by_path: {
           }
           method: "GET"
           orig: "/{color}"
-          parts: [
-            "{id}"
-          ]
           rename: {
             param: {
               color: "id"
             }
           }
+          segments: [
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

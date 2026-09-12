@@ -100,6 +100,10 @@ module SerialifColorConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "get_color_by_path",
           "op" => {
             "load" => {
@@ -122,14 +126,16 @@ module SerialifColorConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{color}",
-                  "parts" => [
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "color" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -139,6 +145,9 @@ module SerialifColorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -257,7 +266,7 @@ module SerialifColorConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/",
-                  "parts" => [],
+                  "segments" => [],
                   "select" => {
                     "exist" => [
                       "hex",
@@ -272,6 +281,7 @@ module SerialifColorConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [],
                 },
               ],
             },

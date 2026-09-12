@@ -50,7 +50,7 @@ func TestGetColorByPathEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		getColorByPathRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.get_color_by_path", setup.data)))
+		getColorByPathRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.get_color_by_path")))
 		var getColorByPathRef01Data map[string]any
 		if len(getColorByPathRef01DataRaw) > 0 {
 			getColorByPathRef01Data = core.ToMapAny(getColorByPathRef01DataRaw[0][1])
@@ -103,7 +103,7 @@ func get_color_by_pathBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"get_color_by_path01", "get_color_by_path02", "get_color_by_path03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -131,10 +131,22 @@ func get_color_by_pathBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["SERIALIF_COLOR_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewSerialifColorSDK(core.ToMapAny(mergedOpts))
 	}
