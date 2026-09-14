@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { SerialifColorSDK } from '@voxgig-sdk/serialif-color'
+import { SerialifColorSDK } from '@voxgig-sdk/serialif-color-sdk'
 
 const client = new SerialifColorSDK()
 ```
@@ -473,7 +473,7 @@ serialif-color/
 Import the SDK from the package root:
 
 ```ts
-import { SerialifColorSDK } from '@voxgig-sdk/serialif-color'
+import { SerialifColorSDK } from '@voxgig-sdk/serialif-color-sdk'
 ```
 
 ### Entity state

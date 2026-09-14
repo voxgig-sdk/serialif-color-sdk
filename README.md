@@ -105,7 +105,7 @@ local result, err = client:GetColorByPath():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/serialif-color` | publish pending — [install from git tag](https://github.com/voxgig-sdk/serialif-color-sdk/releases) |
+| TypeScript | `@voxgig-sdk/serialif-color-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/serialif-color-sdk/releases) |
 | Python | `voxgig-sdk-serialif-color` | publish pending — [install from git tag](https://github.com/voxgig-sdk/serialif-color-sdk/releases) |
 | PHP | `voxgig-sdk/serialif-color` | publish pending — [install from git tag](https://github.com/voxgig-sdk/serialif-color-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/serialif-color-sdk/go` | `go get github.com/voxgig-sdk/serialif-color-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:GetColorByPath():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { SerialifColorSDK } from '@voxgig-sdk/serialif-color'
+import { SerialifColorSDK } from '@voxgig-sdk/serialif-color-sdk'
 
 const client = new SerialifColorSDK()
 
