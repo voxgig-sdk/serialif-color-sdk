@@ -1,12 +1,18 @@
 # SerialifColor SDK feature factory
 
 from serialifcolor_sdk.feature.base_feature import SerialifColorBaseFeature
+from serialifcolor_sdk.feature.ratelimit_feature import SerialifColorRatelimitFeature
+from serialifcolor_sdk.feature.retry_feature import SerialifColorRetryFeature
 from serialifcolor_sdk.feature.test_feature import SerialifColorTestFeature
+from serialifcolor_sdk.feature.timeout_feature import SerialifColorTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: SerialifColorBaseFeature(),
+    "ratelimit": lambda: SerialifColorRatelimitFeature(),
+    "retry": lambda: SerialifColorRetryFeature(),
     "test": lambda: SerialifColorTestFeature(),
+    "timeout": lambda: SerialifColorTimeoutFeature(),
 }
 
 

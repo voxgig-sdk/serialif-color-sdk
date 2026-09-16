@@ -4,7 +4,10 @@ declare(strict_types=1);
 // SerialifColor SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class SerialifColorFeatures
@@ -14,8 +17,14 @@ class SerialifColorFeatures
         switch ($name) {
             case "base":
                 return new SerialifColorBaseFeature();
+            case "ratelimit":
+                return new SerialifColorRatelimitFeature();
+            case "retry":
+                return new SerialifColorRetryFeature();
             case "test":
                 return new SerialifColorTestFeature();
+            case "timeout":
+                return new SerialifColorTimeoutFeature();
             default:
                 return new SerialifColorBaseFeature();
         }
@@ -31,7 +40,10 @@ class SerialifColorFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

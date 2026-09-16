@@ -57,5 +57,1374 @@
         "status": "s199"
       }
     }
+  },
+  "requests": {
+    "GET /": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getColorByQuery",
+        "parameters": [
+          {
+            "description": "Color keyword (e.g., aquamarine)",
+            "example": "aquamarine",
+            "in": "query",
+            "name": "keyword",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "HEX color value without # (e.g., 55667788)",
+            "example": "55667788",
+            "in": "query",
+            "name": "hex",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "RGB or RGBA color values separated by commas (e.g., 85,102,119 or 85,102,119,0.53)",
+            "example": "85,102,119",
+            "in": "query",
+            "name": "rgb",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "RGBA color values separated by commas (e.g., 85,102,119,0.53)",
+            "example": "85,102,119,0.53",
+            "in": "query",
+            "name": "rgba",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "HSL or HSLA color values separated by commas (e.g., 85,102,119 or 85,102,119,0.53)",
+            "example": "85,102,119",
+            "in": "query",
+            "name": "hsl",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "HSLA color values separated by commas (e.g., 85,102,119,0.53)",
+            "example": "85,102,119,0.53",
+            "in": "query",
+            "name": "hsla",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "base": {
+                      "description": "Requested base color",
+                      "properties": {
+                        "hex": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component in hex",
+                                  "example": "77",
+                                  "type": "string"
+                                },
+                                "blue": {
+                                  "description": "Blue component in hex",
+                                  "example": "5a",
+                                  "type": "string"
+                                },
+                                "green": {
+                                  "description": "Green component in hex",
+                                  "example": "41",
+                                  "type": "string"
+                                },
+                                "red": {
+                                  "description": "Red component in hex",
+                                  "example": "c4",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HEX color value with alpha",
+                              "example": "#c4415a77",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsla": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component (0-1)",
+                                  "example": 0.46667,
+                                  "type": "number"
+                                },
+                                "hue": {
+                                  "description": "Hue component (0-360)",
+                                  "example": 349,
+                                  "type": "integer"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (0-100)",
+                                  "example": 51,
+                                  "type": "integer"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (0-100)",
+                                  "example": 53,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSLA color value (rounded)",
+                              "example": "hsla(349, 53%, 51%, 0.47)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsla_raw": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component (0-1)",
+                                  "example": 0.46667,
+                                  "type": "number"
+                                },
+                                "hue": {
+                                  "description": "Hue component (precise)",
+                                  "example": 348.54962,
+                                  "type": "number"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (precise)",
+                                  "example": 51.17647,
+                                  "type": "number"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (precise)",
+                                  "example": 52.61044,
+                                  "type": "number"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSLA color value (raw/unrounded)",
+                              "example": "hsla(348.54962, 52.61044%, 51.17647%, 0.47)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "keyword": {
+                          "description": "Color keyword name if applicable",
+                          "type": "string"
+                        },
+                        "rgba": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component (0-1)",
+                                  "example": 0.46667,
+                                  "type": "number"
+                                },
+                                "blue": {
+                                  "description": "Blue component (0-255)",
+                                  "example": 90,
+                                  "type": "integer"
+                                },
+                                "green": {
+                                  "description": "Green component (0-255)",
+                                  "example": 65,
+                                  "type": "integer"
+                                },
+                                "red": {
+                                  "description": "Red component (0-255)",
+                                  "example": 196,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "RGBA color value",
+                              "example": "rgba(196, 65, 90, 0.47)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "base_without_alpha": {
+                      "description": "Base color without alpha channel",
+                      "properties": {
+                        "hex": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component in hex",
+                                  "example": "5a",
+                                  "type": "string"
+                                },
+                                "green": {
+                                  "description": "Green component in hex",
+                                  "example": "41",
+                                  "type": "string"
+                                },
+                                "red": {
+                                  "description": "Red component in hex",
+                                  "example": "c4",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HEX color value",
+                              "example": "#c4415a",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (0-360)",
+                                  "example": 349,
+                                  "type": "integer"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (0-100)",
+                                  "example": 51,
+                                  "type": "integer"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (0-100)",
+                                  "example": 53,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (rounded)",
+                              "example": "hsl(349, 53%, 51%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl_raw": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (precise)",
+                                  "example": 348.54962,
+                                  "type": "number"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (precise)",
+                                  "example": 51.17647,
+                                  "type": "number"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (precise)",
+                                  "example": 52.61044,
+                                  "type": "number"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (raw/unrounded)",
+                              "example": "hsl(348.54962, 52.61044%, 51.17647%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "keyword": {
+                          "description": "Color keyword name if applicable",
+                          "type": "string"
+                        },
+                        "rgb": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component (0-255)",
+                                  "example": 90,
+                                  "type": "integer"
+                                },
+                                "green": {
+                                  "description": "Green component (0-255)",
+                                  "example": 65,
+                                  "type": "integer"
+                                },
+                                "red": {
+                                  "description": "Red component (0-255)",
+                                  "example": 196,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "RGB color value",
+                              "example": "rgb(196, 65, 90)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "base_without_alpha_contrasted_text": {
+                      "description": "Black or white text color that contrasts with base color",
+                      "properties": {
+                        "hex": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component in hex",
+                                  "example": "5a",
+                                  "type": "string"
+                                },
+                                "green": {
+                                  "description": "Green component in hex",
+                                  "example": "41",
+                                  "type": "string"
+                                },
+                                "red": {
+                                  "description": "Red component in hex",
+                                  "example": "c4",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HEX color value",
+                              "example": "#c4415a",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (0-360)",
+                                  "example": 349,
+                                  "type": "integer"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (0-100)",
+                                  "example": 51,
+                                  "type": "integer"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (0-100)",
+                                  "example": 53,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (rounded)",
+                              "example": "hsl(349, 53%, 51%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl_raw": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (precise)",
+                                  "example": 348.54962,
+                                  "type": "number"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (precise)",
+                                  "example": 51.17647,
+                                  "type": "number"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (precise)",
+                                  "example": 52.61044,
+                                  "type": "number"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (raw/unrounded)",
+                              "example": "hsl(348.54962, 52.61044%, 51.17647%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "keyword": {
+                          "description": "Color keyword name if applicable",
+                          "type": "string"
+                        },
+                        "rgb": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component (0-255)",
+                                  "example": 90,
+                                  "type": "integer"
+                                },
+                                "green": {
+                                  "description": "Green component (0-255)",
+                                  "example": 65,
+                                  "type": "integer"
+                                },
+                                "red": {
+                                  "description": "Red component (0-255)",
+                                  "example": 196,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "RGB color value",
+                              "example": "rgb(196, 65, 90)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "complementary": {
+                      "description": "Complementary color",
+                      "properties": {
+                        "hex": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component in hex",
+                                  "example": "77",
+                                  "type": "string"
+                                },
+                                "blue": {
+                                  "description": "Blue component in hex",
+                                  "example": "5a",
+                                  "type": "string"
+                                },
+                                "green": {
+                                  "description": "Green component in hex",
+                                  "example": "41",
+                                  "type": "string"
+                                },
+                                "red": {
+                                  "description": "Red component in hex",
+                                  "example": "c4",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HEX color value with alpha",
+                              "example": "#c4415a77",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsla": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component (0-1)",
+                                  "example": 0.46667,
+                                  "type": "number"
+                                },
+                                "hue": {
+                                  "description": "Hue component (0-360)",
+                                  "example": 349,
+                                  "type": "integer"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (0-100)",
+                                  "example": 51,
+                                  "type": "integer"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (0-100)",
+                                  "example": 53,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSLA color value (rounded)",
+                              "example": "hsla(349, 53%, 51%, 0.47)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsla_raw": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component (0-1)",
+                                  "example": 0.46667,
+                                  "type": "number"
+                                },
+                                "hue": {
+                                  "description": "Hue component (precise)",
+                                  "example": 348.54962,
+                                  "type": "number"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (precise)",
+                                  "example": 51.17647,
+                                  "type": "number"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (precise)",
+                                  "example": 52.61044,
+                                  "type": "number"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSLA color value (raw/unrounded)",
+                              "example": "hsla(348.54962, 52.61044%, 51.17647%, 0.47)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "keyword": {
+                          "description": "Color keyword name if applicable",
+                          "type": "string"
+                        },
+                        "rgba": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component (0-1)",
+                                  "example": 0.46667,
+                                  "type": "number"
+                                },
+                                "blue": {
+                                  "description": "Blue component (0-255)",
+                                  "example": 90,
+                                  "type": "integer"
+                                },
+                                "green": {
+                                  "description": "Green component (0-255)",
+                                  "example": 65,
+                                  "type": "integer"
+                                },
+                                "red": {
+                                  "description": "Red component (0-255)",
+                                  "example": 196,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "RGBA color value",
+                              "example": "rgba(196, 65, 90, 0.47)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "complementary_without_alpha": {
+                      "description": "Complementary color without alpha channel",
+                      "properties": {
+                        "hex": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component in hex",
+                                  "example": "5a",
+                                  "type": "string"
+                                },
+                                "green": {
+                                  "description": "Green component in hex",
+                                  "example": "41",
+                                  "type": "string"
+                                },
+                                "red": {
+                                  "description": "Red component in hex",
+                                  "example": "c4",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HEX color value",
+                              "example": "#c4415a",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (0-360)",
+                                  "example": 349,
+                                  "type": "integer"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (0-100)",
+                                  "example": 51,
+                                  "type": "integer"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (0-100)",
+                                  "example": 53,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (rounded)",
+                              "example": "hsl(349, 53%, 51%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl_raw": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (precise)",
+                                  "example": 348.54962,
+                                  "type": "number"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (precise)",
+                                  "example": 51.17647,
+                                  "type": "number"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (precise)",
+                                  "example": 52.61044,
+                                  "type": "number"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (raw/unrounded)",
+                              "example": "hsl(348.54962, 52.61044%, 51.17647%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "keyword": {
+                          "description": "Color keyword name if applicable",
+                          "type": "string"
+                        },
+                        "rgb": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component (0-255)",
+                                  "example": 90,
+                                  "type": "integer"
+                                },
+                                "green": {
+                                  "description": "Green component (0-255)",
+                                  "example": 65,
+                                  "type": "integer"
+                                },
+                                "red": {
+                                  "description": "Red component (0-255)",
+                                  "example": 196,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "RGB color value",
+                              "example": "rgb(196, 65, 90)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "complementary_without_alpha_contrasted_text": {
+                      "description": "Black or white text color that contrasts with complementary color",
+                      "properties": {
+                        "hex": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component in hex",
+                                  "example": "5a",
+                                  "type": "string"
+                                },
+                                "green": {
+                                  "description": "Green component in hex",
+                                  "example": "41",
+                                  "type": "string"
+                                },
+                                "red": {
+                                  "description": "Red component in hex",
+                                  "example": "c4",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HEX color value",
+                              "example": "#c4415a",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (0-360)",
+                                  "example": 349,
+                                  "type": "integer"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (0-100)",
+                                  "example": 51,
+                                  "type": "integer"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (0-100)",
+                                  "example": 53,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (rounded)",
+                              "example": "hsl(349, 53%, 51%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl_raw": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (precise)",
+                                  "example": 348.54962,
+                                  "type": "number"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (precise)",
+                                  "example": 51.17647,
+                                  "type": "number"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (precise)",
+                                  "example": 52.61044,
+                                  "type": "number"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (raw/unrounded)",
+                              "example": "hsl(348.54962, 52.61044%, 51.17647%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "keyword": {
+                          "description": "Color keyword name if applicable",
+                          "type": "string"
+                        },
+                        "rgb": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component (0-255)",
+                                  "example": 90,
+                                  "type": "integer"
+                                },
+                                "green": {
+                                  "description": "Green component (0-255)",
+                                  "example": 65,
+                                  "type": "integer"
+                                },
+                                "red": {
+                                  "description": "Red component (0-255)",
+                                  "example": 196,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "RGB color value",
+                              "example": "rgb(196, 65, 90)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "grayscale": {
+                      "description": "Grayscale version of the color",
+                      "properties": {
+                        "hex": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component in hex",
+                                  "example": "77",
+                                  "type": "string"
+                                },
+                                "blue": {
+                                  "description": "Blue component in hex",
+                                  "example": "5a",
+                                  "type": "string"
+                                },
+                                "green": {
+                                  "description": "Green component in hex",
+                                  "example": "41",
+                                  "type": "string"
+                                },
+                                "red": {
+                                  "description": "Red component in hex",
+                                  "example": "c4",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HEX color value with alpha",
+                              "example": "#c4415a77",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsla": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component (0-1)",
+                                  "example": 0.46667,
+                                  "type": "number"
+                                },
+                                "hue": {
+                                  "description": "Hue component (0-360)",
+                                  "example": 349,
+                                  "type": "integer"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (0-100)",
+                                  "example": 51,
+                                  "type": "integer"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (0-100)",
+                                  "example": 53,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSLA color value (rounded)",
+                              "example": "hsla(349, 53%, 51%, 0.47)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsla_raw": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component (0-1)",
+                                  "example": 0.46667,
+                                  "type": "number"
+                                },
+                                "hue": {
+                                  "description": "Hue component (precise)",
+                                  "example": 348.54962,
+                                  "type": "number"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (precise)",
+                                  "example": 51.17647,
+                                  "type": "number"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (precise)",
+                                  "example": 52.61044,
+                                  "type": "number"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSLA color value (raw/unrounded)",
+                              "example": "hsla(348.54962, 52.61044%, 51.17647%, 0.47)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "keyword": {
+                          "description": "Color keyword name if applicable",
+                          "type": "string"
+                        },
+                        "rgba": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "alpha": {
+                                  "description": "Alpha component (0-1)",
+                                  "example": 0.46667,
+                                  "type": "number"
+                                },
+                                "blue": {
+                                  "description": "Blue component (0-255)",
+                                  "example": 90,
+                                  "type": "integer"
+                                },
+                                "green": {
+                                  "description": "Green component (0-255)",
+                                  "example": 65,
+                                  "type": "integer"
+                                },
+                                "red": {
+                                  "description": "Red component (0-255)",
+                                  "example": 196,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "RGBA color value",
+                              "example": "rgba(196, 65, 90, 0.47)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "grayscale_without_alpha": {
+                      "description": "Grayscale color without alpha channel",
+                      "properties": {
+                        "hex": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component in hex",
+                                  "example": "5a",
+                                  "type": "string"
+                                },
+                                "green": {
+                                  "description": "Green component in hex",
+                                  "example": "41",
+                                  "type": "string"
+                                },
+                                "red": {
+                                  "description": "Red component in hex",
+                                  "example": "c4",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HEX color value",
+                              "example": "#c4415a",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (0-360)",
+                                  "example": 349,
+                                  "type": "integer"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (0-100)",
+                                  "example": 51,
+                                  "type": "integer"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (0-100)",
+                                  "example": 53,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (rounded)",
+                              "example": "hsl(349, 53%, 51%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl_raw": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (precise)",
+                                  "example": 348.54962,
+                                  "type": "number"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (precise)",
+                                  "example": 51.17647,
+                                  "type": "number"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (precise)",
+                                  "example": 52.61044,
+                                  "type": "number"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (raw/unrounded)",
+                              "example": "hsl(348.54962, 52.61044%, 51.17647%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "keyword": {
+                          "description": "Color keyword name if applicable",
+                          "type": "string"
+                        },
+                        "rgb": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component (0-255)",
+                                  "example": 90,
+                                  "type": "integer"
+                                },
+                                "green": {
+                                  "description": "Green component (0-255)",
+                                  "example": 65,
+                                  "type": "integer"
+                                },
+                                "red": {
+                                  "description": "Red component (0-255)",
+                                  "example": 196,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "RGB color value",
+                              "example": "rgb(196, 65, 90)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "grayscale_without_alpha_contrasted_text": {
+                      "description": "Black or white text color that contrasts with grayscale color",
+                      "properties": {
+                        "hex": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component in hex",
+                                  "example": "5a",
+                                  "type": "string"
+                                },
+                                "green": {
+                                  "description": "Green component in hex",
+                                  "example": "41",
+                                  "type": "string"
+                                },
+                                "red": {
+                                  "description": "Red component in hex",
+                                  "example": "c4",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HEX color value",
+                              "example": "#c4415a",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (0-360)",
+                                  "example": 349,
+                                  "type": "integer"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (0-100)",
+                                  "example": 51,
+                                  "type": "integer"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (0-100)",
+                                  "example": 53,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (rounded)",
+                              "example": "hsl(349, 53%, 51%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "hsl_raw": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "hue": {
+                                  "description": "Hue component (precise)",
+                                  "example": 348.54962,
+                                  "type": "number"
+                                },
+                                "lightness": {
+                                  "description": "Lightness percentage (precise)",
+                                  "example": 51.17647,
+                                  "type": "number"
+                                },
+                                "saturation": {
+                                  "description": "Saturation percentage (precise)",
+                                  "example": 52.61044,
+                                  "type": "number"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "HSL color value (raw/unrounded)",
+                              "example": "hsl(348.54962, 52.61044%, 51.17647%)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "keyword": {
+                          "description": "Color keyword name if applicable",
+                          "type": "string"
+                        },
+                        "rgb": {
+                          "properties": {
+                            "composition": {
+                              "properties": {
+                                "blue": {
+                                  "description": "Blue component (0-255)",
+                                  "example": 90,
+                                  "type": "integer"
+                                },
+                                "green": {
+                                  "description": "Green component (0-255)",
+                                  "example": 65,
+                                  "type": "integer"
+                                },
+                                "red": {
+                                  "description": "Red component (0-255)",
+                                  "example": 196,
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "value": {
+                              "description": "RGB color value",
+                              "example": "rgb(196, 65, 90)",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "status": {
+                      "description": "Status of the API response",
+                      "enum": [
+                        "success"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with color information"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "message": {
+                          "description": "Error message",
+                          "example": "not a valid KEYWORD color",
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "Type of error",
+                          "example": "wrong color format",
+                          "type": "string"
+                        },
+                        "value": {
+                          "description": "The invalid value that was provided",
+                          "example": "yellou",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "status": {
+                      "description": "Status of the API response",
+                      "enum": [
+                        "error"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "error"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Invalid color format"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
