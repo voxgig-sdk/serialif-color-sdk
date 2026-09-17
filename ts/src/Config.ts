@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      get_color_by_path: {
-      },
-
-      get_color_by_query: {
-      },
-
+        get_color_by_path: {
+        },
+  
+        get_color_by_query: {
+        },
+  
     }
   }
 
