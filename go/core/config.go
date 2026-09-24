@@ -92,58 +92,69 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "base",
-						"short": "Requested base color",
+						"title": "Base",
 						"type": "`$OBJECT`",
+						"short": "Requested base color",
 					},
 					map[string]any{
 						"name": "base_without_alpha",
-						"short": "Base color without alpha channel",
+						"title": "Base Without Alpha",
 						"type": "`$OBJECT`",
+						"short": "Base color without alpha channel",
 					},
 					map[string]any{
 						"name": "base_without_alpha_contrasted_text",
-						"short": "Black or white text color that contrasts with base color",
+						"title": "Base Without Alpha Contrasted Text",
 						"type": "`$OBJECT`",
+						"short": "Black or white text color that contrasts with base color",
 					},
 					map[string]any{
 						"name": "complementary",
-						"short": "Complementary color",
+						"title": "Complementary",
 						"type": "`$OBJECT`",
+						"short": "Complementary color",
 					},
 					map[string]any{
 						"name": "complementary_without_alpha",
-						"short": "Complementary color without alpha channel",
+						"title": "Complementary Without Alpha",
 						"type": "`$OBJECT`",
+						"short": "Complementary color without alpha channel",
 					},
 					map[string]any{
 						"name": "complementary_without_alpha_contrasted_text",
-						"short": "Black or white text color that contrasts with complementary color",
+						"title": "Complementary Without Alpha Contrasted Text",
 						"type": "`$OBJECT`",
+						"short": "Black or white text color that contrasts with complementary color",
 					},
 					map[string]any{
 						"name": "grayscale",
-						"short": "Grayscale version of the color",
+						"title": "Grayscale",
 						"type": "`$OBJECT`",
+						"short": "Grayscale version of the color",
 					},
 					map[string]any{
 						"name": "grayscale_without_alpha",
-						"short": "Grayscale color without alpha channel",
+						"title": "Grayscale Without Alpha",
 						"type": "`$OBJECT`",
+						"short": "Grayscale color without alpha channel",
 					},
 					map[string]any{
 						"name": "grayscale_without_alpha_contrasted_text",
-						"short": "Black or white text color that contrasts with grayscale color",
+						"title": "Grayscale Without Alpha Contrasted Text",
 						"type": "`$OBJECT`",
+						"short": "Black or white text color that contrasts with grayscale color",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"title": "Status",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Status of the API response",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -157,42 +168,42 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "aquamarine",
-											"kind": "param",
-											"name": "id",
-											"orig": "color",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/{color}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"color": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
+								"parts": []any{
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"color": "id",
 									},
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "color",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "aquamarine",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -206,54 +217,64 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "base",
-						"short": "Requested base color",
+						"title": "Base",
 						"type": "`$OBJECT`",
+						"short": "Requested base color",
 					},
 					map[string]any{
 						"name": "base_without_alpha",
-						"short": "Base color without alpha channel",
+						"title": "Base Without Alpha",
 						"type": "`$OBJECT`",
+						"short": "Base color without alpha channel",
 					},
 					map[string]any{
 						"name": "base_without_alpha_contrasted_text",
-						"short": "Black or white text color that contrasts with base color",
+						"title": "Base Without Alpha Contrasted Text",
 						"type": "`$OBJECT`",
+						"short": "Black or white text color that contrasts with base color",
 					},
 					map[string]any{
 						"name": "complementary",
-						"short": "Complementary color",
+						"title": "Complementary",
 						"type": "`$OBJECT`",
+						"short": "Complementary color",
 					},
 					map[string]any{
 						"name": "complementary_without_alpha",
-						"short": "Complementary color without alpha channel",
+						"title": "Complementary Without Alpha",
 						"type": "`$OBJECT`",
+						"short": "Complementary color without alpha channel",
 					},
 					map[string]any{
 						"name": "complementary_without_alpha_contrasted_text",
-						"short": "Black or white text color that contrasts with complementary color",
+						"title": "Complementary Without Alpha Contrasted Text",
 						"type": "`$OBJECT`",
+						"short": "Black or white text color that contrasts with complementary color",
 					},
 					map[string]any{
 						"name": "grayscale",
-						"short": "Grayscale version of the color",
+						"title": "Grayscale",
 						"type": "`$OBJECT`",
+						"short": "Grayscale version of the color",
 					},
 					map[string]any{
 						"name": "grayscale_without_alpha",
-						"short": "Grayscale color without alpha channel",
+						"title": "Grayscale Without Alpha",
 						"type": "`$OBJECT`",
+						"short": "Grayscale color without alpha channel",
 					},
 					map[string]any{
 						"name": "grayscale_without_alpha_contrasted_text",
-						"short": "Black or white text color that contrasts with grayscale color",
+						"title": "Grayscale Without Alpha Contrasted Text",
 						"type": "`$OBJECT`",
+						"short": "Black or white text color that contrasts with grayscale color",
 					},
 					map[string]any{
 						"name": "status",
+						"title": "Status",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Status of the API response",
-						"type": "`$STRING`",
 					},
 				},
 				"name": "get_color_by_query",
@@ -263,56 +284,62 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "55667788",
-											"kind": "query",
-											"name": "hex",
-											"orig": "hex",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "85,102,119",
-											"kind": "query",
-											"name": "hsl",
-											"orig": "hsl",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "85,102,119,0.53",
-											"kind": "query",
-											"name": "hsla",
-											"orig": "hsla",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "aquamarine",
-											"kind": "query",
-											"name": "keyword",
-											"orig": "keyword",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "85,102,119",
-											"kind": "query",
-											"name": "rgb",
-											"orig": "rgb",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "85,102,119,0.53",
-											"kind": "query",
-											"name": "rgba",
-											"orig": "rgba",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/",
 								"segments": []any{},
+								"parts": []any{},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "hex",
+											"orig": "hex",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "55667788",
+										},
+										map[string]any{
+											"name": "hsl",
+											"orig": "hsl",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "85,102,119",
+										},
+										map[string]any{
+											"name": "hsla",
+											"orig": "hsla",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "85,102,119,0.53",
+										},
+										map[string]any{
+											"name": "keyword",
+											"orig": "keyword",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "aquamarine",
+										},
+										map[string]any{
+											"name": "rgb",
+											"orig": "rgb",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "85,102,119",
+										},
+										map[string]any{
+											"name": "rgba",
+											"orig": "rgba",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "85,102,119,0.53",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"hex",
@@ -323,11 +350,6 @@ func MakeConfig() map[string]any {
 										"rgba",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{},
 							},
 						},
 					},

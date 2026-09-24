@@ -1,0 +1,28 @@
+# BasicGetColorByQueryFlow
+
+main: kit: flow: BasicGetColorByQueryFlow:
+{
+  entity: "get_color_by_query",
+  kind: "basic",
+  name: "BasicGetColorByQueryFlow",
+  step: [
+    {
+      i: {
+        ref: "get_color_by_query_ref01",
+        srcdatavar: "get_color_by_query_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-get_color_by_query_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGetColorByQueryFlow"
+}

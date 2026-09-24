@@ -88,58 +88,69 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "base",
-            ["short"] = "Requested base color",
+            ["title"] = "Base",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Requested base color",
           },
           {
             ["name"] = "base_without_alpha",
-            ["short"] = "Base color without alpha channel",
+            ["title"] = "Base Without Alpha",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Base color without alpha channel",
           },
           {
             ["name"] = "base_without_alpha_contrasted_text",
-            ["short"] = "Black or white text color that contrasts with base color",
+            ["title"] = "Base Without Alpha Contrasted Text",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Black or white text color that contrasts with base color",
           },
           {
             ["name"] = "complementary",
-            ["short"] = "Complementary color",
+            ["title"] = "Complementary",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Complementary color",
           },
           {
             ["name"] = "complementary_without_alpha",
-            ["short"] = "Complementary color without alpha channel",
+            ["title"] = "Complementary Without Alpha",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Complementary color without alpha channel",
           },
           {
             ["name"] = "complementary_without_alpha_contrasted_text",
-            ["short"] = "Black or white text color that contrasts with complementary color",
+            ["title"] = "Complementary Without Alpha Contrasted Text",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Black or white text color that contrasts with complementary color",
           },
           {
             ["name"] = "grayscale",
-            ["short"] = "Grayscale version of the color",
+            ["title"] = "Grayscale",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Grayscale version of the color",
           },
           {
             ["name"] = "grayscale_without_alpha",
-            ["short"] = "Grayscale color without alpha channel",
+            ["title"] = "Grayscale Without Alpha",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Grayscale color without alpha channel",
           },
           {
             ["name"] = "grayscale_without_alpha_contrasted_text",
-            ["short"] = "Black or white text color that contrasts with grayscale color",
+            ["title"] = "Grayscale Without Alpha Contrasted Text",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Black or white text color that contrasts with grayscale color",
           },
           {
             ["name"] = "id",
+            ["title"] = "Id",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "status",
+            ["title"] = "Status",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Status of the API response",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -153,42 +164,42 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "aquamarine",
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "color",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/{color}",
-                ["rename"] = {
-                  ["param"] = {
-                    ["color"] = "id",
-                  },
-                },
                 ["segments"] = {
                   {
                     ["var"] = "id",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "id",
+                ["parts"] = {
+                  "{id}",
+                },
+                ["rename"] = {
+                  ["param"] = {
+                    ["color"] = "id",
                   },
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "{id}",
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "color",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "aquamarine",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "id",
+                  },
                 },
               },
             },
@@ -202,54 +213,64 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "base",
-            ["short"] = "Requested base color",
+            ["title"] = "Base",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Requested base color",
           },
           {
             ["name"] = "base_without_alpha",
-            ["short"] = "Base color without alpha channel",
+            ["title"] = "Base Without Alpha",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Base color without alpha channel",
           },
           {
             ["name"] = "base_without_alpha_contrasted_text",
-            ["short"] = "Black or white text color that contrasts with base color",
+            ["title"] = "Base Without Alpha Contrasted Text",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Black or white text color that contrasts with base color",
           },
           {
             ["name"] = "complementary",
-            ["short"] = "Complementary color",
+            ["title"] = "Complementary",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Complementary color",
           },
           {
             ["name"] = "complementary_without_alpha",
-            ["short"] = "Complementary color without alpha channel",
+            ["title"] = "Complementary Without Alpha",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Complementary color without alpha channel",
           },
           {
             ["name"] = "complementary_without_alpha_contrasted_text",
-            ["short"] = "Black or white text color that contrasts with complementary color",
+            ["title"] = "Complementary Without Alpha Contrasted Text",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Black or white text color that contrasts with complementary color",
           },
           {
             ["name"] = "grayscale",
-            ["short"] = "Grayscale version of the color",
+            ["title"] = "Grayscale",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Grayscale version of the color",
           },
           {
             ["name"] = "grayscale_without_alpha",
-            ["short"] = "Grayscale color without alpha channel",
+            ["title"] = "Grayscale Without Alpha",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Grayscale color without alpha channel",
           },
           {
             ["name"] = "grayscale_without_alpha_contrasted_text",
-            ["short"] = "Black or white text color that contrasts with grayscale color",
+            ["title"] = "Grayscale Without Alpha Contrasted Text",
             ["type"] = "`$OBJECT`",
+            ["short"] = "Black or white text color that contrasts with grayscale color",
           },
           {
             ["name"] = "status",
+            ["title"] = "Status",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Status of the API response",
-            ["type"] = "`$STRING`",
           },
         },
         ["name"] = "get_color_by_query",
@@ -259,56 +280,62 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["example"] = "55667788",
-                      ["kind"] = "query",
-                      ["name"] = "hex",
-                      ["orig"] = "hex",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "85,102,119",
-                      ["kind"] = "query",
-                      ["name"] = "hsl",
-                      ["orig"] = "hsl",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "85,102,119,0.53",
-                      ["kind"] = "query",
-                      ["name"] = "hsla",
-                      ["orig"] = "hsla",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "aquamarine",
-                      ["kind"] = "query",
-                      ["name"] = "keyword",
-                      ["orig"] = "keyword",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "85,102,119",
-                      ["kind"] = "query",
-                      ["name"] = "rgb",
-                      ["orig"] = "rgb",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "85,102,119,0.53",
-                      ["kind"] = "query",
-                      ["name"] = "rgba",
-                      ["orig"] = "rgba",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/",
                 ["segments"] = {},
+                ["parts"] = {},
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "hex",
+                      ["orig"] = "hex",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "55667788",
+                    },
+                    {
+                      ["name"] = "hsl",
+                      ["orig"] = "hsl",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "85,102,119",
+                    },
+                    {
+                      ["name"] = "hsla",
+                      ["orig"] = "hsla",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "85,102,119,0.53",
+                    },
+                    {
+                      ["name"] = "keyword",
+                      ["orig"] = "keyword",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "aquamarine",
+                    },
+                    {
+                      ["name"] = "rgb",
+                      ["orig"] = "rgb",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "85,102,119",
+                    },
+                    {
+                      ["name"] = "rgba",
+                      ["orig"] = "rgba",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "85,102,119,0.53",
+                    },
+                  },
+                },
                 ["select"] = {
                   ["exist"] = {
                     "hex",
@@ -319,11 +346,6 @@ local function make_config()
                     "rgba",
                   },
                 },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {},
               },
             },
           },

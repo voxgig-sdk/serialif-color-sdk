@@ -1,0 +1,166 @@
+# Entity: get_color_by_query
+
+main: kit: entity: get_color_by_query: {
+
+  alias: field: {}
+
+  fields: {
+    base: {
+      h: "Base"
+      n: "base"
+      r: false
+      sh: "Requested base color"
+      t: "`$OBJECT`"
+    }
+    base_without_alpha: {
+      h: "Base Without Alpha"
+      n: "base_without_alpha"
+      r: false
+      sh: "Base color without alpha channel"
+      t: "`$OBJECT`"
+    }
+    base_without_alpha_contrasted_text: {
+      h: "Base Without Alpha Contrasted Text"
+      n: "base_without_alpha_contrasted_text"
+      r: false
+      sh: "Black or white text color that contrasts with base color"
+      t: "`$OBJECT`"
+    }
+    complementary: {
+      h: "Complementary"
+      n: "complementary"
+      r: false
+      sh: "Complementary color"
+      t: "`$OBJECT`"
+    }
+    complementary_without_alpha: {
+      h: "Complementary Without Alpha"
+      n: "complementary_without_alpha"
+      r: false
+      sh: "Complementary color without alpha channel"
+      t: "`$OBJECT`"
+    }
+    complementary_without_alpha_contrasted_text: {
+      h: "Complementary Without Alpha Contrasted Text"
+      n: "complementary_without_alpha_contrasted_text"
+      r: false
+      sh: "Black or white text color that contrasts with complementary color"
+      t: "`$OBJECT`"
+    }
+    grayscale: {
+      h: "Grayscale"
+      n: "grayscale"
+      r: false
+      sh: "Grayscale version of the color"
+      t: "`$OBJECT`"
+    }
+    grayscale_without_alpha: {
+      h: "Grayscale Without Alpha"
+      n: "grayscale_without_alpha"
+      r: false
+      sh: "Grayscale color without alpha channel"
+      t: "`$OBJECT`"
+    }
+    grayscale_without_alpha_contrasted_text: {
+      h: "Grayscale Without Alpha Contrasted Text"
+      n: "grayscale_without_alpha_contrasted_text"
+      r: false
+      sh: "Black or white text color that contrasts with grayscale color"
+      t: "`$OBJECT`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "Status of the API response"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "get_color_by_query"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "55667788"
+                k: "query"
+                n: "hex"
+                or: "hex"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "85,102,119"
+                k: "query"
+                n: "hsl"
+                or: "hsl"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "85,102,119,0.53"
+                k: "query"
+                n: "hsla"
+                or: "hsla"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "aquamarine"
+                k: "query"
+                n: "keyword"
+                or: "keyword"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "85,102,119"
+                k: "query"
+                n: "rgb"
+                or: "rgb"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "85,102,119,0.53"
+                k: "query"
+                n: "rgba"
+                or: "rgba"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/"
+          q: {
+            exist: [
+              "hex"
+              "hsl"
+              "hsla"
+              "keyword"
+              "rgb"
+              "rgba"
+            ]
+          }
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

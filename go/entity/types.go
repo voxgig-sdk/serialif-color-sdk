@@ -1,7 +1,7 @@
 // Typed models for the SerialifColor SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,17 +14,6 @@ import (
 
 // GetColorByPath is the typed data model for the get_color_by_path entity.
 type GetColorByPath struct {
-	Base *map[string]any `json:"base,omitempty"`
-	BaseWithoutAlpha *map[string]any `json:"base_without_alpha,omitempty"`
-	BaseWithoutAlphaContrastedText *map[string]any `json:"base_without_alpha_contrasted_text,omitempty"`
-	Complementary *map[string]any `json:"complementary,omitempty"`
-	ComplementaryWithoutAlpha *map[string]any `json:"complementary_without_alpha,omitempty"`
-	ComplementaryWithoutAlphaContrastedText *map[string]any `json:"complementary_without_alpha_contrasted_text,omitempty"`
-	Grayscale *map[string]any `json:"grayscale,omitempty"`
-	GrayscaleWithoutAlpha *map[string]any `json:"grayscale_without_alpha,omitempty"`
-	GrayscaleWithoutAlphaContrastedText *map[string]any `json:"grayscale_without_alpha_contrasted_text,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Status string `json:"status"`
 }
 
 // GetColorByPathLoadMatch is the typed request payload for GetColorByPath.LoadTyped.
@@ -34,16 +23,6 @@ type GetColorByPathLoadMatch struct {
 
 // GetColorByQuery is the typed data model for the get_color_by_query entity.
 type GetColorByQuery struct {
-	Base *map[string]any `json:"base,omitempty"`
-	BaseWithoutAlpha *map[string]any `json:"base_without_alpha,omitempty"`
-	BaseWithoutAlphaContrastedText *map[string]any `json:"base_without_alpha_contrasted_text,omitempty"`
-	Complementary *map[string]any `json:"complementary,omitempty"`
-	ComplementaryWithoutAlpha *map[string]any `json:"complementary_without_alpha,omitempty"`
-	ComplementaryWithoutAlphaContrastedText *map[string]any `json:"complementary_without_alpha_contrasted_text,omitempty"`
-	Grayscale *map[string]any `json:"grayscale,omitempty"`
-	GrayscaleWithoutAlpha *map[string]any `json:"grayscale_without_alpha,omitempty"`
-	GrayscaleWithoutAlphaContrastedText *map[string]any `json:"grayscale_without_alpha_contrasted_text,omitempty"`
-	Status string `json:"status"`
 }
 
 // GetColorByQueryLoadMatch is the typed request payload for GetColorByQuery.LoadTyped.

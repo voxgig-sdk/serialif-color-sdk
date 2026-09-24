@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -142,58 +135,69 @@ class Config {
       "fields": [
         {
           "name": "base",
-          "short": "Requested base color",
-          "type": "`$OBJECT`"
+          "title": "Base",
+          "type": "`$OBJECT`",
+          "short": "Requested base color"
         },
         {
           "name": "base_without_alpha",
-          "short": "Base color without alpha channel",
-          "type": "`$OBJECT`"
+          "title": "Base Without Alpha",
+          "type": "`$OBJECT`",
+          "short": "Base color without alpha channel"
         },
         {
           "name": "base_without_alpha_contrasted_text",
-          "short": "Black or white text color that contrasts with base color",
-          "type": "`$OBJECT`"
+          "title": "Base Without Alpha Contrasted Text",
+          "type": "`$OBJECT`",
+          "short": "Black or white text color that contrasts with base color"
         },
         {
           "name": "complementary",
-          "short": "Complementary color",
-          "type": "`$OBJECT`"
+          "title": "Complementary",
+          "type": "`$OBJECT`",
+          "short": "Complementary color"
         },
         {
           "name": "complementary_without_alpha",
-          "short": "Complementary color without alpha channel",
-          "type": "`$OBJECT`"
+          "title": "Complementary Without Alpha",
+          "type": "`$OBJECT`",
+          "short": "Complementary color without alpha channel"
         },
         {
           "name": "complementary_without_alpha_contrasted_text",
-          "short": "Black or white text color that contrasts with complementary color",
-          "type": "`$OBJECT`"
+          "title": "Complementary Without Alpha Contrasted Text",
+          "type": "`$OBJECT`",
+          "short": "Black or white text color that contrasts with complementary color"
         },
         {
           "name": "grayscale",
-          "short": "Grayscale version of the color",
-          "type": "`$OBJECT`"
+          "title": "Grayscale",
+          "type": "`$OBJECT`",
+          "short": "Grayscale version of the color"
         },
         {
           "name": "grayscale_without_alpha",
-          "short": "Grayscale color without alpha channel",
-          "type": "`$OBJECT`"
+          "title": "Grayscale Without Alpha",
+          "type": "`$OBJECT`",
+          "short": "Grayscale color without alpha channel"
         },
         {
           "name": "grayscale_without_alpha_contrasted_text",
-          "short": "Black or white text color that contrasts with grayscale color",
-          "type": "`$OBJECT`"
+          "title": "Grayscale Without Alpha Contrasted Text",
+          "type": "`$OBJECT`",
+          "short": "Black or white text color that contrasts with grayscale color"
         },
         {
           "name": "id",
+          "title": "Id",
           "type": "`$STRING`"
         },
         {
           "name": "status",
+          "title": "Status",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Status of the API response",
-          "type": "`$STRING`"
+          "short": "Status of the API response"
         }
       ],
       "id": {
@@ -207,43 +211,43 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "aquamarine",
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "color",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/{color}",
-              "rename": {
-                "param": {
-                  "color": "id"
-                }
-              },
               "segments": [
                 {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
+              "parts": [
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "color": "id"
+                }
               },
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "{id}"
-              ]
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "color",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "aquamarine"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             }
           ]
         }
@@ -256,54 +260,64 @@ class Config {
       "fields": [
         {
           "name": "base",
-          "short": "Requested base color",
-          "type": "`$OBJECT`"
+          "title": "Base",
+          "type": "`$OBJECT`",
+          "short": "Requested base color"
         },
         {
           "name": "base_without_alpha",
-          "short": "Base color without alpha channel",
-          "type": "`$OBJECT`"
+          "title": "Base Without Alpha",
+          "type": "`$OBJECT`",
+          "short": "Base color without alpha channel"
         },
         {
           "name": "base_without_alpha_contrasted_text",
-          "short": "Black or white text color that contrasts with base color",
-          "type": "`$OBJECT`"
+          "title": "Base Without Alpha Contrasted Text",
+          "type": "`$OBJECT`",
+          "short": "Black or white text color that contrasts with base color"
         },
         {
           "name": "complementary",
-          "short": "Complementary color",
-          "type": "`$OBJECT`"
+          "title": "Complementary",
+          "type": "`$OBJECT`",
+          "short": "Complementary color"
         },
         {
           "name": "complementary_without_alpha",
-          "short": "Complementary color without alpha channel",
-          "type": "`$OBJECT`"
+          "title": "Complementary Without Alpha",
+          "type": "`$OBJECT`",
+          "short": "Complementary color without alpha channel"
         },
         {
           "name": "complementary_without_alpha_contrasted_text",
-          "short": "Black or white text color that contrasts with complementary color",
-          "type": "`$OBJECT`"
+          "title": "Complementary Without Alpha Contrasted Text",
+          "type": "`$OBJECT`",
+          "short": "Black or white text color that contrasts with complementary color"
         },
         {
           "name": "grayscale",
-          "short": "Grayscale version of the color",
-          "type": "`$OBJECT`"
+          "title": "Grayscale",
+          "type": "`$OBJECT`",
+          "short": "Grayscale version of the color"
         },
         {
           "name": "grayscale_without_alpha",
-          "short": "Grayscale color without alpha channel",
-          "type": "`$OBJECT`"
+          "title": "Grayscale Without Alpha",
+          "type": "`$OBJECT`",
+          "short": "Grayscale color without alpha channel"
         },
         {
           "name": "grayscale_without_alpha_contrasted_text",
-          "short": "Black or white text color that contrasts with grayscale color",
-          "type": "`$OBJECT`"
+          "title": "Grayscale Without Alpha Contrasted Text",
+          "type": "`$OBJECT`",
+          "short": "Black or white text color that contrasts with grayscale color"
         },
         {
           "name": "status",
+          "title": "Status",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Status of the API response",
-          "type": "`$STRING`"
+          "short": "Status of the API response"
         }
       ],
       "name": "get_color_by_query",
@@ -313,56 +327,62 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "55667788",
-                    "kind": "query",
-                    "name": "hex",
-                    "orig": "hex",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "85,102,119",
-                    "kind": "query",
-                    "name": "hsl",
-                    "orig": "hsl",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "85,102,119,0.53",
-                    "kind": "query",
-                    "name": "hsla",
-                    "orig": "hsla",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "aquamarine",
-                    "kind": "query",
-                    "name": "keyword",
-                    "orig": "keyword",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "85,102,119",
-                    "kind": "query",
-                    "name": "rgb",
-                    "orig": "rgb",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "85,102,119,0.53",
-                    "kind": "query",
-                    "name": "rgba",
-                    "orig": "rgba",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/",
               "segments": [],
+              "parts": [],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "hex",
+                    "orig": "hex",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "55667788"
+                  },
+                  {
+                    "name": "hsl",
+                    "orig": "hsl",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "85,102,119"
+                  },
+                  {
+                    "name": "hsla",
+                    "orig": "hsla",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "85,102,119,0.53"
+                  },
+                  {
+                    "name": "keyword",
+                    "orig": "keyword",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "aquamarine"
+                  },
+                  {
+                    "name": "rgb",
+                    "orig": "rgb",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "85,102,119"
+                  },
+                  {
+                    "name": "rgba",
+                    "orig": "rgba",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "85,102,119,0.53"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "hex",
@@ -372,12 +392,7 @@ class Config {
                   "rgb",
                   "rgba"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": []
+              }
             }
           ]
         }

@@ -1,0 +1,142 @@
+# Entity: get_color_by_path
+
+main: kit: entity: get_color_by_path: {
+
+  alias: field: {}
+
+  fields: {
+    base: {
+      h: "Base"
+      n: "base"
+      r: false
+      sh: "Requested base color"
+      t: "`$OBJECT`"
+    }
+    base_without_alpha: {
+      h: "Base Without Alpha"
+      n: "base_without_alpha"
+      r: false
+      sh: "Base color without alpha channel"
+      t: "`$OBJECT`"
+    }
+    base_without_alpha_contrasted_text: {
+      h: "Base Without Alpha Contrasted Text"
+      n: "base_without_alpha_contrasted_text"
+      r: false
+      sh: "Black or white text color that contrasts with base color"
+      t: "`$OBJECT`"
+    }
+    complementary: {
+      h: "Complementary"
+      n: "complementary"
+      r: false
+      sh: "Complementary color"
+      t: "`$OBJECT`"
+    }
+    complementary_without_alpha: {
+      h: "Complementary Without Alpha"
+      n: "complementary_without_alpha"
+      r: false
+      sh: "Complementary color without alpha channel"
+      t: "`$OBJECT`"
+    }
+    complementary_without_alpha_contrasted_text: {
+      h: "Complementary Without Alpha Contrasted Text"
+      n: "complementary_without_alpha_contrasted_text"
+      r: false
+      sh: "Black or white text color that contrasts with complementary color"
+      t: "`$OBJECT`"
+    }
+    grayscale: {
+      h: "Grayscale"
+      n: "grayscale"
+      r: false
+      sh: "Grayscale version of the color"
+      t: "`$OBJECT`"
+    }
+    grayscale_without_alpha: {
+      h: "Grayscale Without Alpha"
+      n: "grayscale_without_alpha"
+      r: false
+      sh: "Grayscale color without alpha channel"
+      t: "`$OBJECT`"
+    }
+    grayscale_without_alpha_contrasted_text: {
+      h: "Grayscale Without Alpha Contrasted Text"
+      n: "grayscale_without_alpha_contrasted_text"
+      r: false
+      sh: "Black or white text color that contrasts with grayscale color"
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "Status of the API response"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "get_color_by_path"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /{color}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "aquamarine"
+                k: "param"
+                n: "id"
+                or: "color"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/{color}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              color: "id"
+            }
+          }
+          s: [
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
